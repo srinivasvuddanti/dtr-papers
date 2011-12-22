@@ -1,0 +1,91 @@
+%\documentclass{elsart}       %% one column for review, preprint
+\documentclass{elsart3p}    %% two columns for publication
+\usepackage{graphicx,amssymb}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{xspace}
+\usepackage{algorithm}
+\usepackage{float}
+%\usepackage{algorithmic}
+
+\usepackage{amstext} % for text in math forumla
+\usepackage{indentfirst} % make the first paragraph also indent
+
+\renewcommand\floatpagefraction{.2}
+\makeatletter
+\def\elsartstyle{%
+    \def\normalsize{\@setfontsize\normalsize\@xiipt{14.5}}
+    \def\small{\@setfontsize\small\@xipt{13.6}}
+    \let\footnotesize=\small
+    \def\large{\@setfontsize\large\@xivpt{18}}
+    \def\Large{\@setfontsize\Large\@xviipt{22}}
+    \skip\@mpfootins = 18\p@ \@plus 2\p@
+    \normalsize
+}
+\@ifundefined{square}{}{\let\Box\square}
+\makeatother
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+\newcommand{\dtr}[1]{(\textbf{Thanh: #1})}
+
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+%\renewcommand{\baselinestretch}{0.965}
+
+
+\begin{document}
+\begin{frontmatter}
+
+% first the title is needed
+\title{Semantic Search Survey -- A Data Retrieval Perspective}
+
+%\author{Thanh Tran\corauthref{C}},
+%\ead{duc.tran@kit.de}
+%\author{Daniel Herzig},
+%\ead{duc.tran@kit.de}
+
+%% these specify any 'notes' for the title and authors,
+%% including 'thanks' that acknowledge support, etc. and an
+%% indication of who the corresponding author is if there's
+%% more than one author.
+
+\corauth[C]{Corresponding author. Tel: +49 (721) 608 4754 }
+
+\medskip
+
+%% Here are the addresses refereenced for the authors.  If
+%% all of the authors are from the same institution you need
+%% not have the lables for the author and address commands.
+%\address{Institute AIFB, Karlsruhe Institute of Technology, D-76128 Karlsruhe, Germany}
+
+
+\begin{abstract}
+\end{abstract}
+
+
+\begin{keyword}
+Search, semantic Search, data retrieval, semantic data retrieval
+\end{keyword}
+\end{frontmatter}
+
+
+\input{intro}
+\input{overview}
+\input{sdt}
+\input{mr}
+\input{future}
+
+\bibliographystyle{elsart-num-sort}
+
+\bibliography{paper}
+
+\clearpage
+
+\end{document}
