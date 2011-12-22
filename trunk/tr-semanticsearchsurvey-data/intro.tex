@@ -1,0 +1,39 @@
+\section{Introduction}
+% unsolved information needs%
+Advancements in search technologies enable users to deal and to exploit the ever increasing amount of information that we can find in different scenarios -- from the personal desktop to enterprises' databases up to the large-scale Web. As opposed to the structured querying capabilities commonly provided by commercial databases that are only accessible by experts, \emph{search} is rather understood as a \emph{end-user oriented paradigm} that is based on \emph{intuitive interfaces} and access mechanisms. Solutions that are widely used especially on the Web are based on \emph{keyword search}, and in smaller-scale scenarios, also support natural language (NL) inputs. While they are easy to use, the inputs provided by the users through these interfaces are \emph{ambiguous} such that the underlying information need (query intent) is not directly accessible to the system. Further, there are search scenarios where not only the query, but also the data representation does not precisely capture the semantics and structure of the underlying information. Accordingly, the core problems to be addressed in search are to \emph{understand the query intent and the data}, to \emph{match query against data}, and to \emph{rank results}. 
+
+\subsection{Many Unsolved Long-tail Queries}
+Modern search engines can effectively interpret the topics and based on that, disambiguates the need intended in the provided query inputs. Combining with additional (query-independent) factors such as PageRank, they are able to address a large fraction fraction of common information needs. In particular, queries that request for pages about a particular topic (\emph{topical query}) or representing popular entry points to commonly used information that can be reached via further browsing activities (\emph{navigational queries}), can be successfully processed. However, dealing with the large number of distinct queries in the ``long tail'' of Web query logs \cite{} remains challenging. Two particular categories of problematic cases are ambiguous and complex queries:
+
+\begin{itemize}
+	\item \emph{Ambiguous queries}: these queries contain ambiguous terms, resulting in many possible interpretations (several query intents). For instance, the following query ask for entities (entity query): 
+	\dtr{change running example} “Paris Hilton” “strong adventures people from Germany”
+
+	\item \emph{Complex queries}: this class of queries capture complex information needs which may involve several entities and relationships between them. As an example, we have a query that mentions several entity and ask for relationships between them (relational queries):  
+	\dtr{change running example} “32 year old computer scientist living in Karlsruhe” “digital camera under 300 dollars produced by canon in 1992”
+\end{itemize}
+
+Clearly, these two categories represent orthogonal aspects, namely the \emph{ambiguity of query terms} and the \emph{complexity of the intended information need}. Many queries in the long tail are both ambiguous and complex. They require deep understanding of the need and the information behind the query and data, respectively. 	
+
+\subsection{Large Amount of Semantic Data}
+Targeting these problematic cases, semantic search solutions aim at exploiting the large and increasing amount of semantic resources that have been made available in different settings. These resources include taxonomies, thesauri and formal ontologies that can be used for the interpretation of query terms and data representation. More generally, also structured data exposed as graph-structured RDF data belong to this type of semantic resources (henceforth called \emph{semantic data}) that are used for semantic search. They come as standalone RDF datasets or are embedded in Web pages in the form of RDFa. These data have been increasing rapidly. As a result of community projects such as Linking Open Data~\footnote{}, a large amount of structured datasets formerly kept protected in databases are now exposed as publicly Web-accessible RDF data. Besides large companies such as BestBuy and Facebook, also national governments such as the US and UK have followed this direction of publishing and linking semantic data on the Web. As a result of active adoption and support from Web search engines providers such as Google and Yahoo!, 10 percent of all Web pages are estimated to contain some form of semantic data markups~\cite{}. 
+
+The main idea behind semantic search solutions is to use these semantic resources to improve the search performance. Taxonomies, thesauri, and ontologies capture semantics that can be used to understand the query and data and to resolve ambiguities. Instead of returning textual data in documents, precise facts capturing entity related information and their relationships can be directly retrieved from semantic data to provide \emph{direct answers} to complex queries. 
+
+\subsection{Plethora of Semantic Search Solutions}
+Capitalizing on the opportunities that arise from this increasing wealth of semantic resources on the Web, commercial search engines have made different kinds of semantic search features available to end users. The first well-known example towards this direction is Powerset, which makes use of semantic data extracted from Wikipedia to answer complex questions. Semantic data embedded in Web pages are now actively used by Google to provide rich result snippets\footnote{}. 
+
+Likewise, research interest in semantic search is stirring up. A large body of work has been proposed by researchers from different communities, including database, Information Retrieval (IR) and Semantic Web. Correspondingly, semantic search has been viewed from different angles, resulting in a plethora of solutions. While underlying all these efforts lie one central idea, namely to use semantic resource for more effective search, existing approaches greatly vary in the information needs, the query and the data that are supported. Hence, different concepts and techniques have been studied in these settings. Most notably, there are principle differences between semantic search approaches, which use semantic resource to improve document retrieval, and the ones that compute direct results, i.e. \emph{semantic data retrieval}. 
+
+\subsection{Contributions}
+Concepts for semantic search have been around for several several years and its mainstream adoption into commercial solutions is increasingly visible. 
+
+\begin{itemize}
+	\item In this work, we present a systematic survey to provide a \emph{taxonomy of various semantic search approaches}, to reflect on the achievements that have been made over these years, and finally, to discuss the remaining challenges and directions for future research. To the best of our knowledge, the only work... 
+	\item Besides this general overview, we discuss the \emph{state-of-the-art in semantic data retrieval}, a direction of semantic search that aims at direct results as answers. For this, different data management and processing tasks are needed, from the crawling and integration of data up to the computation and presentation of results. 
+	\item We present specific solutions that have been proposed for these individual tasks. Particular emphasis is put on the most commonly used interface, namely \emph{keyword search}, and the concepts and techniques for dealing with the core search tasks of \emph{matching and ranking}. 
+ 
+\end{itemize}
+
+
+\subsection{Outline}
