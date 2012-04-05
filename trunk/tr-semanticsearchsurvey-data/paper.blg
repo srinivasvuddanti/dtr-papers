@@ -1,0 +1,268 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\paper.aux
+White space in argument---line 97 of file C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\paper.aux
+ : \citation{KIM
+ :               DBLP:journals/ws/KiryakovPTMO04}
+I'm skipping whatever remains of this command
+The style file: elsart-num-sort.bst
+Database file #1: paper.bib
+You're missing a field name---line 10 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/ecir/2005},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 81 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2009},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 144 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/www/2004},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 158 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/www/2005},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 162 of file paper.bib
+ : @inproceedings{DBLP:conf/www/AnyanwuMS05
+ :                                         ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 185 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/semweb/2011-1},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 199 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/semweb/2009},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 233 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/cikm/2004},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 366 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/dexa/2011-1},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 388 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2010-1},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 401 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/semweb/2011-1},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 428 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2007},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 441 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2008},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 455 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2010-1},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 506 of file paper.bib
+ : @inproceedings{DBLP:conf/trec/TrieschniggKS06
+ :                                              ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 538 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/cikm/2007},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 554 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/sigir/2006},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 607 of file paper.bib
+ : @inproceedings{DBLP:conf/esws/TranMH10
+ :                                       ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 621 of file paper.bib
+ : 
+ : % author = {P\'{e}rez-Ag\"{u}era, Jos\'{e} R. and Arroyo, Javier and Greenberg, Jane and Iglesias, Joaquin Perez and Fresno, Victor},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 696 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:series/sci/2010-283},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 710 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/sigir/2007},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 724 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/aswc/2008},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 770 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/iccs/2007},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 780 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/aaai/2006},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 795 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/pods/2010},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 812 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/sigmod/2006},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 826 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2011-2},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 856 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/icde/2008},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 913 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/esws/2008},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 982 of file paper.bib
+ : 
+ : @inproceedings{DBLP:conf/www/NieZWM05,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 992 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/www/2005},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 1025 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/www/2008},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 1038 of file paper.bib
+ : 
+ : %  crossref  = {DBLP:conf/vldb/2004},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "DBLP:conf/semweb/KaufmannB07"
+refers to entry "DBLP:conf/semweb/2007", which doesn't exist
+A bad cross reference---entry "DBLP:conf/esws/TranMH10"
+refers to entry "DBLP:conf/esws/2010-2", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/Hofmann99"
+refers to entry "DBLP:conf/sigir/99", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/WeiC06"
+refers to entry "DBLP:conf/sigir/2006", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigmod/LiJLF09"
+refers to entry "DBLP:conf/sigmod/2009", which doesn't exist
+A bad cross reference---entry "DBLP:conf/cikm/KapteinSVK10"
+refers to entry "DBLP:conf/cikm/2010", which doesn't exist
+A bad cross reference---entry "DBLP:conf/cikm/BronBR10"
+refers to entry "DBLP:conf/cikm/2010", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigmod/LiOFWZ08"
+refers to entry "DBLP:conf/sigmod/2008", which doesn't exist
+A bad cross reference---entry "DBLP:conf/ecai/CorbyDF04"
+refers to entry "DBLP:conf/ecai/2004", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/Giger88"
+refers to entry "DBLP:conf/sigir/88", which doesn't exist
+A bad cross reference---entry "DBLP:conf/www/SuchanekKW07"
+refers to entry "DBLP:conf/www/2007", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/Rijsbergen89"
+refers to entry "DBLP:conf/sigir/89", which doesn't exist
+A bad cross reference---entry "DBLP:conf/trec/TrieschniggKS06"
+refers to entry "DBLP:conf/trec/2006", which doesn't exist
+A bad cross reference---entry "DBLP:conf/trec/ZhouYTS06"
+refers to entry "DBLP:conf/trec/2006", which doesn't exist
+A bad cross reference---entry "DBLP:conf/esws/KlebA10"
+refers to entry "DBLP:conf/esws/2010-1", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/ZhongH06"
+refers to entry "DBLP:conf/sigir/2006", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/QiuF93"
+refers to entry "DBLP:conf/sigir/93", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/Voorhees93"
+refers to entry "DBLP:conf/sigir/93", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/Voorhees94"
+refers to entry "DBLP:conf/sigir/94", which doesn't exist
+A bad cross reference---entry "DBLP:conf/icde/TranWRC09"
+refers to entry "DBLP:conf/icde/2009", which doesn't exist
+A bad cross reference---entry "DBLP:conf/cikm/LadwigT11"
+refers to entry "DBLP:conf/cikm/2011", which doesn't exist
+A bad cross reference---entry "DBLP:conf/dagstuhl/HeflinHL03"
+refers to entry "DBLP:conf/dagstuhl/2003sweb", which doesn't exist
+A bad cross reference---entry "DBLP:conf/vldb/ChengYC07"
+refers to entry "DBLP:conf/vldb/2007", which doesn't exist
+A bad cross reference---entry "DBLP:conf/semweb/DingPFJPK05"
+refers to entry "DBLP:conf/semweb/2005", which doesn't exist
+A bad cross reference---entry "DBLP:conf/webdb/StoyanovichBBW07"
+refers to entry "DBLP:conf/webdb/2007", which doesn't exist
+A bad cross reference---entry "DBLP:conf/esws/DelbruTCTD10"
+refers to entry "DBLP:conf/esws/2010-2", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/ButtcherCL06a"
+refers to entry "DBLP:conf/sigir/2006", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigir/TaoZ07"
+refers to entry "DBLP:conf/sigir/2007", which doesn't exist
+A bad cross reference---entry "DBLP:conf/sigmod/GuoSBS03"
+refers to entry "DBLP:conf/sigmod/2003", which doesn't exist
+A bad cross reference---entry "DBLP:conf/iiwas/LeCHC11"
+refers to entry "DBLP:conf/iiwas/2011", which doesn't exist
+A bad cross reference---entry "DBLP:conf/www/NieMSWM07"
+refers to entry "DBLP:conf/www/2007", which doesn't exist
+A bad cross reference---entry "DBLP:conf/cikm/BicerTN11"
+refers to entry "DBLP:conf/cikm/2011", which doesn't exist
+A bad cross reference---entry "DBLP:conf/cikm/CoffmanW11"
+refers to entry "DBLP:conf/cikm/2011", which doesn't exist
+A bad cross reference---entry "DBLP:conf/ecir/PehcevskiVT08"
+refers to entry "DBLP:conf/ecir/2008", which doesn't exist
+A bad cross reference---entry "DBLP:conf/cikm/CoffmanW10"
+refers to entry "DBLP:conf/cikm/2010", which doesn't exist
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "DBLP:conf/sigmod/LiJLF0"
+Warning--I didn't find a database entry for "DBLP:conf/esws/2010-2"
+Warning--I didn't find a database entry for "DBLP:conf/semweb/2007"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/2006"
+Warning--I didn't find a database entry for "DBLP:conf/trec/2006"
+Warning--I didn't find a database entry for "DBLP:conf/ecai/2004"
+Warning--I didn't find a database entry for "DBLP:conf/dagstuhl/2003sweb"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/88"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/99"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/89"
+Warning--I didn't find a database entry for "DBLP:conf/cikm/2011"
+Warning--I didn't find a database entry for "DBLP:conf/sigmod/2008"
+Warning--I didn't find a database entry for "DBLP:conf/esws/2010-1"
+Warning--I didn't find a database entry for "DBLP:conf/icde/2009"
+Warning--I didn't find a database entry for "DBLP:conf/vldb/2007"
+Warning--I didn't find a database entry for "DBLP:conf/cikm/2010"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/93"
+Warning--I didn't find a database entry for "DBLP:conf/webdb/2007"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/2007"
+Warning--I didn't find a database entry for "DBLP:conf/sigmod/2003"
+Warning--I didn't find a database entry for "DBLP:conf/iiwas/2011"
+Warning--I didn't find a database entry for "DBLP:conf/www/2007"
+Warning--I didn't find a database entry for "DBLP:conf/semweb/2005"
+Warning--I didn't find a database entry for "DBLP:conf/sigmod/2009"
+Warning--I didn't find a database entry for "DBLP:conf/ecir/2008"
+Warning--I didn't find a database entry for "DBLP:conf/sigir/94"
+Warning--empty publisher in DBLP:series/sci/NgoC10
+(There were 69 error messages)
