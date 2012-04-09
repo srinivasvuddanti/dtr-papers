@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.3.7)  9 APR 2012 13:58
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.3.7)  9 APR 2012 19:40
 entering extended mode
 **C:/Users/Thanh*Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-data/
 paper.tex
@@ -375,35 +375,38 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <12> not available
 (Font)              Font shape `OT1/phv/b/sc' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 5.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 8.
 
-Underfull \vbox (badness 7740) has occurred while \output is active []
+Underfull \hbox (badness 1430) in paragraph at lines 15--15
+[][][]\OT1/ptm/m/n/8 For other no-table per-sons named George Bush, see $http :
+ / / en .
+ []
 
- [1{C:/Users/Thanh Tran/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{C:/Users/Thanh Tran/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 [][][]$\OT1/ptm/m/n/8 http : / / www . w3 . org / wiki / SweoIG / TaskForces / 
 CommunityProjects /
  []
 
-)
+[2])
 ("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-overview.tex" [2] <figs/semsearch.pdf, id=19, 393.47pt x 281.05pt>
+overview.tex" <figs/semsearch.pdf, id=20, 393.47pt x 281.05pt>
 File: figs/semsearch.pdf Graphic file (type pdf)
 
 <use figs/semsearch.pdf> [3 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr
 -semanticsearchsurvey-data/figs/semsearch.pdf, page is rotated 90 degrees>]
-<figs/semsearch_detailed.png, id=36, 746.3082pt x 472.6458pt>
+<figs/semsearch_detailed.png, id=37, 746.3082pt x 472.6458pt>
 File: figs/semsearch_detailed.png Graphic file (type png)
 
-<use figs/semsearch_detailed.png>
+<use figs/semsearch_detailed.png> [4]
 
-LaTeX Warning: Citation `fig:screenshot_iwb' on page 4 undefined on input line 
+LaTeX Warning: Citation `fig:screenshot_iwb' on page 5 undefined on input line 
 64.
 
-[4] <figs/screenshot_yahoo.png, id=41, 575.751pt x 434.5836pt>
+<figs/screenshot_yahoo.png, id=42, 575.751pt x 434.5836pt>
 File: figs/screenshot_yahoo.png Graphic file (type png)
 
 <use figs/screenshot_yahoo.png>
@@ -412,13 +415,17 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 76--77
  []
 
 
-LaTeX Warning: Citation `DBLP:conf/sigmod/LiJLF0' on page 5 undefined on input 
+Underfull \vbox (badness 1292) has occurred while \output is active []
+
+ [5 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-da
+ta/figs/semsearch_detailed.png>]
+
+LaTeX Warning: Citation `DBLP:conf/sigmod/LiJLF0' on page 6 undefined on input 
 line 86.
 
-[5 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/semsearch_detailed.png> <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers
-/tr-semanticsearchsurvey-data/figs/screenshot_yahoo.png>]
-<figs/screenshot_iwb.png, id=47, 692.8284pt x 410.4936pt>
+[6 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
+a/figs/screenshot_yahoo.png>]
+<figs/screenshot_iwb.png, id=51, 692.8284pt x 410.4936pt>
 File: figs/screenshot_iwb.png Graphic file (type png)
 
 <use figs/screenshot_iwb.png>
@@ -426,16 +433,17 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 103--104
  [][] 
  []
 
-[6 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/screenshot_iwb.png>] [7]
-<figs/matching.png, id=56, 529.0164pt x 389.7762pt>
+[7 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
+a/figs/screenshot_iwb.png>]
+<figs/matching.png, id=57, 529.0164pt x 389.7762pt>
 File: figs/matching.png Graphic file (type png)
  <use figs/matching.png>
 Overfull \hbox (6.0pt too wide) in paragraph at lines 143--144
  [][] 
  []
 
-<figs/semantic_layer.pdf, id=57, 646.415pt x 479.7925pt>
+[8 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
+a/figs/matching.png>] <figs/semantic_layer.pdf, id=62, 646.415pt x 479.7925pt>
 File: figs/semantic_layer.pdf Graphic file (type pdf)
 
 <use figs/semantic_layer.pdf>
@@ -443,35 +451,38 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 161--162
  [][] 
  []
 
-[8 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/matching.png>] [9 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-se
-manticsearchsurvey-data/figs/semantic_layer.pdf, page is rotated 90 degrees>]
-<figs/conceptextraction.png, id=88, 421.0932pt x 247.1634pt>
+[9 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
+a/figs/semantic_layer.pdf, page is rotated 90 degrees>]
+<figs/conceptextraction.png, id=89, 421.0932pt x 247.1634pt>
 File: figs/conceptextraction.png Graphic file (type png)
 
 <use figs/conceptextraction.png>
-<figs/dataextraction.png, id=89, 734.2632pt x 248.6088pt>
+<figs/dataextraction.png, id=90, 734.2632pt x 248.6088pt>
 File: figs/dataextraction.png Graphic file (type png)
 
-<use figs/dataextraction.png>
+<use figs/dataextraction.png> [10]
 
-LaTeX Warning: Citation `KIM DBLP:journals/ws/KiryakovPTMO04' on page 10 undefi
+LaTeX Warning: Citation `KIM DBLP:journals/ws/KiryakovPTMO04' on page 11 undefi
 ned on input line 229.
 
-[10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Warning: Citation `DBLP:conf/www/ZhuNLZW09' on page 11 undefined on input
+ line 233.
+
+
+Underfull \vbox (badness 1521) has occurred while \output is active []
 
  [11 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-d
 ata/figs/conceptextraction.png> <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-paper
-s/tr-semanticsearchsurvey-data/figs/dataextraction.png>]
-<figs/keywordinterpretation.png, id=99, 371.4678pt x 320.8788pt>
+s/tr-semanticsearchsurvey-data/figs/dataextraction.png>] [12]
+<figs/keywordinterpretation.png, id=103, 371.4678pt x 320.8788pt>
 File: figs/keywordinterpretation.png Graphic file (type png)
 
 <use figs/keywordinterpretation.png>
-<figs/nlinterpretation.png, id=100, 655.7298pt x 320.8788pt>
+<figs/nlinterpretation.png, id=104, 655.7298pt x 320.8788pt>
 File: figs/nlinterpretation.png Graphic file (type png)
 
-<use figs/nlinterpretation.png> [12]
+<use figs/nlinterpretation.png>
 Underfull \hbox (badness 10000) in paragraph at lines 294--295
 []\OT1/ptm/m/n/8 Logic-based
  []
@@ -486,14 +497,20 @@ Overfull \hbox (6.55019pt too wide) in paragraph at lines 289--300
  [][][] 
  []
 
-[13 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-da
-ta/figs/keywordinterpretation.png> <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-pa
-pers/tr-semanticsearchsurvey-data/figs/nlinterpretation.png>]
+[13]
+Underfull \vbox (badness 5924) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 321--321
  \OT1/phv/b/n/10 9.3 Match-ing In-com-plete Struc-ture Pat-terns
  []
 
-[14]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-d
+ata/figs/keywordinterpretation.png> <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-p
+apers/tr-semanticsearchsurvey-data/figs/nlinterpretation.png>] [15]
 Underfull \hbox (badness 10000) in paragraph at lines 361--362
 []\OT1/ptm/m/n/8 Authority trans-fer weights
  []
@@ -508,7 +525,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 361--362
 \OT1/ptm/m/n/8 an-neal-ing or PARAFAC
  []
 
-[15] [16]
+[16]
 Underfull \hbox (badness 2671) in paragraph at lines 418--418
  \OT1/phv/b/sc/12 11 Main Types of Ap-proaches and
  []
@@ -516,7 +533,7 @@ Underfull \hbox (badness 2671) in paragraph at lines 418--418
 
 LaTeX Warning: Reference `' on page 17 undefined on input line 419.
 
-
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 431--431
 []\OT1/ptm/m/n/8 [[]], [[]],
  []
@@ -561,26 +578,39 @@ Overfull \hbox (2.3385pt too wide) in paragraph at lines 425--435
  [][][] 
  []
 
-[17]
-Underfull \hbox (badness 1990) in paragraph at lines 468--469
+
+LaTeX Warning: Citation `DBLP:journals/aim/FerrucciBCFGKLMNPSW10' on page 18 un
+defined on input line 455.
+
+
+LaTeX Warning: Citation `DBLP:conf/naacl/Chu-CarrollCPI03' on page 18 undefined
+ on input line 455.
+
+
+LaTeX Warning: Citation `DBLP:conf/sigir/PragerBCR00' on page 18 undefined on i
+nput line 455.
+
+[18]
+Underfull \hbox (badness 1990) in paragraph at lines 475--476
 []\OT1/ptm/m/n/10 Some type(1) sys-tems can also be cat-e-go-rized as
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation `DBLP:conf/www/ZhuNLZW09' on page 19 undefined on input
+ line 486.
 
- [18]
+[19]
 ! Extra alignment tab has been changed to \cr.
 <template> \endtemplate 
                         
-l.498 ... Keyword} & \multicolumn{2}{c}{Rel. NL} &
+l.508 ... Keyword} & \multicolumn{2}{c}{Rel. NL} &
                                                    \\
 You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
 
-Overfull \hbox (29.91785pt too wide) in paragraph at lines 497--527
+Overfull \hbox (29.91785pt too wide) in paragraph at lines 507--537
  [][][] 
  []
 
@@ -599,7 +629,7 @@ Underfull \hbox (badness 1442) in paragraph at lines 157--160
 ls,
  []
 
-[19] [20]) [21
+[20] [21]) [22
 
 ]
 ("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
@@ -607,30 +637,34 @@ paper.aux")
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 3868 strings out of 494019
- 64037 string characters out of 3143868
- 140481 words of memory out of 3000000
- 7052 multiletter control sequences out of 15000+200000
+ 3872 strings out of 494019
+ 64166 string characters out of 3143868
+ 139481 words of memory out of 3000000
+ 7056 multiletter control sequences out of 15000+200000
  72015 words of font info for 158 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 44i,10n,45p,2138b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,45p,2256b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
 s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/
-times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8
-a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on paper.pdf (21 pages, 1630999 bytes).
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/tim
+es/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on paper.pdf (22 pages, 1646490 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
+ 181 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
