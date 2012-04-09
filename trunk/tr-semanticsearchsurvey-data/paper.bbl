@@ -238,6 +238,11 @@ O.~Etzioni, A.~Fader, J.~Christensen, S.~Soderland, and Mausam, ``Open
 F.~M. Suchanek, M.~Sozio, and G.~Weikum, ``Sofie: a self-organizing framework
   for information extraction,'' in \emph{WWW}, 2009, pp. 631--640.
 
+\bibitem{DBLP:conf/www/ZhuNLZW09}
+J.~Zhu, Z.~Nie, X.~Liu, B.~Zhang, and J.-R. Wen, ``Statsnowball: a statistical
+  approach to extracting entity relationships,'' in \emph{WWW}, 2009, pp.
+  101--110.
+
 \bibitem{DBLP:conf/sigir/ZhongH06}
 M.~Zhong and X.~Huang, ``Concept-based biomedical text retrieval,'' in
   \emph{SIGIR}, 2006, pp. 723--724.
@@ -417,6 +422,20 @@ J.~Pehcevski, A.-M. Vercoustre, and J.~A. Thom, ``Exploiting locality of
 \bibitem{DBLP:conf/esws/WangXZY07}
 C.~Wang, M.~Xiong, Q.~Zhou, and Y.~Yu, ``Panto: A portable natural language
   interface to ontologies,'' in \emph{ESWC}, 2007, pp. 473--487.
+
+\bibitem{DBLP:journals/aim/FerrucciBCFGKLMNPSW10}
+D.~A. Ferrucci, E.~W. Brown, J.~Chu-Carroll, J.~Fan, D.~Gondek, A.~Kalyanpur,
+  A.~Lally, J.~W. Murdock, E.~Nyberg, J.~M. Prager, N.~Schlaefer, and C.~A.
+  Welty, ``Building watson: An overview of the deepqa project,'' \emph{AI
+  Magazine}, vol.~31, no.~3, pp. 59--79, 2010.
+
+\bibitem{DBLP:conf/naacl/Chu-CarrollCPI03}
+J.~Chu-Carroll, K.~Czuba, J.~M. Prager, and A.~Ittycheriah, ``In question
+  answering, two heads are better than one,'' in \emph{HLT-NAACL}, 2003.
+
+\bibitem{DBLP:conf/sigir/PragerBCR00}
+J.~M. Prager, E.~W. Brown, A.~Coden, and D.~R. Radev, ``Question-answering by
+  predictive annotation,'' in \emph{SIGIR}, 2000, pp. 184--191.
 
 \bibitem{DBLP:conf/cikm/CoffmanW10}
 J.~Coffman and A.~C. Weaver, ``A framework for evaluating database keyword
