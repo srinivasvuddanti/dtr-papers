@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.3.7)  9 APR 2012 19:40
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.3.7)  11 APR 2012 13:38
 entering extended mode
 **C:/Users/Thanh*Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-data/
 paper.tex
@@ -466,10 +466,6 @@ LaTeX Warning: Citation `KIM DBLP:journals/ws/KiryakovPTMO04' on page 11 undefi
 ned on input line 229.
 
 
-LaTeX Warning: Citation `DBLP:conf/www/ZhuNLZW09' on page 11 undefined on input
- line 233.
-
-
 Underfull \vbox (badness 1521) has occurred while \output is active []
 
  [11 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-d
@@ -531,94 +527,97 @@ Underfull \hbox (badness 2671) in paragraph at lines 418--418
  []
 
 
-LaTeX Warning: Reference `' on page 17 undefined on input line 419.
+Underfull \hbox (badness 6364) in paragraph at lines 421--422
+[]\OT1/ptm/m/n/10 Accordingly, we dis-tin-guish ap-proaches into five
+ []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+
+LaTeX Warning: Reference `' on page 18 undefined on input line 423.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--438
 []\OT1/ptm/m/n/8 [[]], [[]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 438--438
 \OT1/ptm/m/n/8 [[]], [[]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 438--438
 []\OT1/ptm/m/n/8 [[]], [[]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 438--438
 []\OT1/ptm/m/n/8 [[]], [[]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 438--438
 \OT1/ptm/m/n/8 [[]], [[]], [[]],
  []
 
 
-Underfull \hbox (badness 5847) in paragraph at lines 431--431
+Underfull \hbox (badness 5847) in paragraph at lines 438--438
 \OT1/ptm/m/n/8 [[]], [[]], [[]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 18 undefined on inp
+ut line 438.
+
+
+LaTeX Warning: Citation `DBLP:conf/iui/HanNPPL10' on page 18 undefined on input
+ line 438.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 []\OT1/ptm/m/n/8 [[]], [[]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 \OT1/ptm/m/n/8 [[]], [[]],
  []
 
 
-Overfull \hbox (2.3385pt too wide) in paragraph at lines 425--435
+Overfull \hbox (2.3385pt too wide) in paragraph at lines 432--442
  [][][] 
  []
-
-
-LaTeX Warning: Citation `DBLP:journals/aim/FerrucciBCFGKLMNPSW10' on page 18 un
-defined on input line 455.
-
-
-LaTeX Warning: Citation `DBLP:conf/naacl/Chu-CarrollCPI03' on page 18 undefined
- on input line 455.
-
-
-LaTeX Warning: Citation `DBLP:conf/sigir/PragerBCR00' on page 18 undefined on i
-nput line 455.
 
 [18]
-Underfull \hbox (badness 1990) in paragraph at lines 475--476
-[]\OT1/ptm/m/n/10 Some type(1) sys-tems can also be cat-e-go-rized as
+Underfull \hbox (badness 2111) in paragraph at lines 480--481
+[]\OT1/ptm/m/n/10 Some \OT1/ptm/m/it/10 type(1) \OT1/ptm/m/n/10 sys-tems can al
+so be cat-e-go-rized as
  []
-
-
-LaTeX Warning: Citation `DBLP:conf/www/ZhuNLZW09' on page 19 undefined on input
- line 486.
 
 [19]
-! Extra alignment tab has been changed to \cr.
-<template> \endtemplate 
-                        
-l.508 ... Keyword} & \multicolumn{2}{c}{Rel. NL} &
-                                                   \\
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
+
+LaTeX Warning: Citation `DBLP:conf/aaai/LiCYSJ07' on page 20 undefined on input
+ line 501.
 
 
-Overfull \hbox (29.91785pt too wide) in paragraph at lines 507--537
- [][][] 
- []
+LaTeX Warning: Citation `DBLP:conf/iui/HanNPPL10' on page 20 undefined on input
+ line 501.
 
-)
+
+LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 20 undefined on inp
+ut line 501.
+
+
+LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 20 undefined on inp
+ut line 503.
+
+
+LaTeX Warning: Citation `DBLP:conf/aaai/LiCYSJ07' on page 20 undefined on input
+ line 503.
+
+) [20]
 ("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-future.tex")
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-paper.bbl"
+paper.bbl" [21]
 Underfull \hbox (badness 2495) in paragraph at lines 76--78
 []\OT1/ptm/m/n/8 G. Kas-neci, F. M. Suchanek, G. Ifrim, M. Ra-manath, and
  []
@@ -629,7 +628,7 @@ Underfull \hbox (badness 1442) in paragraph at lines 157--160
 ls,
  []
 
-[20] [21]) [22
+[22]) [23
 
 ]
 ("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
@@ -643,12 +642,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
  ) 
 Here is how much of TeX's memory you used:
  3872 strings out of 494019
- 64166 string characters out of 3143868
- 139481 words of memory out of 3000000
- 7056 multiletter control sequences out of 15000+200000
+ 64063 string characters out of 3143868
+ 150497 words of memory out of 3000000
+ 7059 multiletter control sequences out of 15000+200000
  72015 words of font info for 158 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 44i,10n,45p,2256b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,45p,2260b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
@@ -662,9 +661,9 @@ ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 es/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.p
 fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/Pro
 gram Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on paper.pdf (22 pages, 1646490 bytes).
+Output written on paper.pdf (23 pages, 1654253 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
+ 184 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

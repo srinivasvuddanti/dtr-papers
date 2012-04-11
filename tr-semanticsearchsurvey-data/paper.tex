@@ -425,7 +425,13 @@ search, semantic search, data retrieval, semantic data retrieval.
 \input{overview}
 %\input{sdt}
 %\input{mr}
-\input{future}
+%\input{future}
+
+\section{Conclusion}\label{sec:conclusion}
+Semantic search is a broad concept that refers to a wide range of solutions. We presented a classification of semantic search approaches into the five different types of concept-based document retrieval, annotation-based document retrieval, entity search, relational keyword search and relational NL search. We identified the main aspects that distinguish these types, namely data, semantic resources, information needs and querying paradigms and the subproblems of interpretation, matching and ranking. We discussed the differences among existing semantic search approaches along these aspects, and elaborated on existing techniques for solving these three main subproblems in search. 
+
+This survey suggests that a wide range of solutions exist for individual problems, which are more or less suited given a specific setting of data, semantics and needs. Efficient solutions producing high quality results are available for entity search over RDF as well as more text-rich sources such as Wikipedia. Also, much progress could be observed in the area of relational keyword search, where efficient methods for graph traversal and indexing have been proposed, alongside with different ranking schemes and their combination through learning to rank. More problematic is relational NL search, where domain portability and the lack of standardized evaluation represent the main challenges. Regarding search over documents, the use of concepts so far turned out to be not superior than existing IR methods w.r.t. the relevance-based metrics of precise and recall. Using more complex annotations representing entities and relations can help to improve precision. This result is however, strongly dependent on the outputs of the employed information extraction systems, which to date, still face the challenge of scaling across domains, i.e. open-domain extraction is still difficult. However, concepts, entities as well as their attributes and relations have been successfully used as facets to improve the overall search experiences, e.g. for more effective browsing as well as for constructing richer queries through an iterative process. Generally, iterative query construction is popular among existing systems, where facets, term completions, query completions as well as results have been suggested to users as they type. 
+
 
 \bibliographystyle{IEEEtran}
 
