@@ -1,24 +1,19 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.3.7)  11 APR 2012 13:38
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2009.5.11)  11 APR 2012 18:57
 entering extended mode
-**C:/Users/Thanh*Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-data/
-paper.tex
-
-("C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-data/
-paper.tex"
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
-vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
-an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
-romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
-sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
-senglishmax, welsh, loaded.
-
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-IEEEtran.cls"
+\write18 enabled.
+ %&-line parsing enabled.
+**paper.tex
+(./paper.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
+omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
+sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+(./IEEEtran.cls
 Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -30,7 +25,7 @@ Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
 -- Using IEEE Computer Society mode.
 LaTeX Font Info:    Try loading font information for OT1+ppl on input line 377.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 -- Using 7.875in x 10.75in (letter) paper.
@@ -103,50 +98,50 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen116
 \c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+) (/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+(/usr/local/texlive/2008/texmf/tex/latex/config/graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/01/28 v0.05d Graphics/color for pdfTeX
+(/usr/local/texlive/2008/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
 \Gread@gobject=\count91
 ))
 \Gin@req@height=\dimen117
 \Gin@req@width=\dimen118
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
-Package: amssymb 2009/06/22 v3.00
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
-Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
 \@emptytoks=\toks16
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
 ))
-("C:\Users\Thanh Tran\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-("C:\Users\Thanh Tran\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty"
-Package: caption 2010/01/09 v3.1m Customizing captions (AR)
-("C:\Users\Thanh Tran\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
-"
-Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2008/08/24 v3.1j Customizing captions (AR)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2008/08/24 v3.1j caption3 kernel (AR)
 \captionmargin=\dimen119
 \captionmargin@=\dimen120
 \captionwidth=\dimen121
@@ -154,7 +149,7 @@ Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
 \caption@parindent=\dimen123
 \caption@hangindent=\dimen124
 Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used on input line 1084.
+(caption)             standard defaults will be used on input line 1027.
 )
 
 Package caption Warning: Unsupported document class (or package) detected,
@@ -184,39 +179,39 @@ ont \sffamily \normalsize \box \@tempboxa \hfil }\fi \fi .
 \c@lotdepth=\count99
 \sf@top=\skip47
 \sf@bottom=\skip48
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+) (/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\courier.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/ltxmisc/url.sty
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latexsym.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks17
 \verbatim@line=\toks18
 \verbatim@in@stream=\read1
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
 )
-("C:\Users\Thanh Tran\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm
-.sty"
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 
+
+Document Style `algorithm' - floating environment
+(/usr/local/texlive/2008/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count100
 \float@exts=\toks19
@@ -224,33 +219,34 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks20
 \@floatcapt=\box28
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks21
 \c@algorithm=\count101
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen126
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\multirow\bigstrut.sty")
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/multirow/bigstrut.sty)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks22
 \ex@=\dimen127
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 \c@definition=\count102
 \c@example=\count103
 \c@proposition=\count104
 
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-paper.aux")
+(./paper.aux)
+\openout1 = `paper.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 360.
 LaTeX Font Info:    ... okay on input line 360.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 360.
@@ -265,7 +261,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 360.
 LaTeX Font Info:    ... okay on input line 360.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 360.
 
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ (/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
@@ -309,8 +305,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 360.
 
-("C:\Users\Thanh Tran\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
-"
+(/usr/local/texlive/2008/texmf-dist/tex/context/base/supp-pdf.tex
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
 \scratchdimen=\dimen128
@@ -330,28 +325,28 @@ Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 397.
 
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
+ (/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 397.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 397.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 397.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ulasy.fd"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 397.
 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
@@ -363,13 +358,11 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
 
 ** ATTENTION: \keywords is deprecated (line 397). Use \IEEEkeywords instead.
 LaTeX Font Info:    Try loading font information for U+pzd on input line 397.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\upzd.fd"
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 ** ATTENTION: \keywords is deprecated (line 397). Use \IEEEkeywords instead.
-
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-intro.tex"
+(./intro.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <12> not available
@@ -382,31 +375,32 @@ Underfull \hbox (badness 1430) in paragraph at lines 15--15
  / / en .
  []
 
-[1{C:/Users/Thanh Tran/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{/usr/local/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 27--27
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 [][][]$\OT1/ptm/m/n/8 http : / / www . w3 . org / wiki / SweoIG / TaskForces / 
 CommunityProjects /
  []
 
-[2])
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-overview.tex" <figs/semsearch.pdf, id=20, 393.47pt x 281.05pt>
-File: figs/semsearch.pdf Graphic file (type pdf)
+[2]) (./overview.tex
 
-<use figs/semsearch.pdf> [3 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr
--semanticsearchsurvey-data/figs/semsearch.pdf, page is rotated 90 degrees>]
-<figs/semsearch_detailed.png, id=37, 746.3082pt x 472.6458pt>
+pdfTeX warning: /usr/texbin/pdflatex (file ./figs/semsearch.pdf): PDF inclusion
+: found PDF version <1.5>, but at most version <1.4> allowed
+<figs/semsearch.pdf, id=20, 393.47pt x 281.05pt>
+File: figs/semsearch.pdf Graphic file (type pdf)
+ <use figs/semsearch.pdf>
+[3] <figs/semsearch_detailed.png, id=24, 746.3082pt x 472.6458pt>
 File: figs/semsearch_detailed.png Graphic file (type png)
 
-<use figs/semsearch_detailed.png> [4]
+<use figs/semsearch_detailed.png> [4 <./figs/semsearch.pdf, page is rotated 90 
+degrees>] [5 <./figs/semsearch_detailed.png>]
 
-LaTeX Warning: Citation `fig:screenshot_iwb' on page 5 undefined on input line 
+LaTeX Warning: Citation `fig:screenshot_iwb' on page 6 undefined on input line 
 64.
 
-<figs/screenshot_yahoo.png, id=42, 575.751pt x 434.5836pt>
+<figs/screenshot_yahoo.png, id=46, 575.751pt x 434.5836pt>
 File: figs/screenshot_yahoo.png Graphic file (type png)
 
 <use figs/screenshot_yahoo.png>
@@ -415,16 +409,10 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 76--77
  []
 
 
-Underfull \vbox (badness 1292) has occurred while \output is active []
-
- [5 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-da
-ta/figs/semsearch_detailed.png>]
-
 LaTeX Warning: Citation `DBLP:conf/sigmod/LiJLF0' on page 6 undefined on input 
 line 86.
 
-[6 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/screenshot_yahoo.png>]
+[6 <./figs/screenshot_yahoo.png>]
 <figs/screenshot_iwb.png, id=51, 692.8284pt x 410.4936pt>
 File: figs/screenshot_iwb.png Graphic file (type png)
 
@@ -433,17 +421,19 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 103--104
  [][] 
  []
 
-[7 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/screenshot_iwb.png>]
-<figs/matching.png, id=57, 529.0164pt x 389.7762pt>
+[7 <./figs/screenshot_iwb.png>] [8]
+<figs/matching.png, id=60, 529.0164pt x 389.7762pt>
 File: figs/matching.png Graphic file (type png)
  <use figs/matching.png>
 Overfull \hbox (6.0pt too wide) in paragraph at lines 143--144
  [][] 
  []
 
-[8 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/matching.png>] <figs/semantic_layer.pdf, id=62, 646.415pt x 479.7925pt>
+
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./figs/semantic_layer.pdf): PDF incl
+usion: found PDF version <1.5>, but at most version <1.4> allowed
+<figs/semantic_layer.pdf, id=61, 646.415pt x 479.7925pt>
 File: figs/semantic_layer.pdf Graphic file (type pdf)
 
 <use figs/semantic_layer.pdf>
@@ -451,26 +441,20 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 161--162
  [][] 
  []
 
-[9 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-dat
-a/figs/semantic_layer.pdf, page is rotated 90 degrees>]
-<figs/conceptextraction.png, id=89, 421.0932pt x 247.1634pt>
+[9 <./figs/matching.png> <./figs/semantic_layer.pdf, page is rotated 90 degrees
+>] [10] <figs/conceptextraction.png, id=92, 421.0932pt x 247.1634pt>
 File: figs/conceptextraction.png Graphic file (type png)
 
 <use figs/conceptextraction.png>
-<figs/dataextraction.png, id=90, 734.2632pt x 248.6088pt>
+<figs/dataextraction.png, id=93, 734.2632pt x 248.6088pt>
 File: figs/dataextraction.png Graphic file (type png)
 
-<use figs/dataextraction.png> [10]
+<use figs/dataextraction.png>
 
 LaTeX Warning: Citation `KIM DBLP:journals/ws/KiryakovPTMO04' on page 11 undefi
 ned on input line 229.
 
-
-Underfull \vbox (badness 1521) has occurred while \output is active []
-
- [11 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-d
-ata/figs/conceptextraction.png> <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-paper
-s/tr-semanticsearchsurvey-data/figs/dataextraction.png>] [12]
+[11] [12 <./figs/conceptextraction.png> <./figs/dataextraction.png>]
 <figs/keywordinterpretation.png, id=103, 371.4678pt x 320.8788pt>
 File: figs/keywordinterpretation.png Graphic file (type png)
 
@@ -478,7 +462,7 @@ File: figs/keywordinterpretation.png Graphic file (type png)
 <figs/nlinterpretation.png, id=104, 655.7298pt x 320.8788pt>
 File: figs/nlinterpretation.png Graphic file (type png)
 
-<use figs/nlinterpretation.png>
+<use figs/nlinterpretation.png> [13]
 Underfull \hbox (badness 10000) in paragraph at lines 294--295
 []\OT1/ptm/m/n/8 Logic-based
  []
@@ -493,20 +477,12 @@ Overfull \hbox (6.55019pt too wide) in paragraph at lines 289--300
  [][][] 
  []
 
-[13]
-Underfull \vbox (badness 5924) has occurred while \output is active []
-
-
+[14 <./figs/keywordinterpretation.png> <./figs/nlinterpretation.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 321--321
  \OT1/phv/b/n/10 9.3 Match-ing In-com-plete Struc-ture Pat-terns
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-papers/tr-semanticsearchsurvey-d
-ata/figs/keywordinterpretation.png> <C:/Users/Thanh Tran/Dropbox/MyPapers/dtr-p
-apers/tr-semanticsearchsurvey-data/figs/nlinterpretation.png>] [15]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 361--362
 []\OT1/ptm/m/n/8 Authority trans-fer weights
  []
@@ -521,7 +497,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 361--362
 \OT1/ptm/m/n/8 an-neal-ing or PARAFAC
  []
 
-[16]
+[16] [17]
 Underfull \hbox (badness 2671) in paragraph at lines 418--418
  \OT1/phv/b/sc/12 11 Main Types of Ap-proaches and
  []
@@ -531,7 +507,6 @@ Underfull \hbox (badness 6364) in paragraph at lines 421--422
 []\OT1/ptm/m/n/10 Accordingly, we dis-tin-guish ap-proaches into five
  []
 
-[17]
 
 LaTeX Warning: Reference `' on page 18 undefined on input line 423.
 
@@ -588,82 +563,73 @@ Overfull \hbox (2.3385pt too wide) in paragraph at lines 432--442
  [][][] 
  []
 
-[18]
+[18] [19]
 Underfull \hbox (badness 2111) in paragraph at lines 480--481
 []\OT1/ptm/m/n/10 Some \OT1/ptm/m/it/10 type(1) \OT1/ptm/m/n/10 sys-tems can al
 so be cat-e-go-rized as
  []
 
-[19]
+[20]
 
-LaTeX Warning: Citation `DBLP:conf/aaai/LiCYSJ07' on page 20 undefined on input
+LaTeX Warning: Citation `DBLP:conf/aaai/LiCYSJ07' on page 21 undefined on input
  line 501.
 
 
-LaTeX Warning: Citation `DBLP:conf/iui/HanNPPL10' on page 20 undefined on input
+LaTeX Warning: Citation `DBLP:conf/iui/HanNPPL10' on page 21 undefined on input
  line 501.
 
 
-LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 20 undefined on inp
+LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 21 undefined on inp
 ut line 501.
 
 
-LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 20 undefined on inp
+LaTeX Warning: Citation `DBLP:journals/tods/LiYJ07' on page 21 undefined on inp
 ut line 503.
 
 
-LaTeX Warning: Citation `DBLP:conf/aaai/LiCYSJ07' on page 20 undefined on input
+LaTeX Warning: Citation `DBLP:conf/aaai/LiCYSJ07' on page 21 undefined on input
  line 503.
 
-) [20]
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-paper.bbl" [21]
+) (./paper.bbl
 Underfull \hbox (badness 2495) in paragraph at lines 76--78
 []\OT1/ptm/m/n/8 G. Kas-neci, F. M. Suchanek, G. Ifrim, M. Ra-manath, and
  []
 
-
+[21]
 Underfull \hbox (badness 1442) in paragraph at lines 157--160
 []\OT1/ptm/m/n/8 M. Fern[]andez, I. Can-ta-dor, V. Lopez, D. Val-let, P. Castel
 ls,
  []
 
-[22]) [23
-
-]
-("C:\Users\Thanh Tran\Dropbox\MyPapers\dtr-papers\tr-semanticsearchsurvey-data\
-paper.aux")
+[22]) [23] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 3872 strings out of 494019
- 64063 string characters out of 3143868
- 150497 words of memory out of 3000000
- 7059 multiletter control sequences out of 15000+200000
- 72015 words of font info for 158 fonts, out of 3000000 for 9000
+ 3784 strings out of 493876
+ 61646 string characters out of 1150568
+ 152943 words of memory out of 3000000
+ 6951 multiletter control sequences out of 10000+50000
+ 72033 words of font info for 158 fonts, out of 3000000 for 5000
  714 hyphenation exceptions out of 8191
- 44i,10n,45p,2260b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/tim
-es/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on paper.pdf (23 pages, 1654253 bytes).
+ 44i,10n,45p,2183b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2008/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pfb></usr/local/texlive/20
+08/texmf-dist/fonts/type1/bluesky/cm/cmr6.pfb></usr/local/texlive/2008/texmf-di
+st/fonts/type1/bluesky/cm/cmr7.pfb></usr/local/texlive/2008/texmf-dist/fonts/ty
+pe1/bluesky/cm/cmsy6.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesk
+y/cm/cmsy7.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy8
+.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></u
+sr/local/texlive/2008/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/loca
+l/texlive/2008/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texli
+ve/2008/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2008/te
+xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2008/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb></usr/local/texlive/2008/texmf-dist/fonts/type
+1/urw/zapfding/uzdr.pfb>
+Output written on paper.pdf (23 pages, 1622929 bytes).
 PDF statistics:
  184 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
+ 0 named destinations out of 1000 (max. 131072)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
