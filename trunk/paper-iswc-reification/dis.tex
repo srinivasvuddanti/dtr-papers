@@ -1,0 +1,26 @@
+\section{Discussion}
+What are benefits compared to RDF reification and other related work:
+Compact Representation 
+Efficient Querying 
+ # Who bought Sybase and where did we get that fact?
+
+SELECT ?src ?who {
+   <<?who :bought :sybase>> dc:source ?src
+}
+
+Answered efficiently
+-	2-bound POS index scan (?who :bought sybase) => ?sid
+-	Join with (?sid dc:source ?src)
+
+# Explicit bind of statement on variable for multiple joins.
+
+SELECT ?src ?who ?created {
+   <<?who :bought :sybase>> as ?sid
+   ?sid dc:source ?src
+   OPTIONAL {?sid dc:created ?created}
+}
+
+Compatibility with Existing Standards
+-	Harmonized with RDF Reification
+-	Can be combined with named graphs
+

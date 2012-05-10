@@ -1,0 +1,37 @@
+\section{Related Work}
+Overview of related work and their problems / reasons why not adopted in commercial solutions, e.g. 
+Reification
+Reification builds a model of a statement:
+_:s1 rdf:subject   :SAP .
+_:s1 rdf:predicate :bought .
+_:s1 rdf:object    :sybase .
+_:s1 rdf:type      rdf:Statement .
+_:s1 dc:source     reuters:us-sybase .
+
+-	Has a very bad reputation
+-	Extremely inefficient 
+-	5x the data on disk when you reify statements.
+-	Awkward syntax
+-	Cognitively challenging to write queries against reified data
+-	Rarely used.
+Other approaches to be discussed:
+-	Bernhard Schueler, Sergej Sizov, Steffen Staab, Duc Thanh Tran: Querying for meta knowledge. WWW 2008:625-634
+-	Thanh Tran, Peter Haase, Boris Motik, Bernardo Cuenca Grau, Ian Horrocks: Metalevel Information in Ontology-Based Applications. AAAI 2008:1237-1242
+-	Nuno Lopes, Axel Polleres, Umberto Straccia, Antoine Zimmermann: AnQL: SPARQLing Up Annotated RDFS. International Semantic Web Conference 2010:518-533
+-	Antoine Zimmermann, Nuno Lopes, Axel Polleres, Umberto Straccia: A general framework for representing, reasoning and querying with annotated Semantic Web data. J. Web Sem. 11: 72-95 (2012)
+-	Umberto Straccia, Nuno Lopes, Gergely Lukacsy, Axel Polleres: A General Framework for Representing and Reasoning with Annotated Semantic Web Data. AAAI 2010
+-	Jeremy J. Carroll, Christian Bizer, Patrick J. Hayes, Patrick Stickler: Named graphs. J. Web Sem. (WS) 3(4):247-267 (2005)
+-	Paula Severi, José Luiz Fiadeiro, David Ekserdjian: Guiding Reification in OWL through Aggregation. Description Logics 2010
+-	Nicole Alexander, Siva Ravada: RDF Object Type and Reification in the Database. ICDE 2006:93
+Solution & Contributions
+-	Efficient management of meta-level statements 
+o	Avoids the 5x growth in data associated with RDF Reification
+o	Fast query answering
+-	Convenient syntax for data and queries
+o	Proposed extensions for SPARQL, Turtle
+-	Harmonized with RDF Reification
+o	Existing data and queries still work
+o	Extension to SPARQL Semantics and Algebra
+-	Can be combined with named graphs
+o	Both methods can be mixed in the same database.
+
