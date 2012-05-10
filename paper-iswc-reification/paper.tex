@@ -1,0 +1,84 @@
+\documentclass{llncs}
+%
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{epsfig}
+\usepackage{url}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+%\usepackage{subfig}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{makeidx} % allows for indexgeneration
+%\usepackage{natbib}
+\usepackage{amsmath,amsfonts,amssymb}
+%\usepackage[top=3.95cm, bottom=4cm, left=4.6cm, right=4.6cm]{geometry}
+
+
+% \usepackage{latexsym}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+\newcommand{\dtr}[1]{(\textbf{Thanh: #1})}
+%\newcommand{\todo}[1]{
+%\textbf{(todo: #1)}
+%}
+
+
+%\input{commands}
+
+%\renewcommand{\baselinestretch}{0.98}
+\frontmatter          % for the preliminaries
+\pagestyle{headings}  % switches on printing of running heads
+\mainmatter           % start of the contributions
+
+%\sloppy
+\title{Efficient Management of Meta-level Information for RDF}
+
+%\thanks{This work has been supported by the European Commission
+%under contract IST-2006-027595 NeOn, and by the Deutsche
+%Forschungsgemeinschaft (DFG) under the ReaSem project.}}
+
+
+%\titlerunning{}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Olaf Hartig$^1$, Mike Personick$^2$, Yrjana Rankka$^3$, Bryan Thompson$^2$, Thanh Tran$^4$}
+
+\authorrunning{Hartig}   % abbreviated author list (for running head)
+
+%%% modified list of authors for the TOC (add the affiliations)
+\tocauthor{}
+
+\institute{
+$^1$Humboldt University, Berlin, Germany\\
+$^2$SYSTAP LLC, Washington, USA\\
+$^3$OpenLink Software, Burlington, USA\\
+$^4$Institute AIFB, Karlsruhe Institute of Technology, Germany
+}
+
+\makeindex
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\input{intro}
+\input{related}
+\input{rep}
+\input{querying}
+\input{dis}
+\input{exp}
+\input{conc}
+
+%\begin{appendix}
+%\input{appendix}
+%\end{appendix}
+%
+\bibliographystyle{abbrv}
+\bibliography{paper}
+\end{document}

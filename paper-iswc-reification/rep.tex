@@ -1,0 +1,15 @@
+\section{Representation}
+Syntax 
+Expressed tersely as:
+  <<:SAP :bought :sybase>> dc:source reuters:us-sybase .
+Statements are “wrapped” by << … >> 
+Turtle Extension
+<<:SAP :bought :sybase>> dc:source reuters:us-sybase ;
+			  dc:created “1995-01-07” ;
+                        		 dc:author  “James R. Jones“ .
+
+-	The statement can appear in either the subject or object position.
+-	Recursion in statements is allowed
+-	But depth is shallow in practice
+Semantics
+
