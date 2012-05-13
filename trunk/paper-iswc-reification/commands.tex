@@ -20,8 +20,12 @@
 %%% key terminology:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\RDFplus}{RDF$^{\mathsf{\text{\tiny +\!meta}}}$}
-\newcommand{\RDFplusTriple}{{\RDFplus} triple}
+\newcommand{\RDFplus}%
+	%{RDF$^{\mathsf{\text{\tiny +\!meta}}}$}
+	{RDF$^\star$}
+
+\newcommand{\RDFplusTriple}{{\RDFplus}\! triple}
+\newcommand{\RDFplusGraph}{{\RDFplus}\! graph}
 
 \newcommand{\TRef}%
 	%{triple reference}
@@ -47,7 +51,10 @@
 \newcommand{\symTRefFct}{\mathrm{trefs}} % the name used for \fctTref
 \newcommand{\fctTRef}[1]{\symTRefFct(#1)} % the set of all triple references in triple/graph #1
 
-\newcommand{\symDerefFct}{\mathit{deref}} % the name used for \fctDeref
+\newcommand{\symDerefFct}{\mathrm{deref}} % the name used for \fctDeref
 \newcommand{\fctDeref}[1]{\symDerefFct(#1)} % the triple denoted by triple reference #1
+
+\newcommand{\symDescentFct}{\mathrm{rdf}} % the name used for \fctDescent
+\newcommand{\fctDescent}[1]{\symDescentFct(#1)} % set of RDF triples for an RDF+ triple/graph
 
 \newcommand{\mathTinyRDF}[1]{\texttt{\footnotesize #1}}
