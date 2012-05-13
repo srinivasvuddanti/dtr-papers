@@ -1,0 +1,53 @@
+%%% review commands:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{todo}
+
+\newcommand{\todo}[1]
+	{\stepcounter{todo}\noindent{\color{red} \textsf{Todo~{\arabic{todo}}: #1}}}  % use this for drafts
+	%{}                                                                           % use this for the final version
+
+\newcommand{\Todo}[2]
+	{{\color{red}\textsf{#1}\footnote{\todo{#2}}}}  % use this for drafts
+	%{#1}                                           % use this for the final version
+
+\newcommand{\removable}[1]%
+	{{\color{gray}#1}}  % use this for drafts
+	%{#1}               % use this for the final version
+
+
+
+%%% key terminology:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\RDFplus}{RDF$^{\mathsf{\text{\tiny +\!meta}}}$}
+\newcommand{\RDFplusTriple}{{\RDFplus} triple}
+
+\newcommand{\TRef}%
+	%{triple reference}
+	{tref}
+\newcommand{\TRefLongVersion}{triple reference}
+
+
+%%% relevant math symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\emptyset}{\varnothing}
+
+\newcommand{\symAllURIs}{\mathcal{U}} % the symbol for the set of all URIs
+\newcommand{\symAllLiterals}{\mathcal{L}} % the symbol for the set of all literals
+\newcommand{\symAllBNodes}{\mathcal{B}} % the symbol for the set of all blank nodes
+\newcommand{\symAllVariables}{\mathcal{V}} % the symbol for the set of all query variables
+	\newcommand{\symAllTRefsInfinite}{\mathcal{R}} % don't use that; it was required to define \symAllTRefs
+\newcommand{\symAllTRefs}{\overline{\symAllTRefsInfinite}} % the symbol for the set of all triple references
+
+\newcommand{\symTermsFct}{\mathrm{terms}} % the name used for \fctTerms
+\newcommand{\fctTerms}[1]{\symTermsFct(#1)} % the set of all terms in triple/graph #1
+
+\newcommand{\symTRefFct}{\mathrm{trefs}} % the name used for \fctTref
+\newcommand{\fctTRef}[1]{\symTRefFct(#1)} % the set of all triple references in triple/graph #1
+
+\newcommand{\symDerefFct}{\mathit{deref}} % the name used for \fctDeref
+\newcommand{\fctDeref}[1]{\symDerefFct(#1)} % the triple denoted by triple reference #1
+
+\newcommand{\mathTinyRDF}[1]{\texttt{\footnotesize #1}}
