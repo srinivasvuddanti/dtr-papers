@@ -21,6 +21,22 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{baeza07sigir}
+R.~A. Baeza-Yates, A.~Gionis, F.~Junqueira, V.~Murdock, V.~Plachouras, and
+  F.~Silvestri, ``The impact of caching on search engines,'' in \emph{SIGIR},
+  2007, pp. 183--190.
+
+\bibitem{DBLP:conf/semweb/MikaMZ09}
+P.~Mika, E.~Meij, and H.~Zaragoza, ``Investigating the semantic gap through
+  query log analysis,'' in \emph{International Semantic Web Conference}, 2009,
+  pp. 441--455.
+
+\bibitem{DBLP:conf/sigir/HaasMTB11}
+K.~Haas, P.~Mika, P.~Tarjan, and R.~Blanco, ``Enhanced results for web
+  search,'' in \emph{SIGIR}, W.-Y. Ma, J.-Y. Nie, R.~A. Baeza-Yates, T.-S.
+  Chua, and W.~B. Croft, Eds.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2011,
+  pp. 725--734.
+
 \bibitem{DBLP:conf/semweb/KaufmannB07}
 E.~Kaufmann and A.~Bernstein, ``How useful are natural language interfaces to
   the semantic web for casual end-users?'' in \emph{ISWC/ASWC}, 2007, pp.
@@ -80,6 +96,10 @@ G.~Kasneci, F.~M. Suchanek, G.~Ifrim, M.~Ramanath, and G.~Weikum, ``Naga:
 K.~Anyanwu and A.~P. Sheth, ``P-queries: enabling querying for semantic
   associations on the semantic web,'' in \emph{WWW}, 2003, pp. 690--699.
 
+\bibitem{DBLP:conf/sigmod/LiJLF09}
+G.~Li, S.~Ji, C.~Li, and J.~Feng, ``Efficient type-ahead search on relational
+  data: a tastier approach,'' in \emph{SIGMOD Conference}, 2009, pp. 695--706.
+
 \bibitem{DBLP:conf/sigmod/KandoganKRVZ06}
 E.~Kandogan, R.~Krishnamurthy, S.~Raghavan, S.~Vaithyanathan, and H.~Zhu,
   ``Avatar semantic search: a database approach to information retrieval,'' in
@@ -89,31 +109,13 @@ E.~Kandogan, R.~Krishnamurthy, S.~Raghavan, S.~Vaithyanathan, and H.~Zhu,
 A.~Wagner, G.~Ladwig, and T.~Tran, ``Browsing-oriented semantic faceted
   search,'' in \emph{DEXA (1)}, 2011, pp. 303--319.
 
-\bibitem{DBLP:conf/semweb/FerreH11}
-S.~Ferr{\'e} and A.~Hermann, ``Semantic search: Reconciling expressive querying
-  and exploratory search,'' in \emph{International Semantic Web Conference
-  (1)}, 2011, pp. 177--192.
-
 \bibitem{DBLP:conf/esws/HeimEZ10}
 P.~Heim, T.~Ertl, and J.~Ziegler, ``Facet graphs: Complex semantic querying
   made easy,'' in \emph{ESWC (1)}, 2010, pp. 288--302.
 
-\bibitem{DBLP:conf/sigir/BastCSW07}
-H.~Bast, A.~Chitea, F.~M. Suchanek, and I.~Weber, ``Ester: efficient search on
-  text, entities, and relations,'' in \emph{SIGIR}, 2007, pp. 671--678.
-
-\bibitem{DBLP:conf/sigmod/LiJLF09}
-G.~Li, S.~Ji, C.~Li, and J.~Feng, ``Efficient type-ahead search on relational
-  data: a tastier approach,'' in \emph{SIGMOD Conference}, 2009, pp. 695--706.
-
 \bibitem{DBLP:journals/ws/Harth10}
 A.~Harth, ``Visinav: A system for visual search and navigation on web data,''
   \emph{J. Web Sem.}, vol.~8, no.~4, pp. 348--354, 2010.
-
-\bibitem{DBLP:journals/ws/BizerLKABCH09}
-C.~Bizer, J.~Lehmann, G.~Kobilarov, S.~Auer, C.~Becker, R.~Cyganiak, and
-  S.~Hellmann, ``Dbpedia - a crystallization point for the web of data,''
-  \emph{J. Web Sem.}, vol.~7, no.~3, pp. 154--165, 2009.
 
 \bibitem{DBLP:conf/cikm/KapteinSVK10}
 R.~Kaptein, P.~Serdyukov, A.~P. de~Vries, and J.~Kamps, ``Entity ranking using
@@ -123,30 +125,10 @@ R.~Kaptein, P.~Serdyukov, A.~P. de~Vries, and J.~Kamps, ``Entity ranking using
 M.~Bron, K.~Balog, and M.~de~Rijke, ``Ranking related entities: components and
   analyses,'' in \emph{CIKM}, 2010, pp. 1079--1088.
 
-\bibitem{DBLP:conf/sigmod/KiferL89}
-M.~Kifer and G.~Lausen, ``F-logic: A higher-order language for reasoning about
-  objects, inheritance, and scheme,'' in \emph{SIGMOD Conference}, 1989, pp.
-  134--146.
-
 \bibitem{DBLP:journals/ws/FazzingaGGL11}
 B.~Fazzinga, G.~Gianforme, G.~Gottlob, and T.~Lukasiewicz, ``Semantic web
   search based on ontological conjunctive queries,'' \emph{J. Web Sem.},
   vol.~9, no.~4, pp. 453--473, 2011.
-
-\bibitem{DBLP:journals/dke/CimianoHHMS08}
-P.~Cimiano, P.~Haase, J.~Heizmann, M.~Mantel, and R.~Studer, ``Towards portable
-  natural language interfaces to knowledge bases - the case of the orakel
-  system,'' \emph{Data Knowl. Eng.}, vol.~65, no.~2, pp. 325--354, 2008.
-
-\bibitem{DBLP:journals/ws/HoganHUKPD11}
-A.~Hogan, A.~Harth, J.~Umbrich, S.~Kinsella, A.~Polleres, and S.~Decker,
-  ``Searching and browsing linked data with swse: The semantic web search
-  engine,'' \emph{J. Web Sem.}, vol.~9, no.~4, pp. 365--401, 2011.
-
-\bibitem{DBLP:conf/sigmod/LiOFWZ08}
-G.~Li, B.~C. Ooi, J.~Feng, J.~Wang, and L.~Zhou, ``Ease: an effective 3-in-1
-  keyword search method for unstructured, semi-structured and structured
-  data,'' in \emph{SIGMOD Conference}, 2008, pp. 903--914.
 
 \bibitem{DBLP:journals/tkde/CastellsFV07}
 P.~Castells, M.~Fern{\'a}ndez, and D.~Vallet, ``An adaptation of the
@@ -158,23 +140,14 @@ M.~Fern{\'a}ndez, I.~Cantador, V.~Lopez, D.~Vallet, P.~Castells, and E.~Motta,
   ``Semantically enhanced information retrieval: An ontology-based approach,''
   \emph{J. Web Sem.}, vol.~9, no.~4, pp. 434--452, 2011.
 
-\bibitem{tran2007expressive}
-T.~Tran, S.~Bloehdorn, P.~Cimiano, and P.~Haase, ``Expressive resource
-  descriptions for ontology-based information retrieval,'' in \emph{ICTIR},
-  2007, pp. 55--68.
+\bibitem{DBLP:conf/ecai/CorbyDF04}
+O.~Corby, R.~Dieng-Kuntz, and C.~Faron-Zucker, ``Querying the semantic web with
+  corese search engine,'' in \emph{ECAI}, 2004, pp. 705--709.
 
 \bibitem{DBLP:conf/aswc/CaoCT08}
 T.~H. Cao, T.~D. Cao, and T.~L. Tran, ``A robust ontology-based method for
   translating natural language queries to conceptual graphs,'' in \emph{ASWC},
   2008, pp. 479--492.
-
-\bibitem{DBLP:conf/iccs/ComparotHH07}
-C.~Comparot, O.~Haemmerl{\'e}, and N.~Hernandez, ``Conceptual graphs and
-  ontologies for information retrieval,'' in \emph{ICCS}, 2007, pp. 480--483.
-
-\bibitem{DBLP:conf/ecai/CorbyDF04}
-O.~Corby, R.~Dieng-Kuntz, and C.~Faron-Zucker, ``Querying the semantic web with
-  corese search engine,'' in \emph{ECAI}, 2004, pp. 705--709.
 
 \bibitem{DBLP:conf/esws/GiunchigliaKZ09}
 F.~Giunchiglia, U.~Kharkevich, and I.~Zaihrayeu, ``Concept search,'' in
@@ -209,6 +182,11 @@ D.~Trieschnigg, W.~Kraaij, and M.~J. Schuemie, ``Concept based document
 \bibitem{DBLP:conf/trec/ZhouYTS06}
 W.~Zhou, C.~T. Yu, V.~I. Torvik, and N.~R. Smalheiser, ``A concept-based
   framework for passage retrieval at genomics,'' in \emph{TREC}, 2006.
+
+\bibitem{DBLP:journals/ws/KiryakovPTMO04}
+A.~Kiryakov, B.~Popov, I.~Terziev, D.~Manov, and D.~Ognyanoff, ``Semantic
+  annotation, indexing, and retrieval,'' \emph{J. Web Sem.}, vol.~2, no.~1, pp.
+  49--79, 2004.
 
 \bibitem{DBLP:conf/sigir/Chu-CarrollPCFD06}
 J.~Chu-Carroll, J.~M. Prager, K.~Czuba, D.~A. Ferrucci, and P.~A. Dubou{\'e},
@@ -247,12 +225,6 @@ J.~Zhu, Z.~Nie, X.~Liu, B.~Zhang, and J.-R. Wen, ``Statsnowball: a statistical
 M.~Zhong and X.~Huang, ``Concept-based biomedical text retrieval,'' in
   \emph{SIGIR}, 2006, pp. 723--724.
 
-\bibitem{DBLP:conf/trec/JelierSEWMSMK03}
-R.~Jelier, M.~J. Schuemie, C.~C. van~der Eijk, M.~Weeber, E.~M. van Mulligen,
-  B.~J.~A. Schijvenaars, B.~Mons, and J.~A. Kors, ``Searching for generifs:
-  Concept-based query expansion and bayes classification,'' in \emph{TREC},
-  2003, pp. 225--233.
-
 \bibitem{DBLP:conf/sigir/QiuF93}
 Y.~Qiu and H.-P. Frei, ``Concept based query expansion,'' in \emph{SIGIR},
   1993, pp. 160--169.
@@ -278,6 +250,11 @@ X.~Jiang and A.-H. Tan, ``Ontosearch: A full-text search engine for the
 D.~Damljanovic, M.~Agatonovic, and H.~Cunningham, ``Natural language interfaces
   to ontologies: Combining syntactic analysis and ontology-based lookup through
   the user interaction,'' in \emph{ESWC (1)}, 2010, pp. 106--120.
+
+\bibitem{DBLP:journals/dke/CimianoHHMS08}
+P.~Cimiano, P.~Haase, J.~Heizmann, M.~Mantel, and R.~Studer, ``Towards portable
+  natural language interfaces to knowledge bases - the case of the orakel
+  system,'' \emph{Data Knowl. Eng.}, vol.~65, no.~2, pp. 325--354, 2008.
 
 \bibitem{DBLP:conf/icde/TranWRC09}
 T.~Tran, H.~Wang, S.~Rudolph, and P.~Cimiano, ``Top-k exploration of query
@@ -347,11 +324,6 @@ J.~Stoyanovich, S.~J. Bedathur, K.~Berberich, and G.~Weikum, ``Entityauthority:
   Semantically enriched graph-based authority propagation,'' in \emph{WebDB},
   2007.
 
-\bibitem{DBLP:conf/sigir/ButtcherCL06a}
-S.~B{\"u}ttcher, C.~L.~A. Clarke, and B.~Lushman, ``Term proximity scoring for
-  ad-hoc retrieval on very large text collections,'' in \emph{SIGIR}, 2006, pp.
-  621--622.
-
 \bibitem{DBLP:conf/sigir/TaoZ07}
 T.~Tao and C.~Zhai, ``An exploration of proximity measures in information
   retrieval,'' in \emph{SIGIR}, 2007, pp. 295--302.
@@ -401,10 +373,6 @@ C.~Jonquet, P.~LePendu, S.~M. Falconer, A.~Coulet, N.~F. Noy, M.~A. Musen, and
   biomedical resources,'' \emph{J. Web Sem.}, vol.~9, no.~3, pp. 316--324,
   2011.
 
-\bibitem{DBLP:conf/www/GuhaMM03}
-R.~V. Guha, R.~McCool, and E.~Miller, ``Semantic search,'' in \emph{WWW}, 2003,
-  pp. 700--709.
-
 \bibitem{DBLP:journals/ipm/BalogAR09}
 K.~Balog, L.~Azzopardi, and M.~de~Rijke, ``A language modeling framework for
   expert finding,'' \emph{Inf. Process. Manage.}, vol.~45, no.~1, pp. 1--19,
@@ -419,9 +387,23 @@ K.~Balog, M.~Bron, and M.~de~Rijke, ``Query modeling for entity search based on
 J.~Pehcevski, A.-M. Vercoustre, and J.~A. Thom, ``Exploiting locality of
   wikipedia links in entity ranking,'' in \emph{ECIR}, 2008, pp. 258--269.
 
+\bibitem{DBLP:conf/sigir/BastCSW07}
+H.~Bast, A.~Chitea, F.~M. Suchanek, and I.~Weber, ``Ester: efficient search on
+  text, entities, and relations,'' in \emph{SIGIR}, 2007, pp. 671--678.
+
 \bibitem{DBLP:conf/esws/WangXZY07}
 C.~Wang, M.~Xiong, Q.~Zhou, and Y.~Yu, ``Panto: A portable natural language
   interface to ontologies,'' in \emph{ESWC}, 2007, pp. 473--487.
+
+\bibitem{DBLP:journals/tods/LiYJ07}
+Y.~Li, H.~Yang, and H.~V. Jagadish, ``Nalix: A generic natural language search
+  environment for xml data,'' \emph{ACM Trans. Database Syst.}, vol.~32, no.~4,
+  2007.
+
+\bibitem{DBLP:conf/iui/HanNPPL10}
+Y.-J. Han, T.-G. Noh, S.-B. Park, S.-Y. Park, and S.-J. Lee, ``A natural
+  language interface of thorough coverage by concordance with knowledge
+  bases,'' in \emph{IUI}, 2010, pp. 325--328.
 
 \bibitem{DBLP:journals/aim/FerrucciBCFGKLMNPSW10}
 D.~A. Ferrucci, E.~W. Brown, J.~Chu-Carroll, J.~Fan, D.~Gondek, A.~Kalyanpur,
@@ -437,8 +419,19 @@ J.~Chu-Carroll, K.~Czuba, J.~M. Prager, and A.~Ittycheriah, ``In question
 J.~M. Prager, E.~W. Brown, A.~Coden, and D.~R. Radev, ``Question-answering by
   predictive annotation,'' in \emph{SIGIR}, 2000, pp. 184--191.
 
+\bibitem{vanZwol:2010:FEI:1772690.1772788}
+R.~van Zwol, B.~Sigurbj{\"o}rnsson, R.~Adapala, L.~G. Pueyo, A.~Katiyar,
+  K.~Kurapati, M.~Muralidharan, S.~Muthu, V.~Murdock, P.~Ng, A.~Ramani,
+  A.~Sahai, S.~T. Sathish, H.~Vasudev, and U.~Vuyyuru, ``Faceted exploration of
+  image search results,'' in \emph{WWW}, 2010, pp. 961--970.
+
 \bibitem{DBLP:conf/cikm/CoffmanW10}
 J.~Coffman and A.~C. Weaver, ``A framework for evaluating database keyword
   search strategies,'' in \emph{CIKM}, 2010, pp. 729--738.
+
+\bibitem{DBLP:conf/aaai/LiCYSJ07}
+Y.~Li, I.~Chaudhuri, H.~Yang, S.~Singh, and H.~V. Jagadish, ``Enabling
+  domain-awareness for a generic natural language interface,'' in \emph{AAAI},
+  2007, pp. 833--838.
 
 \end{thebibliography}
