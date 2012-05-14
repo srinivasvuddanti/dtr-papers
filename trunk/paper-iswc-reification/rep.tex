@@ -68,33 +68,23 @@ While syntactically {\RDFplusTriple}s and {\TRef}s are the same, they represent 
 	\removable{Hence, trefs may be understood as a particular type of name for {\RDFplusTriple}s.}
 However, since {\TRef}s carry all elements of the {\RDFplusTriple}s they denote, it is possible to obtain such a triple from its reference: We introduce a bijective function $\symDerefFct$ that maps the set of {\TRef}s to the set of all {\RDFplusTriple}s and that is defined as follows: Let $r=(s,p,o) \in \symAllTRefs$ be an arbitrary {\TRef}, then $\fctDeref{r}$ is the {\RDFplusTriple} $(s,p,o)$.
 
+
 \subsection{Interpretation}
 
-\todo{introduce this subsection (explain the purpose of the conversion function defined here)}
-
-For any RDF triple $(s,p,o) \in (\symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$ and blank node $b \in \symAllBNodes$ we define:
-\begin{align*}
-	\mathrm{reif}\bigl( s,p,o, b \bigr) := \big\lbrace
-		& (b,\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}),
-		(b,\mathTinyRDF{rdf\!:\!subject},s), \\
-		& (b,\mathTinyRDF{rdf\!:\!predicate},p),
-		(b,\mathTinyRDF{rdf\!:\!object},o)
-	\big\rbrace
-\end{align*}
-
-\noindent
-Let $G$ be a set of {\RDFplusTriple}s. For converting $G$ into a set of RDF triples we assume a bijective function $id : \fctTRef{G} \rightarrow B$ where $B \subset \symAllBNodes$ is a set of blank nodes such that $| B | = | \fctTRef{G} |$ and $B \cap \fctTerms{G} = \emptyset$. Hence, $id$ associates each {\TRef} in $G$ with a fresh blank node (not used in $G$). Furthermore, we introduce
+Let $G$ be a set of {\RDFplusTriple}s. For \Todo{converting}{introduce this subsection (explain the purpose of the conversion function defined here)} $G$ into a set of RDF triples we assume a bijective function $id : \fctTRef{G} \rightarrow B$ where $B \subset \symAllBNodes$ is a set of blank nodes such that $| B | = | \fctTRef{G} |$ and $B \cap \fctTerms{G} = \emptyset$. Hence, $id$ associates each {\TRef} in $G$ with a fresh blank node (not used in $G$). Furthermore, we introduce
 	%an injective function $id^* : \fctTerms{G} \rightarrow \fctTerms{G} \cup B$
 	another bijective function $id^*\! : \fctTerms{G} \rightarrow B \cup \bigl( \fctTerms{G} \!\setminus\! \fctTRef{G} \bigr)$
 that is defined as follows: Let $x \in \fctTerms{G}$. If $x \in \symAllTRefs$ then $id^*\!(x) := id(x)$; if $x \notin \symAllTRefs$ then $id^*\!(x) := x$.
 %
-	Using $id^*$,
-	%Overloading function $\mathrm{reif}$,
-for any {\TRef} $r = (s,p,o) \in \fctTRef{G}$ we define:
-% \vspace{-3mm} % Layout Adjustment
-\begin{equation*}
-	\mathrm{reif}( r ) := \mathrm{reif}\bigl( \, id^*\!(s), id^*\!(p), id^*\!(o), id^*\!(r) \, \bigr)
-\end{equation*}
+Using $id^*$, for any {\TRef} $r = (s,p,o) \in \fctTRef{G}$ we define:
+\begin{align*}
+	\mathrm{reif}\bigl( r \bigr) := \big\lbrace
+		& (id^*\!(r),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}),
+		(id^*\!(r),\mathTinyRDF{rdf\!:\!subject},id^*\!(s)), \\
+		& (id^*\!(r),\mathTinyRDF{rdf\!:\!predicate},id^*\!(p)),
+		(id^*\!(r),\mathTinyRDF{rdf\!:\!object},id^*\!(o))
+	\big\rbrace
+\end{align*}
 
 \noindent
 For any {\RDFplusTriple} $t = (s,p,o) \in G$ we define:
@@ -114,7 +104,7 @@ For any {\RDFplusTriple} $t = (s,p,o) \in G$ we define:
 \end{equation*}
 
 \noindent
-Finally:
+\Todo{Finally}{add some more text here}:
 \begin{equation*}
 	\fctDescent{G} := \bigcup_{t \in G} \fctDescent{t}
 \end{equation*}
