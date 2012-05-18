@@ -26,63 +26,68 @@ pairwise disjoint sets $\symAllURIs$ (all URI references), $\symAllBNodes$ (blan
 such kind of (nested) embedding we
 	%introduce
 	define
-a set $\symAllTRefsInfinite := (\symAllTRefsInfinite \cup \symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllTRefsInfinite \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$.
+a set $\symAllTriplesInfinite := (\symAllTriplesInfinite \cup \symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllTriplesInfinite \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$.
 %
 	As a basis for ruling
 	%To rule
 out infinitely deep nesting we introduce the notion of \emph{$k$-nestedness} (where $k$
 	is an arbitrary
 	%may be any
-natural number): A tuple $r=(s,p,o) \in \symAllTRefsInfinite$ is $k$-nested if either 1.)~$k=0$ and $r\in (\symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$ or 2.)~$k>0$ and for all $x \in \bigl( \lbrace s,o \rbrace \cap \symAllTRefsInfinite \bigr)$ holds $x$ is $(k\!-\!1$)-nested.
-%
-Using $k$-nestedness we now
-	%define
-	introduce {\TRefLongVersion}s as
-the new type of elements that may be used for triples in {\RDFplus}: A 
-%
-%Using $k$-nestedness we now define a
-	%\emph{{\TRef}}
-	\emph{{\TRefLongVersion}}, or \emph{\TRef} for short,
-is a tuple $r = (s,p,o) \in \symAllTRefsInfinite$ for which exists a natural number $k$ such that $r$ is $k$-nested; to denote the set of all {\TRef}s we write $\symAllTRefs$, i.e.~$\symAllTRefs \subset \symAllTRefsInfinite$.
+natural number): A tuple $(s,p,o) \in \symAllTriplesInfinite$ is $k$-nested if either 1.)~$k=0$ and
+	%$(s,p,o) \in (\symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$
+	$(s,p,o)$ is an RDF triple
+or 2.)~$k>0$ and for all $x \in \bigl( \lbrace s,o \rbrace \cap \symAllTriplesInfinite \bigr)$ holds $x$ is $(k\!-\!1$)-nested. Using $k$-nestedness we now define our extended notion of triples%
+	.
+	%:
 
-An \emph{{\RDFplusTriple}} is a tuple $(s,p,o) \in (\symAllTRefs \cup \symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllTRefs \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$.
-A set
-	%of {\RDFplusTriple}s
-	of~{\RDFplusTriple}s  %% Layout Adjustment
-is an \emph{{\RDFplusGraph}}.
-We call an {\RDFplusTriple}
-	%that contains a triple reference (in its subject or object position)
-	$(s,p,o)$ for which $s \in \symAllTRefs$ or $o \in \symAllTRefs$,
-a \emph{metadata triple}; note that any other {\RDFplusTriple} is an ordinary RDF triple.
+An \emph{{\RDFplusTriple}} is a tuple $t \in \symAllTriplesInfinite$ for which exists a natural number $k$ such that $t$ is $k$-nested; to denote the set of all {\RDFplusTriple}s we write $\symAllTriples$ (i.e.~$\symAllTriples \subset \symAllTriplesInfinite$).
 For any {\RDFplusTriple} $t=(s,p,o)$ we define
-	%$\fctTerms{t} := \lbrace s,p,o \rbrace$ and $\fctTRef{t} := \fctTerms{t} \cap \symAllTRefs$.
-	$\fctTerms{t} := \lbrace s,p,o \rbrace$.
-Overloading
-	%functions $\symTermsFct$ and $\symTRefFct$, we write $\fctTerms{G} := \bigcup_{t \in G} \fctTerms{t}$ and $\fctTRef{G} := \fctTerms{G} \cap \symAllTRefs$ for any set $G$ of {\RDFplusTriple}s.
-	function $\symTermsFct$, for any {\RDFplusGraph} $G$ we define $\fctTerms{G} := \bigcup_{t \in G} \fctTerms{t}$; furthermore, $\fctTRef{G} := \fctTerms{G} \cap \symAllTRefs$.
+	$\fctTermsPlus{t} := \lbrace s,p,o \rbrace \cup \big\lbrace x' \in \fctTermsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTriples \big\rbrace$.
+	%$\fctTermsPlus{t} := \lbrace s,p,o \rbrace \cup \bigcup_{x \in \lbrace s,o \rbrace \cap \symAllTriples} \fctTermsPlus{x}$.
+%Furthermore, we write $\fctTRef{t}$ to denote the set of all {\RDFplusTriple}s that are (recursively) embedded in $t$; formally: $\fctTRef{t} := \bigl( \lbrace s,o \rbrace \cap \symAllTriples \bigr) \cup \big\lbrace t' \in \fctTRef{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTriples \big\rbrace$.
+We call an {\RDFplusTriple}
+	$t=(s,p,o)$ for which $s \in \symAllTriples$ or $o \in \symAllTriples$,
+	%$t$ for which $\fctTRef{t} = \emptyset$,
+a \emph{metadata triple}%
+	%; note that any other {\RDFplusTriple} is an ordinary RDF triple.
+	.
 
-While syntactically {\RDFplusTriple}s and {\TRef}s are the same, they represent different concepts: {\RDFplusTriple}s may be interpreted as statements (similar to RDF triples) whereas a {\TRef} denotes an {\RDFplusTriple}
-	%that is embedded in other {\RDFplusTriple}s.
-	for the purpose of making a statement about it.
-%
-	\removable{Hence, trefs may be understood as a particular type of name for {\RDFplusTriple}s.}
-However, since {\TRef}s carry all elements of the {\RDFplusTriple}s they denote, it is possible to obtain such a triple from its reference: We introduce a bijective function $\symDerefFct$ that maps the set of {\TRef}s to the set of all {\RDFplusTriple}s and that is defined as follows: Let $r=(s,p,o) \in \symAllTRefs$ be an arbitrary {\TRef}, then $\fctDeref{r}$ is the {\RDFplusTriple} $(s,p,o)$.
+A set of {\RDFplusTriple}s is an \emph{\RDFplusGraph}. Overloading function $\symTermsPlusFct$, for any {\RDFplusGraph} $G$ we define $\fctTermsPlus{G} := \bigcup_{t \in G} \fctTermsPlus{t}$. Furthermore, for {\RDFplusGraph} $G$, we write $\fctTRefs{G}$ to denote the set of all {\RDFplusTriple}s that are (recursively) embedded in {\RDFplusTriple}s of $G$; hence $\fctTRefs{G} := \fctTermsPlus{G} \cap \symAllTriples$.
 
+% Any {\RDFplusTriple} that is embedded in another {\RDFplusTriple} is also assumed to be (implicitly) contained in data that contains the embedding triple. To make this assumption explicit we introduce an operation that (recursively) unnests {\RDFplusTriple}s: Let $t=(s,p,o)$ be an {\RDFplusTriple}, then $\fctClose{t}$ is a set of {\RDFplusTriple}s that is defined as follows:
+% \begin{equation*}
+% 	\fctClose{t} := \big\lbrace t' \,\big|\, t' = t \text{ or } \exists \, t^* \in \lbrace s,o \rbrace \cap \symAllTriples : t' \in \fctClose{t^*} \big\rbrace
+% \end{equation*}
+% Overloading
+% 	function $\symCloseFct$,
+% 	%notation,
+% for any {\RDFplusGraph} $G$ we define $\fctClose{G} := \bigcup_{t \in G} \fctClose{t}$.
+
+
+% While syntactically {\RDFplusTriple}s and {\TRef}s are the same, they represent different concepts: {\RDFplusTriple}s may be interpreted as statements (similar to RDF triples) whereas a {\TRef} denotes an {\RDFplusTriple}
+% 	%that is embedded in other {\RDFplusTriple}s.
+% 	for the purpose of making a statement about it.
+% %
+% 	\removable{Hence, trefs may be understood as a particular type of name for {\RDFplusTriple}s.}
+% However, since {\TRef}s carry all elements of the {\RDFplusTriple}s they denote, it is possible to obtain such a triple from its reference: We introduce a bijective function $\symDerefFct$ that maps the set of {\TRef}s to the set of all {\RDFplusTriple}s and that is defined as follows: Let $r=(s,p,o) \in \symAllTRefs$ be an arbitrary {\TRef}, then $\fctDeref{r}$ is the {\RDFplusTriple} $(s,p,o)$.
+
+% \todo{$G$ and $\fctClose{G}$ are semantically equivalent!!}
+\todo{$G$ and $G \cup \fctTRefs{G}$ are semantically equivalent!!}
 
 \subsection{Interpretation}
 
-Let $G$ be a set of {\RDFplusTriple}s. For \Todo{converting}{introduce this subsection (explain the purpose of the conversion function defined here)} $G$ into a set of RDF triples we assume a bijective function $id : \fctTRef{G} \rightarrow B$ where $B \subset \symAllBNodes$ is a set of blank nodes such that $| B | = | \fctTRef{G} |$ and $B \cap \fctTerms{G} = \emptyset$. Hence, $id$ associates each {\TRef} in $G$ with a fresh blank node (not used in $G$). Furthermore, we introduce
-	%an injective function $id^* : \fctTerms{G} \rightarrow \fctTerms{G} \cup B$
-	another bijective function $id^*\! : \fctTerms{G} \rightarrow B \cup \bigl( \fctTerms{G} \!\setminus\! \fctTRef{G} \bigr)$
-that is defined as follows: Let $x \in \fctTerms{G}$. If $x \in \symAllTRefs$ then $id^*\!(x) := id(x)$; if $x \notin \symAllTRefs$ then $id^*\!(x) := x$.
+Let $G$ be an {\RDFplusGraph}. For \Todo{converting}{introduce this subsection (explain the purpose of the conversion function defined here)} $G$ into a set of RDF triples we assume a bijective function $id : \fctTRefs{G} \rightarrow B$ where $B \subset \symAllBNodes$ is a set of blank nodes such that $| B | = | \fctTRefs{G} |$ and $B \cap \fctTerms{G} = \emptyset$. Hence, $id$ associates each {\TRef} in $G$ with a fresh blank node (not used in $G$). Furthermore, we introduce
+	%an injective function $id^* : \fctTermsPlus{G} \rightarrow \fctTermsPlus{G} \cup B$
+	another bijective function $id^*\! : \fctTermsPlus{G} \rightarrow B \cup \bigl( \fctTermsPlus{G} \!\setminus\! \fctTRefs{G} \bigr)$
+that is defined as follows: Let $x \in \fctTermsPlus{G}$. If $x \in \symAllTriples$ then $id^*\!(x) := id(x)$; if $x \notin \symAllTriples$ then $id^*\!(x) := x$.
 %
-Using $id^*$, for any {\TRef} $r = (s,p,o) \in \fctTRef{G}$ we define:
+Using $id^*$, for any $t = (s,p,o) \in \fctTRefs{G}$ we define:
 \begin{align*}
-	\mathrm{reif}\bigl( r \bigr) := \big\lbrace
-		& (id^*\!(r),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}),
-		(id^*\!(r),\mathTinyRDF{rdf\!:\!subject},id^*\!(s)), \\
-		& (id^*\!(r),\mathTinyRDF{rdf\!:\!predicate},id^*\!(p)),
-		(id^*\!(r),\mathTinyRDF{rdf\!:\!object},id^*\!(o))
+	\mathrm{reif}\bigl( t \bigr) := \big\lbrace
+		& (id^*\!(t),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}),
+		(id^*\!(t),\mathTinyRDF{rdf\!:\!subject},id^*\!(s)), \\
+		& (id^*\!(t),\mathTinyRDF{rdf\!:\!predicate},id^*\!(p)),
+		(id^*\!(t),\mathTinyRDF{rdf\!:\!object},id^*\!(o))
 	\big\rbrace
 \end{align*}
 
@@ -91,14 +96,14 @@ For any {\RDFplusTriple} $t = (s,p,o) \in G$ we define:
 \begin{equation*}
 	\fctDescent{t} := \begin{cases}
 \vspace{1mm}
-		\big\lbrace (id(s),p,o) \big\rbrace \cup \mathrm{reif}(s) \cup \symDescentFct\bigl(\fctDeref{s}\bigr) & \text{if $s \in \symAllTRefs$ and $o \notin \symAllTRefs$,} \\
+		\big\lbrace (id(s),p,o) \big\rbrace \cup \mathrm{reif}(s) \cup \fctDescent{s} & \text{if $s \in \symAllTriples$ and $o \notin \symAllTriples$,} \\
 \vspace{1mm}
-		\big\lbrace (s,p,id(o)) \big\rbrace \cup \mathrm{reif}(o) \cup \symDescentFct\bigl(\fctDeref{o}\bigr) & \text{if $s \notin \symAllTRefs$ and $o \in \symAllTRefs$,} \\
+		\big\lbrace (s,p,id(o)) \big\rbrace \cup \mathrm{reif}(o) \cup \fctDescent{o} & \text{if $s \notin \symAllTriples$ and $o \in \symAllTriples$,} \\
 \vspace{1mm}
-		\begin{minipage}[c]{65mm}\vspace{1mm}
-			$\big\lbrace (id(s),p,id(o)) \big\rbrace \cup \mathrm{reif}(s) \cup \mathrm{reif}(o)$ \\
-			\hspace*{15mm}$\cup \, \symDescentFct\bigl(\fctDeref{s}\bigr) \cup \symDescentFct\bigl(\fctDeref{o}\bigr)$
-		\end{minipage} & \text{if $s \in \symAllTRefs$ and $o \notin \symAllTRefs$,} \\
+		\begin{minipage}[c]{55mm}\vspace{1mm}
+			$\big\lbrace (id(s),p,id(o)) \big\rbrace \cup \mathrm{reif}(s) \cup \fctDescent{s}$ \\
+			\hspace*{27.5mm}$\cup \, \mathrm{reif}(o) \cup \fctDescent{o}$
+		\end{minipage} & \text{if $s \in \symAllTriples$ and $o \in \symAllTriples$,} \\
 		\big\lbrace (s,p,o) \big\rbrace & \text{else} .
 \end{cases}
 \end{equation*}
@@ -134,6 +139,10 @@ For any {\RDFplusTriple} $t = (s,p,o) \in G$ we define:
 
 \noindent
 Based on the conversion function, it is possible to interpret any {\RDFplus} model via the usual RDF semantics as defined in~\cite{Hayes04:RDFsemantics}.
+
+\begin{proposition}
+	For any {\RDFplusGraph} $G$ it holds $\fctDescent{G} = \fctDescent{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
+\end{proposition}
 
 
 \subsection{Representation}

@@ -20,17 +20,25 @@
 %%% key terminology:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\RDFplus}%
-	%{RDF$^{\mathsf{\text{\tiny +\!meta}}}$}
-	{RDF$^\star$}
+\newcommand{\xxxPLUS}% % don't use that; it is required to define \RDFplus and \SPARQLplus
+	%{$^{\mathsf{\text{\tiny +\!meta}}}$}
+	{$^\star$}
+
+\newcommand{\RDFplus}{RDF\xxxPLUS}
+\newcommand{\SPARQLplus}{SPARQL\xxxPLUS}
 
 \newcommand{\RDFplusTriple}{{\RDFplus}\! triple}
 \newcommand{\RDFplusGraph}{{\RDFplus}\! graph}
+\newcommand{\TPplus}{triple\xxxPLUS pattern}
 
 \newcommand{\TRef}%
 	%{triple reference}
 	{tref}
 \newcommand{\TRefLongVersion}{triple reference}
+
+\newcommand{\TRefPtt}{{\TRef} pattern}
+\newcommand{\TRefPttLongVersion}{{\TRefLongVersion} pattern}
+
 
 
 %%% relevant math symbols
@@ -38,23 +46,55 @@
 
 \renewcommand{\emptyset}{\varnothing}
 
+\newcommand{\symDomFct}{\mathrm{dom}} % the name used for \fctDom
+\newcommand{\fctDom}[1]{\symDomFct(#1)} % the domain of function/mapping #1
+
 \newcommand{\symAllURIs}{\mathcal{U}} % the symbol for the set of all URIs
 \newcommand{\symAllLiterals}{\mathcal{L}} % the symbol for the set of all literals
 \newcommand{\symAllBNodes}{\mathcal{B}} % the symbol for the set of all blank nodes
 \newcommand{\symAllVariables}{\mathcal{V}} % the symbol for the set of all query variables
-	\newcommand{\symAllTRefsInfinite}{\mathcal{R}} % don't use that; it was required to define \symAllTRefs
+
+	\newcommand{\symAllTriplesInfinite}{\mathcal{T}} % don't use that; it is required to define \symAllTriples
+\newcommand{\symAllTriples}{\overline{\symAllTriplesInfinite}} % the symbol for the set of all triple references
+	\newcommand{\symAllTPsInfinite}{\mathcal{TP}} % don't use that; it is required to define \symAllTPs
+\newcommand{\symAllTPs}{\overline{\symAllTPsInfinite}} % the symbol for the set of all triple references
+
+	\newcommand{\symAllTRefsInfinite}{\mathcal{R}} % don't use that; it is required to define \symAllTRefs
 \newcommand{\symAllTRefs}{\overline{\symAllTRefsInfinite}} % the symbol for the set of all triple references
+	\newcommand{\symAllTRefPttsInfinite}{\mathcal{RP}} % don't use that; it is required to define \symAllTRefPtts
+\newcommand{\symAllTRefPtts}{\overline{\symAllTRefPttsInfinite}} % the symbol for the set of all triple reference patterns
 
 \newcommand{\symTermsFct}{\mathrm{terms}} % the name used for \fctTerms
-\newcommand{\fctTerms}[1]{\symTermsFct(#1)} % the set of all terms in triple/graph #1
+\newcommand{\fctTerms}[1]{\symTermsFct(#1)} % the set of all terms in triple #1
 
-\newcommand{\symTRefFct}{\mathrm{trefs}} % the name used for \fctTref
-\newcommand{\fctTRef}[1]{\symTRefFct(#1)} % the set of all triple references in triple/graph #1
+\newcommand{\symTermsPlusFct}{\symTermsFct^+} % the name used for \fctTermsPlus
+\newcommand{\fctTermsPlus}[1]{\symTermsPlusFct\!(#1)} % the set of all terms in triple #1 and its embedded triples
 
-\newcommand{\symDerefFct}{\mathrm{deref}} % the name used for \fctDeref
-\newcommand{\fctDeref}[1]{\symDerefFct(#1)} % the triple denoted by triple reference #1
+\newcommand{\symTRefsFct}{\mathrm{trefs}} % the name used for \fctTrefs
+\newcommand{\fctTRefs}[1]{\symTRefsFct(#1)} % the set of all triple references in triple/graph #1
+
+% \newcommand{\symDerefFct}{\mathrm{deref}} % the name used for \fctDeref
+% \newcommand{\fctDeref}[1]{\symDerefFct(#1)} % the triple denoted by triple reference #1
+
+% \newcommand{\symCloseFct}{\mathrm{cl}} % the name used for \fctClose
+% \newcommand{\fctClose}[1]{\symCloseFct(#1)} % the tref-closure of #1
+
+\newcommand{\symVarsFct}{\mathrm{vars}} % the name used for \fctVars
+\newcommand{\fctVars}[1]{\symVarsFct(#1)} % the set of all variables in pattern #1
 
 \newcommand{\symDescentFct}{\mathrm{rdf}} % the name used for \fctDescent
 \newcommand{\fctDescent}[1]{\symDescentFct(#1)} % set of RDF triples for an RDF+ triple/graph
 
 \newcommand{\mathTinyRDF}[1]{\texttt{\footnotesize #1}}
+
+\newcommand{\OpAND}{\text{ \normalfont\scriptsize\textsf{AND} }}
+\newcommand{\OpUNION}{\text{ \normalfont\scriptsize\textsf{UNION} }}
+\newcommand{\OpOPT}{\text{ \normalfont\scriptsize\textsf{OPT} }}
+\newcommand{\OpFILTER}{\text{ \normalfont\scriptsize\textsf{FILTER} }}
+\newcommand{\OpAS}{\text{ \normalfont\scriptsize\textsf{AS} }}
+\newcommand{\compatible}{\sim} % the symbol for compatibility between valuations
+\newcommand{\fctEval}[2]{[\![#1]\!]_{#2}} % the symbol for the evaluation of SPARQL pattern #1 over an RDF graph #2
+
+%% The following definitions of a symbol for left outer join work best in Springer format:
+\def\ojoin{\setbox0=\hbox{$\Join$}\rule[.01ex]{.25em}{.45pt}\llap{\rule[1.05ex]{.25em}{.4pt}}}
+\def\LJoin{\mathbin{\ojoin\mkern-7.5mu\Join}}

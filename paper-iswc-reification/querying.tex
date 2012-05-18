@@ -1,4 +1,85 @@
 \section{Querying}
-Syntax 
-Semantics
+\todo{introduction for this section}
 
+\subsection{Syntax of {\SPARQLplus}}
+
+	Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$ where $\symAllVariables$ is a set of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively.
+	%We assume a set $\symAllVariables$ of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively. Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$.
+A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natural number $k$ such that $tp$ is $k$-nested\footnote{$k$-nestedness for $\symAllTPsInfinite$ is defined analog to $k$-nestedness for $\symAllTriplesInfinite$.}; to denote the set of all {\TPplus}s we write $\symAllTPs$ (i.e.~$\symAllTPs \subset \symAllTPsInfinite$).
+	%To denote the set of all variables in a {\TPplus} $tp=(s,p,o)$ we write $\fctVars{tp}$; hence, $\fctVars{tp} := (\lbrace s,p,o \rbrace \cap \symAllVariables) \cup \big\lbrace ?v \in \fctVars{x} \,|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+	For any {\TPplus} $tp \!=\! (s,p,o)$ we define $\fctVars{tp} \!:=\! \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVars{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+
+	We now define \emph{{\SPARQLplus} expression}s recursively \removable{as follows}:
+	%\emph{{\SPARQLplus} expression}s are defined recursively \removable{as follows}:
+\begin{enumerate}
+	\item A \emph{\TPplus} is a {\SPARQLplus} expression.
+	\item Let $tp \in \symAllTPs$ and $?v \in \symAllVariables$, then $(tp \OpAS ?v)$ is a {\SPARQLplus} expression.
+	\item Let $P_1$ and $P_2$ be {\SPARQLplus} expressions and $R$ a filter condition%
+		\footnote{For a formal definition of
+			\removable{the syntax and semantics of}
+		filter conditions we refer to~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.}%
+	, then $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, and $(P_1 \OpFILTER R)$ are {\SPARQLplus} expressions.
+\end{enumerate}
+
+
+\subsection{{\RDFplus} Semantics of {\SPARQLplus}}
+	To define the semantics of {\SPARQLplus} we introduce
+	%We define the semantics of {\SPARQLplus} based on
+\emph{valuation}s, that are, partial mappings $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$.
+Two valuations $\eta$ and $\eta'$ are \emph{compatible}, denoted by $\eta \compatible \eta'$, if for all $?v \in \fctDom{\eta} \cap \fctDom{\eta'}$ holds $\eta(?v) = \eta'(?v)$; note,
+	%$\fctDom{\eta}$ denotes
+	$\fctDom{\eta}$~denotes %% Layout Adjustment
+the domain of a valuation $\eta$.
+
+Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of valuations; let $R$ be a filter condition. The binary operations \emph{join}, \emph{union}, \emph{difference}, and \emph{left outer-join} between $\Omega_1$ and $\Omega_2$ are defined as follows:
+\begin{align*}
+	\Omega_1 \Join \Omega_2 & := \lbrace \eta_1 \cup \eta_1 \,|\, \eta_1 \in \Omega_1 \text{ and } \eta_2 \in \Omega_2 \text{ and } \eta_1 \sim \eta_2 \rbrace \\
+	\Omega_2 \cup \Omega_2 & := \lbrace \eta \,|\, \eta \in \Omega_1 \text{ or } \eta \in \Omega_2 \rbrace \\
+	\Omega_1 \setminus \Omega_2 & := \lbrace \eta_1 \in \Omega_1 \,|\, \forall \eta_2 \in \Omega_2 : \eta_1 \not\sim \eta_2 \rbrace \\
+	\Omega_1 \LJoin \Omega_2 &:= \left( \Omega_1 \Join \Omega_2 \right) \cup \left( \Omega_1 \setminus \Omega_2 \right) \\
+	\sigma_R ( \Omega ) &:= \lbrace \eta \in \Omega \,|\, \eta \text{ satisfies } R \rbrace
+\end{align*}
+
+%For a valuation $\eta$ and a {\TPplus} $tp$, we write $\eta[tp]$ to denote the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$. Note, if $\fctVars{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}.
+
+	%Let $P$ be a {\SPARQLplus} expression and let $G$ be an {\RDFplusGraph}. The \emph{evaluation of $P$ over $G$},
+	The \emph{evaluation} of {\SPARQLplus} expression $P$ over {\RDFplusGraph} $G$,
+denoted by $\fctEval{P}{G}$, is defined recursively as follows:
+\begin{enumerate}
+	\item If $P$ is a {\TPplus} $tp$, then
+		\begin{equation*}
+			\fctEval{P}{G} := \big\lbrace \eta \,\big|\,
+				\eta \text{ is a valuation with } \fctDom{\eta} = \fctVars{tp}
+				\text{ and } \eta[tp] \in G \cup \fctTRefs{G}
+			\big\rbrace
+		\end{equation*}
+		where $\eta[tp]$ denotes the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$ (note, if $\fctVars{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}).
+		\vspace{1ex} %% Layout Adjustment
+	\item If $P$ is $(tp \OpAS ?v)$, then
+		\begin{align*}
+			\fctEval{P}{G} := \big\lbrace \eta \,\big|\,
+				& \eta' \in \fctEval{tp}{G} 
+				\text{ and } %\eta \text{ is a valuation with }
+					\fctDom{\eta} = \fctDom{\eta'}\cup \lbrace ?v \rbrace
+				\text{ and } \eta \compatible \eta' \text{ and }\\
+				& \eta(?v) = \eta[tp] \,
+			\big\rbrace
+		\end{align*}
+		\item If $P$ is $(P_1 \OpAND P_2)$, then $\fctEval{P}{G} := \fctEval{P_1}{G} \Join \fctEval{P_2}{G}$.
+		\item If $P$ is $(P_1 \OpUNION P_2)$, then $\fctEval{P}{G} := \fctEval{P_1}{G} \cup \fctEval{P_2}{G}$.
+		\item If $P$ is $(P_1 \OpOPT P_2)$, then $\fctEval{P}{G} := \fctEval{P_1}{G} \LJoin \fctEval{P_2}{G}$.
+		\item If $P$ is $(P' \OpFILTER R)$, then $\fctEval{P}{G} := \sigma_R\bigl( \fctEval{P'}{G} \bigr)$.
+	\end{enumerate}
+	Each valuation $\eta \in \fctEval{P}{G}$ is called a \emph{solution} for $P$ in $G$.
+
+\begin{proposition}
+	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEval{P}{G} = \fctEval{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
+\end{proposition}
+
+
+
+\subsection{RDF Semantics of {\SPARQLplus}}
+	%For RDF storage systems that do not support our {\RDFplus} data model (but the ordinary RDF data model), we define an alternative semantics for {\SPARQLplus}.
+	In addition to the {\SPARQLplus} semantics defined in the previous section, we now define an alternative semantics for {\SPARQLplus}. This alternative semantics enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
+
+\todo{...}
