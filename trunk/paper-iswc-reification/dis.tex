@@ -1,7 +1,15 @@
 \section{Discussion}
-What are benefits compared to RDF reification and other related work:
-Compact Representation 
-Efficient Querying 
+What are benefits compared to RDF reification and other related work. We discuss the benefits in terms of data management and query processing.
+
+\subsection{Data Management}
+- model efficient representation: less triples needed\\
+- thus more compact serialization: smaller turtle export\\
+
+\subsection{Query Processing}
+- more efficient processing because less data has to be loaded and \\
+- less joins are needed to combine binding for different triple patterns\\
+
+
  \# Who bought Sybase and where did we get that fact?
 
 SELECT ?src ?who {

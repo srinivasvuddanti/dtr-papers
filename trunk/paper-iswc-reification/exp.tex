@@ -1,31 +1,43 @@
 \section{Experiments}
-We now study the advantages of our approach as discussed previously through an experimental analysis, in which we compare our work with an implementation of the standard proposal for RDF reification. The results suggest... 
+We now study the advantages of our approach as discussed previously through an experimental analysis, in which we compare our work (henceforth referred to as \emph{Refi+}) with an implementation of the standard proposal for RDF reification (\emph{Refi}). The results suggest... 
 
 \subsection{Data}
 -	dataset description: which dataset, which version, how did we generate meta-level statements, what kinds\\
-- dataset statistics: how many triples, how many meta-level triples\\
+- dataset statistics: how many triples, how many meta-level triples (the meta-level triples needed for \emph{Refi}) \\
 
 \subsection{Queries}
 -	query set description: which queries, how did we generate meta-level queries, what kinds\\
-- query statistics: average, min, max number of triple patterns / meta-level triple patterns per query\\ 
-- group queries according to complexity classes: (1) according to overall number of triple patterns, e.g. 1,2,3 and so on (2) according to number of meta-level triple patterns, (3) according to data size / selectivity (measured in terms of the total number of triples that have to be loaded), e.g. 1-1000 triples, 1000-1000, and so on\\
+- query statistics: average, min, max number of triple patterns / meta-level triple patterns per query\\
+- group queries according to complexity classes:\\
+(1) according to overall number of triple patterns, e.g. 1,2,3 and so on \\
+(2) according to number of meta-level triple patterns, \\
+(3) according to data size / selectivity (measured in terms of the total number of triples that have to be loaded / also here meta-level triples are counted based on the \emph{Refi} implementation), e.g. 1-1000 triples, 1000-1000, and so on\\
 
 \subsection{Systems}
-- Description of Bigdata: what is that, how does it implement our proposal: h
+We have two commercial systems that implement our work, \emph{Refi+}, as well as the original RDF reification proposal, \emph{Refi}.\\
 
-Virtuoso
+- Description of Bigdata: what is Bigdata, how does it implement our proposal and the RDF reification baseline\\
+- (1) in terms of data management (see the data management performance subsection below): representation (short: what is the data structure used to represent triples and so on), serialization (short: which serialization supports, say a bit about how we support/implement the turtle serialization of our proposal), indexing (what indexes are used for accessing triples /  meta-level triples)\\
+- (2) and in terms of query processing: join implementation\\
+
+- Description of Virtuoso: what is Virtuoso, how does it implement our proposal and the RDF Reification baseline\\
+- (1) in terms of data management (see the data management performance subsection below): representation (short: what is the data structure used to represent triples and so on), serialization (short: which serialization supports, say a bit about how we support/implement the turtle serialization of our proposal), indexing (the data structure used for implementing the indexes; for which access patterns indexes are created for accessing triples /  meta-level triples)\\
+- (2) and in terms of query processing: join implementation\\
+
 
 \subsection{Data Management Performance}
+Compared to Refi, we show that Refi+ (1) requires less triples to manage meta-level triples, (2) its turtle export is more compact in size and (3) its indexes are smaller, required less time to be computed. For this, we compare Refi and Refi+ in terms of \\ 
+- Data representation: the \emph{number of triples} needed\\
+- Data serialization: we serialize the model in Turtle syntax then compare the \emph{size of the resulting exports}\\
+- Data indexing: size of the indexes, time needed to produce all the indexes (while Bigdata and Virtuoso may used different data structures for index implementation, and create different indexes for supporting different kinds / number of access patterns, the index configuration used for Refi and Refi+ within these systems should be same!)
 
 
 \subsection{Query Processing Performance}
+Compare to Refi, we show Refi+ requires less time to answer queries. In particular, we show that for Refi+, less data has to be accessed, and also, a smaller number of joins is needed. Thus, we should further decompose times into fractions attributable (1) to loading triples (scan / index lookups for answering every triple patterns) and (2) combing them  (union / join results for answering several patterns) and (3) additional processing (sort, group, filter). 
 
-Show the benefits in experiments
-Systems
+We compare Refi and Refi+ in terms of \\ 
+- Total performance: total time in ms (a) average over all queries, (b) average for every complexity class of queries (see queries subsection)\\
+- Load performance: load time in ms (a) average over all queries, (b) average for every complexity class of queries (see queries subsection)\\ 
+- Join performance: time needed for join/union in ms (a) average over all queries, (b) average for every complexity class of queries (see queries subsection); additionally, we also count and compare the number of join operations needed 
 
-Data
--	Size of the data
--	Size of the indexes 
-Loading Time Performance
-Querying Time Performance
 
