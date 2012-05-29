@@ -19,6 +19,7 @@ A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natur
 			\removable{the syntax and semantics of}
 		filter conditions we refer to~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.}%
 	, then $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, and $(P_1 \OpFILTER R)$ are {\SPARQLplus} expressions.
+	\item Let $P$ be a {\SPARQLplus} expression and $S \subset \symAllVariables$ be a finite set of variables, then $\OpSELECT_S(P)$ is a {\SPARQLplus} expression.
 \end{enumerate}
 
 
@@ -31,24 +32,25 @@ Two valuations $\eta$ and $\eta'$ are \emph{compatible}, denoted by $\eta \compa
 	$\fctDom{\eta}$~denotes %% Layout Adjustment
 the domain of a valuation $\eta$.
 
-Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of valuations; let $R$ be a filter condition. The binary operations \emph{join}, \emph{union}, \emph{difference}, and \emph{left outer-join} between $\Omega_1$ and $\Omega_2$ are defined as follows:
+Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of valuations; let $R$ be a filter condition; and let $S \subset \symAllVariables$ be a finite set of variables. The algebra operators \emph{join}, \emph{union}, \emph{difference}, \emph{left outer-join}, \emph{selection}, and \emph{projection} are defined as follows:
 \begin{align*}
 	\Omega_1 \Join \Omega_2 & := \lbrace \eta_1 \cup \eta_1 \,|\, \eta_1 \in \Omega_1 \text{ and } \eta_2 \in \Omega_2 \text{ and } \eta_1 \sim \eta_2 \rbrace \\
 	\Omega_2 \cup \Omega_2 & := \lbrace \eta \,|\, \eta \in \Omega_1 \text{ or } \eta \in \Omega_2 \rbrace \\
 	\Omega_1 \setminus \Omega_2 & := \lbrace \eta_1 \in \Omega_1 \,|\, \forall \eta_2 \in \Omega_2 : \eta_1 \not\sim \eta_2 \rbrace \\
 	\Omega_1 \LJoin \Omega_2 &:= \left( \Omega_1 \Join \Omega_2 \right) \cup \left( \Omega_1 \setminus \Omega_2 \right) \\
-	\sigma_R ( \Omega ) &:= \lbrace \eta \in \Omega \,|\, \eta \text{ satisfies } R \rbrace
+	\sigma_R ( \Omega ) &:= \lbrace \eta \in \Omega \,|\, \eta \text{ satisfies } R \rbrace \\
+	\pi_S ( \Omega ) &:= \lbrace \eta \,|\, \exists \, \eta' : \eta \cup \eta' \in \Omega \text{ and } \fctDom{\eta} \subseteq S \text{ and } \fctDom{\eta'} \cap S = \emptyset \rbrace
 \end{align*}
 
 %For a valuation $\eta$ and a {\TPplus} $tp$, we write $\eta[tp]$ to denote the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$. Note, if $\fctVars{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}.
 
 	%Let $P$ be a {\SPARQLplus} expression and let $G$ be an {\RDFplusGraph}. The \emph{evaluation of $P$ over $G$},
 	The \emph{evaluation} of {\SPARQLplus} expression $P$ over {\RDFplusGraph} $G$,
-denoted by $\fctEval{P}{G}$, is defined recursively as follows:
+denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
 \begin{enumerate}
 	\item If $P$ is a {\TPplus} $tp$, then
 		\begin{equation*}
-			\fctEval{P}{G} := \big\lbrace \eta \,\big|\,
+			\fctEvalPlus{P}{G} := \big\lbrace \eta \,\big|\,
 				\eta \text{ is a valuation with } \fctDom{\eta} = \fctVars{tp}
 				\text{ and } \eta[tp] \in G \cup \fctTRefs{G}
 			\big\rbrace
@@ -57,25 +59,27 @@ denoted by $\fctEval{P}{G}$, is defined recursively as follows:
 		\vspace{1ex} %% Layout Adjustment
 	\item If $P$ is $(tp \OpAS ?v)$, then
 		\begin{align*}
-			\fctEval{P}{G} := \big\lbrace \eta \,\big|\,
-				& \eta' \in \fctEval{tp}{G} 
+			\fctEvalPlus{P}{G} := \big\lbrace \eta \,\big|\,
+				& \eta' \in \fctEvalPlus{tp}{G} 
 				\text{ and } %\eta \text{ is a valuation with }
 					\fctDom{\eta} = \fctDom{\eta'}\cup \lbrace ?v \rbrace
 				\text{ and } \eta \compatible \eta' \text{ and }\\
 				& \eta(?v) = \eta[tp] \,
 			\big\rbrace
 		\end{align*}
-		\item If $P$ is $(P_1 \OpAND P_2)$, then $\fctEval{P}{G} := \fctEval{P_1}{G} \Join \fctEval{P_2}{G}$.
-		\item If $P$ is $(P_1 \OpUNION P_2)$, then $\fctEval{P}{G} := \fctEval{P_1}{G} \cup \fctEval{P_2}{G}$.
-		\item If $P$ is $(P_1 \OpOPT P_2)$, then $\fctEval{P}{G} := \fctEval{P_1}{G} \LJoin \fctEval{P_2}{G}$.
-		\item If $P$ is $(P' \OpFILTER R)$, then $\fctEval{P}{G} := \sigma_R\bigl( \fctEval{P'}{G} \bigr)$.
-	\end{enumerate}
-	Each valuation $\eta \in \fctEval{P}{G}$ is called a \emph{solution} for $P$ in $G$.
+	\item If $P$ is $(P_1 \OpAND P_2)$, then $\fctEvalPlus{P}{G} := \fctEvalPlus{P_1}{G} \Join \fctEvalPlus{P_2}{G}$.
+	\item If $P$ is $(P_1 \OpUNION P_2)$, then $\fctEvalPlus{P}{G} := \fctEvalPlus{P_1}{G} \cup \fctEvalPlus{P_2}{G}$.
+	\item If $P$ is $(P_1 \OpOPT P_2)$, then $\fctEvalPlus{P}{G} := \fctEvalPlus{P_1}{G} \LJoin \fctEvalPlus{P_2}{G}$.
+	\item If $P$ is $(P' \OpFILTER R)$, then $\fctEvalPlus{P}{G} := \sigma_R\bigl( \fctEvalPlus{P'}{G} \bigr)$.
+	\item If $P$ is $\OpSELECT_S(P')$, then $\fctEvalPlus{P}{G} := \pi_S\bigl( \fctEvalPlus{P'}{G} \bigr)$.
+\end{enumerate}
+Each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$ in $G$.
 
 \begin{proposition}
-	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEval{P}{G} = \fctEval{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
+	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEvalPlus{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
 \end{proposition}
 
+\todo{There is a minimal $G_\mathsf{min} \subseteq G$ with $G_\mathsf{min} = G^+$ ...}
 
 
 \subsection{RDF Semantics of {\SPARQLplus}}
@@ -83,3 +87,19 @@ denoted by $\fctEval{P}{G}$, is defined recursively as follows:
 	In addition to the {\SPARQLplus} semantics defined in the previous section, we now define an alternative semantics for {\SPARQLplus}. This alternative semantics enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
 
 \todo{...}
+
+GOAL: for all $P$ that do not contain a subexpression of the form $(tp \OpAS ?v)$ for which $?v \in pVars(\fctEvalPlus{P}{G})$ it shall hold: $\fctEvalPlus{P}{G} = \fctEvalPlus{\fctDescent{P}}{\fctDescent{G}} = \fctEval{\fctDescent{P}}{\fctDescent{G}}$. Note, the set of possible variable $pVars\bigl(\fctEvalPlus{P}{G}\bigr)$ of a {\SPARQLplus} algebra expression $\fctEvalPlus{P}{G}$ is defined in the same way Schmidt et al.~define $pVars$ for SPARQL set algebra expressions~\cite{Schmidt10:FoundationsOfSPARQLOptimization}, we only extend the definition for our $\OpAS$ expression as follows: $pVars\bigl(\fctEvalPlus{(tp \OpAS ?v)}{G}\bigr) := \lbrace ?v \rbrace \cup \fctVars{tp}$.
+
+Let $P$ be a {\SPARQLplus} expression and let $V_\mathsf{new} \subseteq \symAllVariables \cap \fctVars{P}$.
+\todo{we need a mapping from all triple reference patterns in $P$ to $V_\mathsf{new}$ so that we can use the same var all the time}
+The \emph{RDF compatible expression} of {\SPARQLplus} expression $P$,
+denoted by $\fctDescent{P}^V$, is defined recursively as follows:
+\begin{enumerate}
+	\item If $P$ is a {\TPplus} $tp$, then $\fctDescent{P}^V$ is \todo{...}
+	\item If $P$ is $(tp \OpAS ?v)$, then $\fctDescent{P}^V$ is \todo{...}
+	\item If $P$ is $(P_1 \OpAND P_2)$, then $\fctDescent{P}^V$ is $(P_1' \OpAND P_2')$ where $P_1'$ is $\fctDescent{P_1}^V$ and $P_2'$ is $\fctDescent{P_2}^V$.
+	\item If $P$ is $(P_1 \OpUNION P_2)$, then $\fctDescent{P}^V$ is $(P_1' \OpUNION P_2')$ where $P_1'$ is $\fctDescent{P_1}^V$ and $P_2'$ is $\fctDescent{P_2}^V$.
+	\item If $P$ is $(P_1 \OpOPT P_2)$, then $\fctDescent{P}^V$ is $(P_1' \OpOPT P_2')$ where $P_1'$ is $\fctDescent{P_1}^V$ and $P_2'$ is $\fctDescent{P_2}^V$.
+	\item If $P$ is $(P_1 \OpFILTER R)$, then $\fctDescent{P}^V$ is $(P_1' \OpFILTER R)$ where $P_1'$ is $\fctDescent{P_1}^V$.
+	\item If $P$ is $\OpSELECT_S(P_1)$, then $\fctDescent{P}^V$ is $\OpSELECT_S(P_1')$ where $P_1'$ is $\fctDescent{P_1}^V$.
+\end{enumerate}
