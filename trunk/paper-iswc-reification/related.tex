@@ -1,37 +1,15 @@
-\section{Related Work}
-Overview of related work and their problems / reasons why not adopted in commercial solutions, e.g. 
-Reification
-Reification builds a model of a statement:
-\_:s1 rdf:subject   :SAP .
-\_:s1 rdf:predicate :bought .
-\_:s1 rdf:object    :sybase .
-\_:s1 rdf:type      rdf:Statement .
-\_:s1 dc:source     reuters:us-sybase .
+\section{Related Work} Many proposals for extending Semantic Web standards to support different metadata scenarios exist. 
 
--	Has a very bad reputation
--	Extremely inefficient 
--	5x the data on disk when you reify statements.
--	Awkward syntax
--	Cognitively challenging to write queries against reified data
--	Rarely used.
-Other approaches to be discussed:
--	Bernhard Schueler, Sergej Sizov, Steffen Staab, Duc Thanh Tran: Querying for meta knowledge. WWW 2008:625-634
--	Thanh Tran, Peter Haase, Boris Motik, Bernardo Cuenca Grau, Ian Horrocks: Metalevel Information in Ontology-Based Applications. AAAI 2008:1237-1242
--	Nuno Lopes, Axel Polleres, Umberto Straccia, Antoine Zimmermann: AnQL: SPARQLing Up Annotated RDFS. International Semantic Web Conference 2010:518-533
--	Antoine Zimmermann, Nuno Lopes, Axel Polleres, Umberto Straccia: A general framework for representing, reasoning and querying with annotated Semantic Web data. J. Web Sem. 11: 72-95 (2012)
--	Umberto Straccia, Nuno Lopes, Gergely Lukacsy, Axel Polleres: A General Framework for Representing and Reasoning with Annotated Semantic Web Data. AAAI 2010
--	Jeremy J. Carroll, Christian Bizer, Patrick J. Hayes, Patrick Stickler: Named graphs. J. Web Sem. (WS) 3(4):247-267 (2005)
--	Paula Severi, Jos{\'e} Luiz Fiadeiro, David Ekserdjian: Guiding Reification in OWL through Aggregation. Description Logics 2010
--	Nicole Alexander, Siva Ravada: RDF Object Type and Reification in the Database. ICDE 2006:93
-Solution \& Contributions
--	Efficient management of meta-level statements 
-o	Avoids the 5x growth in data associated with RDF Reification
-o	Fast query answering
--	Convenient syntax for data and queries
-o	Proposed extensions for SPARQL, Turtle
--	Harmonized with RDF Reification
-o	Existing data and queries still work
-o	Extension to SPARQL Semantics and Algebra
--	Can be combined with named graphs
-o	Both methods can be mixed in the same database.
+For data captured in OWL ontologies, a strict separation of domain data and metadata at the level of semantics has been proposed~\cite{DBLP:conf/aaai/TranHMGH08}. Interpreting these two types of data together can lead to undesirable effects on the semantics and in particular, introduce large overhead in reasoning and answering queries that involve both types of data. Based on the observation that these two types have distinct universes of discourses, it has been proposed to represent metadata as axiom annotations, ontology elements akin to comments that do not affect the semantics of domain data. Semantics is then given to metadata by translating it to a metaview, an ontology capturing the semantics of metadata that is interpreted independently from the ontology about domain data.  
+
+Several extensions have also been proposed for RDF to support some specific types of metadata. Using Fuzzy RDF~\cite{DBLP:conf/rr/Straccia09} for instance, a degree of truth can be assigned to RDF triples such as \verb+(_:bob foaf:mbox <mailto:bob@home>):0.9+. Further works in this direction~\cite{swap2004,DBLP:conf/semweb/MazzieriD05} focus on the semantics of metadata, basically answering the question of what it means to have triples associated with some truth values and how to use them for reasoning by the deductive system. For dealing with temporal metadata, Temporal RDF as been proposed, which is equipped with semantics and a deductive system that can be reduced to the standard semantics of and inferences over RDF graphs~\cite{DBLP:journals/tkde/GutierrezHV07}. 
+
+There are also several extensions to SPARQL for querying metadata. Hartig proposes tSPARQL for querying trust values of results that can be found for graph patterns specified in SPARQL queries~\cite{DBLP:conf/esws/Hartig09}. Besides extensions (such as tSPARQL) that introduce specific SPARQL constructors to access a particular type of metadata, there exists also a framework for querying metadata that generalizes over the many possible types of metadata~\cite{DBLP:conf/www/SchuelerSST08}. It defines a \verb+WITH META+ clause that can be used in SPARQL queries to specify the graphs for which metadata shall be retrieved. Since different types of metadata might be associated with such graphs, this framework enables querying over metadata in a generic fashion.  
+
+Generalizing over RDF and SPARQL extensions that address a particular type of metadata, a general framework for representing, querying and reasoning with metadata has been proposed recently~\cite{DBLP:journals/ws/ZimmermannLPS12}. As in previous works such as Fuzzy RDF, it uses an abstract syntax for representing metadata: a triple annotated with metadata is represented as $\tau: \lambda$ where $\tau$ is a triple and $\lambda$ is an annotation value. The RDFS semantics is then extended to provide a deductive system for
+this kind of annotated triples, called the Annotated RDFS semantics. In order to accommodate for the different possible semantics of annotation values, e.g. temporal, fuzzy or provenance annotation values, a general structure based on semiring is used as the interpretation domain. Finally, AnQL~\cite{DBLP:conf/semweb/LopesPSZ10} is introduced as an SPARQL extension for querying metadata. Similar to the abstract syntax for annotated triples, an AnQL query is constructed based on annotated triple patterns of the form  $\eta : \pi$ where $\eta$ is a triple pattern and $\pi$ is either an annotation value or an annotation variable. 
+
+These previous works are focused on the semantics of metadata, providing corresponding extensions to the RDF(S) semantics to enable reasoning and querying over different types of metadata. However, they do not directly address the problem of representing metadata in RDF. In fact, RDF reification and named graphs are still the main mechanisms that underly these approaches. For instance, Fuzzy RDF statements represented in the abstract syntax, e.g. \verb+(_:bob foaf:mbox <mailto:bob@home>):0.9+, are translated into RDF triples by using RDF reification~\cite{swap2004}. Metadata used in the querying framework discussed before are assumed to be represented as named graphs~\cite{DBLP:conf/www/SchuelerSST08}. Orthogonal to existing works on the semantics of metadata, we provide an efficient RDF reification mechanism. The SPARQL extension that goes along with it is specifically needed to query metadata captured by this mechanism. It can be used as the basis for supporting the more specific query semantics as proposed for different types of metadata. 
+
+
 
