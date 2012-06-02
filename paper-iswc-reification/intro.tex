@@ -1,11 +1,67 @@
 \section{Introduction}
-Motivation
-\begin{itemize}
-	\item 
-Necessary in several domains
-\item	Entity link extraction (confidence values)
-\item	Graph databases (link attributes)
-\item	Intelligence analysis (provenance on assertions)
-\item	Statement level security
-\end{itemize}
+RDF Statements capturing knowledge about the world can be distinguished into two types. One the one hand hand, there are statements about real-world objects of a particular domain, representing domain knowledge (henceforth called \emph{domain data}). Then, there are also statements about statements, which in literatures, have been referred to using different synonymous concepts such as meta-level information, statement annotations or, just \emph{metadata}. The need for capturing metadata about statements arises in different scenarios. Commonly found is metadata associated with statements produced by data extraction programs, which captures the source from which the statements have been extracted, the extraction time, and the confidence degree of the program regarding these extraction outputs. Another use case is data security, where access rights are associated with statements to implement fine-grained access control policies at the \emph{statement-level}. Among many possible types of metadata, the three common types discussed in literatures are \emph{fuzzy} (e.g. degree of confidence, truth or trust), \emph{temporal} (e.g. creation date) and \emph{provenance} (e.g. source) metadata. 
 
+One popular mechanism extending the RDF standard for capturing metadata is \emph{named graphs}~\cite{DBLP:journals/ws/CarrollBHS05}. A named graph is an RDF graph, which is assigned
+a name in the form of a URI reference. Given its URI reference, a named graph can be treated just like other RDF resources. In particular, the metadata of a graph can be captured as RDF triples in which the graph's URI appears as the subject. In principle, statement-level metadata can be captured using this mechanism as every statement can be named and act as a graph. However, this defies the original purpose of named graphs, which was introduced as a convenient way to associate the same metadata to several triples contained in one particular RDF graph. Using one graph for every statement is particularly problematic when querying RDF data. Using SPARQL, the standard query language for RDF, a query can be formulated and posed against the RDF dataset. The dataset is conceived as comprising of one graph, called the default graph, and a set of named graphs. Querying information in the named graphs require them to be mentioned explicitly in the \verb+FROM NAMED+ clause of the SPARQL query. This means querying metadata associated with named graphs representing single statements requires every such statement to be stated in \verb+FROM NAMED+ clause of the query.
+
+Thus, while named graphs are widely used for graph-level metadata, the main mechanism for capturing statement-level metadata is still \emph{RDF reification}~\cite{Klyne04:RDFconcepts,Hayes04:RDFsemantics} (\emph{Reifi}). Its usage is illustrated in the following example:
+
+\begin{example}
+An RDF data graph about \verb+Alice+ and \verb+Bob+ is given in Turtle notation (prefix declarations omitted) as follows:
+
+	\begin{footnotesize}%
+	\begin{verbatim}
+		 _:alice rdf:type foaf:Person ; foaf:name "Alice" ; 
+		         foaf:mbox <mailto:alice@work> ; foaf:knows _:bob.
+		 _:bob rdf:type foaf:Person ; foaf:name "Bob" ; foaf:knows _:alice ;
+       foaf:mbox <mailto:bob@work> ; foaf:mbox <mailto:bob@home> .
+	\end{verbatim}%
+	\end{footnotesize}
+In order to capture metadata about a particular statement $s$ using RDF reification, $s$ is reified; this means an URI is introduced to refer to $s$ as a statement, and an additional set of three triples are needed to captures the subject, the predicate and the object associated with $s$. For instance, provenance and temporal metadata for one of the above statement can be stated as 
+  \begin{footnotesize}%
+	\begin{verbatim}
+	 _:s rdf:type rdf:Statement ; rdf:subject _:bob ; 
+	     rdf:predicate foaf:mbox ; rdf:object <mailto:bob@home> ; 
+	 	   dc:creator	<http://hr.example.com/infra/crawlers#we1> ;
+			     dc:created "2011-04-05T12:00:00Z"^^xsd:dateTime ; 
+			     dc:source <http://whatever.nu/profile/bob1975> .
+	\end{verbatim}%
+	\end{footnotesize}
+\end{example}
+
+
+Clearly, this example illustrates that using RDF reification requires a
+quad for every triple to be reified, resulting in a five fold increase. Moreover, a large number of joins is needed when querying metadata captured this way:   
+
+\begin{example}
+For instance, the query ``What is the source for Bob knows Alice?'' can be formulated as 
+
+\begin{footnotesize}%
+	\begin{verbatim}
+Select ?s where {
+  ?z rdf:type rdf:Statement ; rdf:subject _:alice ;
+     rdf:predicate foaf:knows ; rdf:object _:bob ; dc:source ?s. }
+
+\end{verbatim}%
+\end{footnotesize}
+%?x foaf:name "Alice" . ?y foaf:name "Bob" .
+%Combining the results for the first and the second triple patterns with results for the subsequent ones requires joining on $x$ and $y$. 
+%Additionally, 
+To process this query, results have to be retrieved for the triple patterns representing the subject, the object, the predicate and the source of $z$, and joined with triples representing $z$. This illustrates that retrieving metadata always involves a minimum number of three joins (on subject, predicate and object triples, respectively). 
+\end{example}
+
+Thus, Reifi not only leads to large additional overheads in terms of RDF data management due to the increased size of the data but also, has a negative effect on the efficiency of RDF query processing. In this work, we propose an efficient mechanism for RDF reification, called \emph{Reifi+}, which can avoid this five fold blowup of data and reduce the number of joins. Instead of using four additional triples for reification, Reifi+ only needs one particular URI, called \emph{triple reference}. For instance, information captured by the four triples specified above for the reified statements is represented in Reifi+ using the single URI \verb+_:bob foaf:mbox <mailto:bob@home>+ (note this URI directly encodes the information captured in the original triple). We propose extensions for the RDF and SPARQL standards to support this concept of triple reference. Also, we incorporate Reifi+ into two commercial RDF stores (Virtuoso, Bigdata), showing in experiments that compared to Reifi, this proposal results in substantial performance gain both in terms of RDF data management and SPARQL query processing: on average, Reifi+ reduces data size requirements by \todo{X percent} and improves response time by \todo{X percent}.
+
+%-	Efficient management of meta-level statements 
+%o	Avoids the 5x growth in data associated with RDF Reification
+%o	Fast query answering
+%-	Convenient syntax for data and queries
+%o	Proposed extensions for SPARQL, Turtle
+%-	Harmonized with RDF Reification
+%o	Existing data and queries still work
+%o	Extension to SPARQL Semantics and Algebra
+%-	Can be combined with named graphs
+%o	Both methods can be mixed in the same database.
+%
+
+\textbf{Outline.} We will start in Section 2 with the related work section where we provide a broader overview of works on RDF metadata beyond named graphs and RDF reification. The main idea behind Reifi+ and its main advantages over Reifi are discussed in Section 3. Then, we discuss how to extend RDF and SPARQL to incorporate this reification mechanism in Section 4 and 5, respectively. We present experimental results in Section 6 and conclude in Section 7. 

@@ -29,7 +29,6 @@
 % \mainmatter           % start of the contributions
 
 %\sloppy
-% \title{Efficient Management of Meta-level Information for RDF}
 \title{Efficient Management of Reified Statements in RDF}
 
 %\thanks{This work has been supported by the European Commission
@@ -65,14 +64,14 @@ Institute AIFB, Karlsruhe Institute of Technology, Germany
 \maketitle
 
 \begin{abstract}
-\input{abstract}
+Metadata is commonly associated with RDF statements to capture provenance as well as quality related aspects. RDF reification is the standard mechanism to express this kind of information at the statement-level. In this work, we revisit the drawbacks of this mechanism. Specifically in the RDF data management and query processing context, we show that not only it results in a large number of triples but also, requires a large number of joins in queries asking for RDF statements' metadata. Addressing these problems, we propose a solution for reification that extends the current RDF and SPARQL standards. Based on two commercial RDF stores adoption of this solution, we show in experiments that compared to the original RDF reification proposal, it significantly improves the efficiency of RDF data management and SPARQL query processing. 
 \end{abstract}
 
 \input{intro}
 \input{related}
+\input{dis}
 \input{rep}
 \input{querying}
-\input{dis}
 \input{exp}
 \input{conc}
 
