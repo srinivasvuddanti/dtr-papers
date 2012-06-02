@@ -6,8 +6,8 @@
 	Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$ where $\symAllVariables$ is a set of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively.
 	%We assume a set $\symAllVariables$ of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively. Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$.
 A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natural number $k$ such that $tp$ is $k$-nested\footnote{$k$-nestedness for $\symAllTPsInfinite$ is defined analog to $k$-nestedness for $\symAllTriplesInfinite$.}; to denote the set of all {\TPplus}s we write $\symAllTPs$ (i.e.~$\symAllTPs \subset \symAllTPsInfinite$).
-	%To denote the set of all variables in a {\TPplus} $tp=(s,p,o)$ we write $\fctVars{tp}$; hence, $\fctVars{tp} := (\lbrace s,p,o \rbrace \cap \symAllVariables) \cup \big\lbrace ?v \in \fctVars{x} \,|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
-	For any {\TPplus} $tp \!=\! (s,p,o)$ we define $\fctVars{tp} \!:=\! \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVars{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+	%To denote the set of all variables in a {\TPplus} $tp=(s,p,o)$ we write $\fctVarsPlus{tp}$; hence, $\fctVarsPlus{tp} := (\lbrace s,p,o \rbrace \cap \symAllVariables) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+	For any {\TPplus} $tp \!=\! (s,p,o)$ we define $\fctVarsPlus{tp} \!:=\! \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
 
 	We now define \emph{{\SPARQLplus} expression}s recursively \removable{as follows}:
 	%\emph{{\SPARQLplus} expression}s are defined recursively \removable{as follows}:
@@ -22,6 +22,7 @@ A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natur
 	\item Let $P$ be a {\SPARQLplus} expression and $S \subset \symAllVariables$ be a finite set of variables, then $\OpSELECT_S(P)$ is a {\SPARQLplus} expression.
 \end{enumerate}
 
+\todo{introduce $\fctVarsPlus{P}$}
 
 \subsection{{\RDFplus} Semantics of {\SPARQLplus}}
 	To define the semantics of {\SPARQLplus} we introduce
@@ -42,8 +43,9 @@ Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of valuations; let $R$ be a filt
 	\pi_S ( \Omega ) &:= \lbrace \eta \,|\, \exists \, \eta' : \eta \cup \eta' \in \Omega \text{ and } \fctDom{\eta} \subseteq S \text{ and } \fctDom{\eta'} \cap S = \emptyset \rbrace
 \end{align*}
 
-%For a valuation $\eta$ and a {\TPplus} $tp$, we write $\eta[tp]$ to denote the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$. Note, if $\fctVars{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}.
-
+\noindent
+%For a valuation $\eta$ and a {\TPplus} $tp$, we write $\eta[tp]$ to denote the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$. Note, if $\fctVarsPlus{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}.
+%
 	%Let $P$ be a {\SPARQLplus} expression and let $G$ be an {\RDFplusGraph}. The \emph{evaluation of $P$ over $G$},
 	The \emph{evaluation} of {\SPARQLplus} expression $P$ over {\RDFplusGraph} $G$,
 denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
@@ -51,11 +53,11 @@ denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
 	\item If $P$ is a {\TPplus} $tp$, then
 		\begin{equation*}
 			\fctEvalPlus{P}{G} := \big\lbrace \eta \,\big|\,
-				\eta \text{ is a valuation with } \fctDom{\eta} = \fctVars{tp}
+				\eta \text{ is a valuation with } \fctDom{\eta} = \fctVarsPlus{tp}
 				\text{ and } \eta[tp] \in G \cup \fctTRefs{G}
 			\big\rbrace
 		\end{equation*}
-		where $\eta[tp]$ denotes the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$ (note, if $\fctVars{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}).
+		where $\eta[tp]$ denotes the {\TPplus} that we obtain by replacing the variables in $tp$ (including potentially embedded {\TPplus}s) according to $\eta$ (note, if $\fctVarsPlus{tp} \subseteq \fctDom{\eta}$, then $\eta[tp]$ is an {\RDFplusTriple}).
 		\vspace{1ex} %% Layout Adjustment
 	\item If $P$ is $(tp \OpAS ?v)$, then
 		\begin{align*}
@@ -88,9 +90,9 @@ Each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$
 
 \todo{...}
 
-GOAL: for all $P$ that do not contain a subexpression of the form $(tp \OpAS ?v)$ for which $?v \in pVars(\fctEvalPlus{P}{G})$ it shall hold: $\fctEvalPlus{P}{G} = \fctEvalPlus{\fctDescent{P}}{\fctDescent{G}} = \fctEval{\fctDescent{P}}{\fctDescent{G}}$. Note, the set of possible variable $pVars\bigl(\fctEvalPlus{P}{G}\bigr)$ of a {\SPARQLplus} algebra expression $\fctEvalPlus{P}{G}$ is defined in the same way Schmidt et al.~define $pVars$ for SPARQL set algebra expressions~\cite{Schmidt10:FoundationsOfSPARQLOptimization}, we only extend the definition for our $\OpAS$ expression as follows: $pVars\bigl(\fctEvalPlus{(tp \OpAS ?v)}{G}\bigr) := \lbrace ?v \rbrace \cup \fctVars{tp}$.
+GOAL: for all $P$ that do not contain a subexpression of the form $(tp \OpAS ?v)$ for which $?v \in pVars(\fctEvalPlus{P}{G})$ it shall hold: $\fctEvalPlus{P}{G} = \fctEvalPlus{\fctDescent{P}}{\fctDescent{G}} = \fctEval{\fctDescent{P}}{\fctDescent{G}}$. Note, the set of possible variable $pVars\bigl(\fctEvalPlus{P}{G}\bigr)$ of a {\SPARQLplus} algebra expression $\fctEvalPlus{P}{G}$ is defined in the same way Schmidt et al.~define $pVars$ for SPARQL set algebra expressions~\cite{Schmidt10:FoundationsOfSPARQLOptimization}, we only extend the definition for our $\OpAS$ expression as follows: $pVars\bigl(\fctEvalPlus{(tp \OpAS ?v)}{G}\bigr) := \lbrace ?v \rbrace \cup \fctVarsPlus{tp}$.
 
-Let $P$ be a {\SPARQLplus} expression and let $V_\mathsf{new} \subseteq \symAllVariables \cap \fctVars{P}$.
+Let $P$ be a {\SPARQLplus} expression and let $V_\mathsf{new} \subseteq \symAllVariables \cap \fctVarsPlus{P}$.
 \todo{we need a mapping from all triple reference patterns in $P$ to $V_\mathsf{new}$ so that we can use the same var all the time}
 The \emph{RDF compatible expression} of {\SPARQLplus} expression $P$,
 denoted by $\fctDescent{P}^V$, is defined recursively as follows:
