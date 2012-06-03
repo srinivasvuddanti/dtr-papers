@@ -19,10 +19,55 @@ A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natur
 			\removable{the syntax and semantics of}
 		filter conditions we refer to~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.}%
 	, then $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, and $(P_1 \OpFILTER R)$ are {\SPARQLplus} expressions.
-	\item Let $P$ be a {\SPARQLplus} expression and $S \subset \symAllVariables$ be a finite set of variables, then $\OpSELECT_S(P)$ is a {\SPARQLplus} expression.
+% 	\item Let $P$ be a {\SPARQLplus} expression and $S \subset \symAllVariables$ be a finite set of variables, then $\OpSELECT_S(P)$ is a {\SPARQLplus} expression.
 \end{enumerate}
 
-\todo{introduce $\fctVarsPlus{P}$}
+\begin{note}
+		We note that any
+		%Any
+	(ordinary) SPARQL expression is a {\SPARQLplus} expression.
+\end{note}
+
+
+\todo{introduce $\fctVarsPlus{P}$ and $\fctTRefs{P}$ ...}
+
+	\begin{tabular}{|c||c|c|} \hline
+		{\SPARQLplus} expression $P$ &
+		$\fctVarsPlus{P}$ &
+		$\fctTRefs{P}$
+		\\ \hline
+		\hline
+% 		{\TPplus} $(s,p,o)$ &
+% 		$\bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$ &
+% 		$\bigl( \lbrace s,o \rbrace \cap \symAllTPs \bigr) \cup \big\lbrace tp \in \fctTRefs{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$
+% 		\\ \hline
+		$(tp \OpAS ?v)$ &
+		$\fctVarsPlus{tp} \cup \lbrace ?v \rbrace$ &
+		$\fctTRefs{tp} \cup \lbrace tp \rbrace$
+		\\ \hline
+		$(P_1 \OpAND P_2)$ &
+		$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
+		$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
+		\\ \hline
+		$(P_1 \OpOPT P_2)$ &
+		$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
+		$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
+		\\ \hline
+		$(P_1 \OpUNION P_2)$ &
+		$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
+		$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
+		\\ \hline
+		$(P' \OpFILTER R)$ &
+		$\fctVarsPlus{P'} \cup \fctVars{R}$ &
+		$\fctTRefs{P'}$
+		\\ \hline
+% 		$\OpSELECT_S(P')$ &
+% 		$\fctVarsPlus{P'} \cup S$ &
+% 		$\fctTRefs{P'}$
+% 		\\ \hline
+	\end{tabular}
+
+
 
 \subsection{{\RDFplus} Semantics of {\SPARQLplus}}
 	To define the semantics of {\SPARQLplus} we introduce
@@ -33,14 +78,28 @@ Two valuations $\eta$ and $\eta'$ are \emph{compatible}, denoted by $\eta \compa
 	$\fctDom{\eta}$~denotes %% Layout Adjustment
 the domain of a valuation $\eta$.
 
-Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of valuations; let $R$ be a filter condition; and let $S \subset \symAllVariables$ be a finite set of variables. The algebra operators \emph{join}, \emph{union}, \emph{difference}, \emph{left outer-join}, \emph{selection}, and \emph{projection} are defined as follows:
+Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of
+	%valuations; let
+	valuations and let
+$R$ be a filter condition%
+	%; and let $S \subset \symAllVariables$ be a finite set of variables.
+	.
+The algebra operators \emph{join}, \emph{union}, \emph{difference}, \emph{left outer-join},
+	%\emph{selection}, and \emph{projection}
+	and \emph{selection}
+are defined as follows:
 \begin{align*}
-	\Omega_1 \Join \Omega_2 & := \lbrace \eta_1 \cup \eta_1 \,|\, \eta_1 \in \Omega_1 \text{ and } \eta_2 \in \Omega_2 \text{ and } \eta_1 \sim \eta_2 \rbrace \\
-	\Omega_2 \cup \Omega_2 & := \lbrace \eta \,|\, \eta \in \Omega_1 \text{ or } \eta \in \Omega_2 \rbrace \\
-	\Omega_1 \setminus \Omega_2 & := \lbrace \eta_1 \in \Omega_1 \,|\, \forall \eta_2 \in \Omega_2 : \eta_1 \not\sim \eta_2 \rbrace \\
-	\Omega_1 \LJoin \Omega_2 &:= \left( \Omega_1 \Join \Omega_2 \right) \cup \left( \Omega_1 \setminus \Omega_2 \right) \\
-	\sigma_R ( \Omega ) &:= \lbrace \eta \in \Omega \,|\, \eta \text{ satisfies } R \rbrace \\
-	\pi_S ( \Omega ) &:= \lbrace \eta \,|\, \exists \, \eta' : \eta \cup \eta' \in \Omega \text{ and } \fctDom{\eta} \subseteq S \text{ and } \fctDom{\eta'} \cap S = \emptyset \rbrace
+	\Omega_1 \Join \Omega_2 & := \lbrace \eta_1 \cup \eta_1 \,|\, \eta_1 \in \Omega_1 \text{ and } \eta_2 \in \Omega_2 \text{ and } \eta_1 \sim \eta_2 \rbrace
+	\\
+	\Omega_2 \cup \Omega_2 & := \lbrace \eta \,|\, \eta \in \Omega_1 \text{ or } \eta \in \Omega_2 \rbrace
+	\\
+	\Omega_1 \setminus \Omega_2 & := \lbrace \eta_1 \in \Omega_1 \,|\, \forall \eta_2 \in \Omega_2 : \eta_1 \not\sim \eta_2 \rbrace
+	\\
+	\Omega_1 \LJoin \Omega_2 &:= \left( \Omega_1 \Join \Omega_2 \right) \cup \left( \Omega_1 \setminus \Omega_2 \right)
+	\\
+	\sigma_R ( \Omega ) &:= \lbrace \eta \in \Omega \,|\, \eta \text{ satisfies } R \rbrace
+% 	\\
+% 	\pi_S ( \Omega ) &:= \lbrace \eta \,|\, \exists \, \eta' : \eta \cup \eta' \in \Omega \text{ and } \fctDom{\eta} \subseteq S \text{ and } \fctDom{\eta'} \cap S = \emptyset \rbrace
 \end{align*}
 
 \noindent
@@ -73,9 +132,21 @@ denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
 	\item If $P$ is $(P_1 \OpUNION P_2)$, then $\fctEvalPlus{P}{G} := \fctEvalPlus{P_1}{G} \cup \fctEvalPlus{P_2}{G}$.
 	\item If $P$ is $(P_1 \OpOPT P_2)$, then $\fctEvalPlus{P}{G} := \fctEvalPlus{P_1}{G} \LJoin \fctEvalPlus{P_2}{G}$.
 	\item If $P$ is $(P' \OpFILTER R)$, then $\fctEvalPlus{P}{G} := \sigma_R\bigl( \fctEvalPlus{P'}{G} \bigr)$.
-	\item If $P$ is $\OpSELECT_S(P')$, then $\fctEvalPlus{P}{G} := \pi_S\bigl( \fctEvalPlus{P'}{G} \bigr)$.
+% 	\item If $P$ is $\OpSELECT_S(P')$, then $\fctEvalPlus{P}{G} := \pi_S\bigl( \fctEvalPlus{P'}{G} \bigr)$.
 \end{enumerate}
-Each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$ in $G$.
+
+\noindent
+\removable{As usual, each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$ in $G$.}
+
+The following result shows that the query semantics introduced in this section is fully compatible to the usual SPARQL semantics (as defined in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}), that is, any system that supports {\RDFplus}
+	and {\SPARQLplus}
+may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (ordinary) RDF graphs.
+
+\begin{proposition} \label{Proposition:EquivalenceOfSemantics}
+	For any (ordinary) RDF graph $G$ and any (ordinary) SPARQL expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEval{P}{G}$.
+\end{proposition}
+
+\todo{...}
 
 \begin{proposition}
 	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEvalPlus{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
@@ -88,20 +159,92 @@ Each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$
 	%For RDF storage systems that do not support our {\RDFplus} data model (but the ordinary RDF data model), we define an alternative semantics for {\SPARQLplus}.
 	In addition to the {\SPARQLplus} semantics defined in the previous section, we now define an alternative semantics for {\SPARQLplus}. This alternative semantics enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
 
-\todo{...}
 
-GOAL: for all $P$ that do not contain a subexpression of the form $(tp \OpAS ?v)$ for which $?v \in pVars(\fctEvalPlus{P}{G})$ it shall hold: $\fctEvalPlus{P}{G} = \fctEvalPlus{\fctDescent{P}}{\fctDescent{G}} = \fctEval{\fctDescent{P}}{\fctDescent{G}}$. Note, the set of possible variable $pVars\bigl(\fctEvalPlus{P}{G}\bigr)$ of a {\SPARQLplus} algebra expression $\fctEvalPlus{P}{G}$ is defined in the same way Schmidt et al.~define $pVars$ for SPARQL set algebra expressions~\cite{Schmidt10:FoundationsOfSPARQLOptimization}, we only extend the definition for our $\OpAS$ expression as follows: $pVars\bigl(\fctEvalPlus{(tp \OpAS ?v)}{G}\bigr) := \lbrace ?v \rbrace \cup \fctVarsPlus{tp}$.
+Let $P$ be a {\SPARQLplus} expression. We assume an \removable{(arbitrary)} injective function $v : \fctTRefs{P} \rightarrow \symAllVariables \cap \fctVarsPlus{P}$. Furthermore, we introduce another injective function $w : (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals) \rightarrow (\symAllVariables \cup \symAllURIs \cup \symAllLiterals)$ that is defined as follows: Let $x \in (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals)$. If $x \in \fctTRefs{P}$, then $w(x) := v(x)$; if $v \notin \fctTRefs{P}$, then $w(x) := x$.
+%
+Using $w$, for any $rp = (s,p,o) \in \fctTRefs{P}$ we write $\mathrm{reif}^w( rp )$ to denote
+	the SPARQL expression $( ( ( tp_1 \OpAND tp_2 ) \OpAND tp_3 ) \OpAND tp_4 )$ where $tp_1$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr)$, $tp_2$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!subject},w(s)\bigr)$, $tp_3$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr)$, and $tp_4$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!object},w(o)\bigr)$.
+	%following SPARQL expression: \begin{align*}
+	%	\Bigl( \Bigl( \,\, \Bigl( & \bigl(w(rp),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr) \OpAND \bigl(w(rp),\mathTinyRDF{rdf\!:\!subject},w(s)\bigr) \Bigr) \OpAND \\
+	%	& \bigl(w(rp),\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr) \Bigr) \OpAND \bigl(w(rp),\mathTinyRDF{rdf\!:\!object},w(o)\bigr) \Bigr)
+	%\end{align*}
 
-Let $P$ be a {\SPARQLplus} expression and let $V_\mathsf{new} \subseteq \symAllVariables \cap \fctVarsPlus{P}$.
-\todo{we need a mapping from all triple reference patterns in $P$ to $V_\mathsf{new}$ so that we can use the same var all the time}
-The \emph{RDF compatible expression} of {\SPARQLplus} expression $P$,
-denoted by $\fctDescent{P}^V$, is defined recursively as follows:
+The \emph{$w$-based, RDF compatible expression} of $P$, denoted by $\fctDescent{P}^{w}$, is defined recursively as follows:
 \begin{enumerate}
-	\item If $P$ is a {\TPplus} $tp$, then $\fctDescent{P}^V$ is \todo{...}
-	\item If $P$ is $(tp \OpAS ?v)$, then $\fctDescent{P}^V$ is \todo{...}
-	\item If $P$ is $(P_1 \OpAND P_2)$, then $\fctDescent{P}^V$ is $(P_1' \OpAND P_2')$ where $P_1'$ is $\fctDescent{P_1}^V$ and $P_2'$ is $\fctDescent{P_2}^V$.
-	\item If $P$ is $(P_1 \OpUNION P_2)$, then $\fctDescent{P}^V$ is $(P_1' \OpUNION P_2')$ where $P_1'$ is $\fctDescent{P_1}^V$ and $P_2'$ is $\fctDescent{P_2}^V$.
-	\item If $P$ is $(P_1 \OpOPT P_2)$, then $\fctDescent{P}^V$ is $(P_1' \OpOPT P_2')$ where $P_1'$ is $\fctDescent{P_1}^V$ and $P_2'$ is $\fctDescent{P_2}^V$.
-	\item If $P$ is $(P_1 \OpFILTER R)$, then $\fctDescent{P}^V$ is $(P_1' \OpFILTER R)$ where $P_1'$ is $\fctDescent{P_1}^V$.
-	\item If $P$ is $\OpSELECT_S(P_1)$, then $\fctDescent{P}^V$ is $\OpSELECT_S(P_1')$ where $P_1'$ is $\fctDescent{P_1}^V$.
+	\item If $P$ is a {\TPplus} $(s,p,o)$, and:
+		\begin{enumerate}
+			\item if $s \notin \symAllTPs$ and $o \notin \symAllTPs$, then $\fctDescent{P}^w$ is $(s,p,o)$; or
+			\item if $s \in \symAllTPs$ and $o \notin \symAllTPs$, then $\fctDescent{P}^w$ is $\bigl( \bigl( P_{s1} \OpAND P_{s2} \bigr) \OpAND (s'\!,p,o) \bigr)$; or
+			\item if $s \notin \symAllTPs$ and $o \in \symAllTPs$, then $\fctDescent{P}^w$ is $\bigl( \bigl( P_{o1} \OpAND P_{o2} \bigr) \OpAND (s,p,o') \bigr)$; or
+			\item else $\fctDescent{P}^w$ is $\bigl( \bigl( \bigl( \bigl( P_{s1} \OpAND P_{s2} \bigr) \OpAND P_{o1} \bigr) \OpAND P_{o2} \bigr) \OpAND (s'\!,p,o') \bigr)$;
+		\end{enumerate}
+		where $s'$ is $w(s)$, $o'$ is $w(o)$, $P_{s1}$ is $\mathrm{reif}^w(s)$, $P_{s2}$ is $\fctDescent{s}^w$, $P_{o1}$ is $\mathrm{reif}^w(o)$, and $P_{o2}$ is $\fctDescent{o}^w$.
+		\vspace{1ex}
+
+	\item If $P$ is
+			%$(tp \OpAS ?v)$ with $tp = (s,p,o)$,
+			$\bigl( (s,p,o) \OpAS ?v \bigr)$,
+		then $\fctDescent{P}^w$ is $( ( ( tp_1 \OpAND tp_2 ) \OpAND tp_3 ) \OpAND tp_4 )$ where $tp_1$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr)$, $tp_2$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!subject},w(s)\bigr)$, $tp_3$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr)$, and $tp_4$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!object},w(o)\bigr)$.
+
+% 	\item If $P$ is $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, $(P_1 \OpFILTER R)$, or $\OpSELECT_S(P_1)$, then $\fctDescent{P}^w$ is $(P_1' \OpAND P_2')$, $(P_1' \OpUNION P_2')$, $(P_1' \OpOPT P_2')$, $(P_1' \OpFILTER R)$, and $\OpSELECT_S(P_1')$, respectively; where $P_1'$ is $\fctDescent{P_1}^w$ and $P_2'$ is $\fctDescent{P_2}^w$.
+
+		\vspace{1ex}
+	\item If $P$ is $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, or $(P_1 \OpFILTER R)$, then $\fctDescent{P}^w$ is $(P_1' \OpAND P_2')$, $(P_1' \OpUNION P_2')$, $(P_1' \OpOPT P_2')$, and $(P_1' \OpFILTER R)$, respectively; where $P_1'$ is $\fctDescent{P_1}^w$ and $P_2'$ is $\fctDescent{P_2}^w$.
+
+% 	\begin{tabular}{|c||c||c||c||c||c|} \hline
+% 		$\boldsymbol{P}$ &
+% 		$(P_1 \OpAND P_2)$ &
+% 		$(P_1 \OpOPT P_2)$ &
+% 		$(P_1 \OpUNION P_2)$ &
+% 		$(P_1 \OpFILTER R)$ &
+% 		$\OpSELECT_S(P_1)$
+% 		\\ \hline
+% 		$\boldsymbol{ \fctDescent{P}^w}$ &
+% 		$(P_1' \OpAND P_2')$ &
+% 		$(P_1' \OpOPT P_2')$ &
+% 		$(P_1' \OpUNION P_2')$ &
+% 		$(P_1' \OpFILTER R)$ &
+% 		$\OpSELECT_S(P_1')$
+% 		\\ \hline
+% 	\end{tabular}
+%
+% 	\begin{center}
+% 	\begin{tabular}{|c|c|} \hline
+% 		$\boldsymbol{P}$ & $\boldsymbol{ \fctDescent{P}^w}$ \\ \hline \hline
+% 		$(P_1 \OpAND P_2)$ & $(P_1' \OpAND P_2')$ \\ \hline
+% 		$(P_1 \OpOPT P_2)$ & $(P_1' \OpOPT P_2')$ \\ \hline
+% 	\end{tabular}
+% 	\hspace{10mm}
+% 	\begin{tabular}{|c|c|} \hline
+% 		$\boldsymbol{P}$ & $\boldsymbol{ \fctDescent{P}^w}$ \\ \hline \hline
+% 		$(P_1 \OpUNION P_2)$ & $(P_1' \OpUNION P_2')$ \\ \hline
+% 		$(P_1 \OpFILTER R)$ & $(P_1' \OpFILTER R)$ \\ \hline
+% 	\end{tabular}
+% 	\end{center}
 \end{enumerate}
+
+
+\begin{proposition} \label{Proposition:EquivalenceOfSyntaxAfterConverting}
+	For any {\SPARQLplus} expression $P$ any RDF compatible expression of $P$ is an (ordinary) SPARQL expression.
+\end{proposition}
+
+\noindent
+To show a (semantic) equivalence between {\SPARQLplus} expressions and the corresponding SPARQL expressions we need an additional algebra operator to project out (bindings for) query variables that the conversion introduces. We define \emph{projection} as follows: Let $\Omega$ be a set of valuations and let $S \subset \symAllVariables$ be a finite set of variables, then $\pi_S ( \Omega ) := \lbrace \eta \,|\, \exists \, \eta' : \eta \cup \eta' \in \Omega \text{ and } \fctDom{\eta} \subseteq S \text{ and } \fctDom{\eta'} \cap S = \emptyset \rbrace$.
+Using projection we may now show the following equivalence:
+
+\begin{proposition} \label{Proposition:QueryEquivalenceAfterConverting}
+	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ that does not contain a sub-expression
+		\removable{of the form}
+	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEvalPlus{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescent{P}^w$ of $P$.
+\end{proposition}
+
+\noindent
+The following result is a direct consequence of Propositions~\ref{Proposition:EquivalenceOfSemantics}, \ref{Proposition:EquivalenceOfSyntaxAfterConverting}, and~\ref{Proposition:QueryEquivalenceAfterConverting}:
+\begin{corollary}
+	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ that does not contain a sub-expression
+		\removable{of the form}
+	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEval{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescent{P}^w$ of $P$.
+\end{corollary}
+
+\noindent
+\todo{briefly discuss the Corollary}
