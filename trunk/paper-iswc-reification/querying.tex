@@ -1,7 +1,13 @@
 \section{Querying} \label{Section:Querying}
 
+To fully benefit from our extended data model we extend the RDF query language SPARQL. Our extension, which we call \emph{\SPARQLplus}, adds new features that enable users to directly access metadata triples in queries. In particular, {\SPARQLplus} introduces a possibility for binding {\RDFplusTriple}s to query variables; such a variable may then be used in a triple pattern in order to ask for matching metadata triples. Furthermore, as a shortcut, (recursively nested) triple patterns may be directly embedded in triple patterns.
 
-\todo{introduction for this section}
+In this section we define {\SPARQLplus} formally. Due to space limitations, we focus on a core fragment of the language; this fragment corresponds to the core fragment of SPARQL that P\'{e}rez et al.~discuss in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}. We also adapt P\'{e}rez et al.'s formalization approach, that is, we define {\SPARQLplus} using an algebraic syntax. In what follows we first introduce the syntax and then specify a compositional set semantics for {\SPARQLplus} queries. While an implementation of this semantics requires a system that supports our {\RDFplus} data model, we also aim to enable existing SPARQL execution systems to answer
+	\removable{metadata-related}
+{\SPARQLplus} queries over ordinary RDF data (in which statement-level metadata is represented via RDF reification). Consequently, we complement the definition of {\SPARQLplus}
+	%in this section
+with a function for converting {\SPARQLplus} queries to SPARQL queries. % and we show that the resulting SPARQL queries produce the same answer 
+
 
 \subsection{Syntax of {\SPARQLplus}}
 
@@ -71,7 +77,7 @@ A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natur
 
 
 
-\subsection{{\RDFplus} Semantics of {\SPARQLplus}}
+\subsection{({\RDFplus} Based) Semantics of {\SPARQLplus}}
 	To define the semantics of {\SPARQLplus} we introduce
 	%We define the semantics of {\SPARQLplus} based on
 \emph{valuation}s, that are, partial mappings $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$.
@@ -157,7 +163,7 @@ may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (or
 \todo{There is a minimal $G_\mathsf{min} \subseteq G$ with $G_\mathsf{min} = G^+$ ...}
 
 
-\subsection{RDF Semantics of {\SPARQLplus}}
+\subsection{Using {\SPARQLplus} for Querying RDF Reification Based Metadata}
 	%For RDF storage systems that do not support our {\RDFplus} data model (but the ordinary RDF data model), we define an alternative semantics for {\SPARQLplus}.
 	In addition to the {\SPARQLplus} semantics defined in the previous section, we now define an alternative semantics for {\SPARQLplus}. This alternative semantics enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
 
