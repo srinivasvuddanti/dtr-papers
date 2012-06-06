@@ -114,7 +114,7 @@ For any {\RDFplusTriple} $t = (s,p,o) \in G$ we define:
 	\fctDescent{G} := \bigcup_{t \in G} \fctDescent{t}
 \end{equation*}
 
-\begin{example}
+\begin{example} \label{Example:ConvertingRDFplusToRDF}
 	Let $G_\mathsf{ex} = \lbrace t_\mathsf{ex} \rbrace$ be an {\RDFplusGraph} that consists of a single {\RDFplusTriple} $t_\mathsf{ex} = \bigl( (\mathTinyRDF{ex:olaf},\mathTinyRDF{foaf:name},\mathTinyRDF{"Olaf"}), \mathTinyRDF{dct:source}, \mathTinyRDF{ex:olaf} \bigr)$.
 % 	The result of converting $G_\mathsf{ex}$ to an RDF graph is:
 % 	\begin{align*}
@@ -144,6 +144,8 @@ Based on the conversion function, it is possible to interpret any {\RDFplus} mod
 	For any {\RDFplusGraph} $G$ it holds $\fctDescent{G} = \fctDescent{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
 \end{proposition}
 
+Using such an interpretation it is easy to see that for each {\RDFplusGraph} $G$ exists a \emph{minimum base} $G^-$ of $G$ that is the minimum of all possible sets $G' \subseteq G$ for which $\fctDescent{G'} = \fctDescent{G^+}$.
+$G^-$ may be computed by removing any $t \in G$ from $G$ for which exists another $t' \in G$ such that $t \in \fctTermsPlus{t'}$.
 
 \subsection{Representation}
 \todo{briefly introduce our extension for Turtle and explain how this extension is related to {\RDFplus} and how it should be parsed by systems that do not ``understand'' {\RDFplus}}
