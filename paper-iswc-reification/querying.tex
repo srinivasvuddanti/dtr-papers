@@ -14,8 +14,6 @@ with a function for converting {\SPARQLplus} queries to SPARQL queries. % and we
 	Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$ where $\symAllVariables$ is a set of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively.
 	%We assume a set $\symAllVariables$ of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively. Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$.
 A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natural number $k$ such that $tp$ is $k$-nested\footnote{$k$-nestedness for $\symAllTPsInfinite$ is defined analog to $k$-nestedness for $\symAllTriplesInfinite$.}; to denote the set of all {\TPplus}s we write $\symAllTPs$ (i.e.~$\symAllTPs \subset \symAllTPsInfinite$).
-%	%To denote the set of all variables in a {\TPplus} $tp=(s,p,o)$ we write $\fctVarsPlus{tp}$; hence, $\fctVarsPlus{tp} := (\lbrace s,p,o \rbrace \cap \symAllVariables) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
-%	For any {\TPplus} $tp \!=\! (s,p,o)$ we define $\fctVarsPlus{tp} := \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$ and $\fctTRefs{tp} := \bigl( \lbrace s,o \rbrace \cap \symAllTPs \bigr) \cup \big\lbrace tp \in \fctTRefs{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
 
 	We now define \emph{{\SPARQLplus} expression}s recursively \removable{as follows}:
 	%\emph{{\SPARQLplus} expression}s are defined recursively \removable{as follows}:
@@ -83,13 +81,8 @@ If $P$ is not a {\TPplus}, then $\fctVarsPlus{P}$ and $\fctTRefs{P}$ are defined
 
 
 \subsection{({\RDFplus} Based) Semantics of {\SPARQLplus}}
-	To define the semantics of {\SPARQLplus} we introduce
-	%We define the semantics of {\SPARQLplus} based on
-\emph{valuation}s, that are, partial mappings $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$.
-Two valuations $\eta$ and $\eta'$ are \emph{compatible}, denoted by $\eta \compatible \eta'$, if for all $?v \in \fctDom{\eta} \cap \fctDom{\eta'}$ holds $\eta(?v) = \eta'(?v)$; note,
-	%$\fctDom{\eta}$ denotes
-	$\fctDom{\eta}$~denotes %% Layout Adjustment
-the domain of a valuation $\eta$.
+To define the semantics of {\SPARQLplus} we introduce \emph{valuation}s, that are, partial mappings $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$.
+Two valuations $\eta$ and $\eta'$ are \emph{compatible}, denoted by $\eta \compatible \eta'$, if for all $?v \in \fctDom{\eta} \cap \fctDom{\eta'}$ holds $\eta(?v) = \eta'(?v)$; note, $\fctDom{\eta}$ denotes the domain of a valuation $\eta$.
 
 Let $\Omega_1$, $\Omega_2$ and $\Omega$ be sets of
 	%valuations; let
@@ -172,13 +165,13 @@ may also be understood as a solution mapping. Based on this understanding, the f
 	holds $\fctEvalPlus{P}{G} \!=\! \fctEval{P}{G}$.
 \end{proposition}
 
-\todo{Motivate the following proposition (it is cool because it shows that we may reduce queried {\RDFplus} data to a minimum base and it nicely corresponds to Proposition~\ref{Proposition:JustificationForDataMinimality1}}
-
-\begin{proposition} \label{Proposition:JustificationForDataMinimality2}
-	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEvalPlus{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
-\end{proposition}
-
-\todo{There is a minimal $G_\mathsf{min} \subseteq G$ with $G_\mathsf{min} = G^+$ ...}
+% \todo{Motivate the following proposition (it is cool because it shows that we may reduce queried {\RDFplus} data to a minimum base and it nicely corresponds to Proposition~\ref{Proposition:JustificationForDataMinimality1}}
+% 
+% \begin{proposition} \label{Proposition:JustificationForDataMinimality2}
+% 	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEvalPlus{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
+% \end{proposition}
+% 
+% \todo{There is a minimal $G_\mathsf{min} \subseteq G$ with $G_\mathsf{min} = G^+$ ...}
 
 
 \subsection{Using {\SPARQLplus} for Querying RDF Reification Based Metadata}
@@ -189,36 +182,39 @@ In addition to the {\SPARQLplus} semantics defined in the previous section, we n
 enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
 
 
-Let $P$ be a {\SPARQLplus} expression. We assume an \removable{(arbitrary)} injective function $v : \fctTRefs{P} \rightarrow \symAllVariables \cap \fctVarsPlus{P}$. Furthermore, we introduce another injective function $w : (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals) \rightarrow (\symAllVariables \cup \symAllURIs \cup \symAllLiterals)$ that is defined as follows: Let $x \in (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals)$. If $x \in \fctTRefs{P}$, then $w(x) := v(x)$; if $v \notin \fctTRefs{P}$, then $w(x) := x$.
+Let $P$ be a {\SPARQLplus} expression.
+	%We
+	For converting $P$ to a SPARQL expression we
+assume an \removable{(arbitrary)} injective function $v : \fctTRefs{P} \rightarrow \symAllVariables \cap \fctVarsPlus{P}$. Furthermore, we introduce another injective function $w : (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals) \rightarrow (\symAllVariables \cup \symAllURIs \cup \symAllLiterals)$ that is defined as follows: Let $x \in (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals)$. If $x \in \fctTRefs{P}$, then $w(x) := v(x)$; if $v \notin \fctTRefs{P}$, then $w(x) := x$.
 %
-Using $w$, for any $rp = (s,p,o) \in \fctTRefs{P}$ we write $\mathrm{reif}^w( rp )$ to denote
+Using $w$, for any $rp = (s,p,o) \in \fctTRefs{P}$ we write $\mathrm{reif}^w\!( rp )$ to denote
 	the SPARQL expression $( ( ( tp_1 \OpAND tp_2 ) \OpAND tp_3 ) \OpAND tp_4 )$ where $tp_1$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr)$, $tp_2$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!subject},w(s)\bigr)$, $tp_3$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr)$, and $tp_4$ is $\bigl(w(rp),\mathTinyRDF{rdf\!:\!object},w(o)\bigr)$.
 	%following SPARQL expression: \begin{align*}
 	%	\Bigl( \Bigl( \,\, \Bigl( & \bigl(w(rp),\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr) \OpAND \bigl(w(rp),\mathTinyRDF{rdf\!:\!subject},w(s)\bigr) \Bigr) \OpAND \\
 	%	& \bigl(w(rp),\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr) \Bigr) \OpAND \bigl(w(rp),\mathTinyRDF{rdf\!:\!object},w(o)\bigr) \Bigr)
 	%\end{align*}
-
-The \emph{$w$-based, RDF compatible expression} of $P$, denoted by $\fctDescent{P}^{w}$, is defined recursively as follows:
+%
+Now, the \emph{$w$-based, RDF compatible expression} of $P$, denoted by $\fctDescentWP{w}{P}$, is defined recursively: % as follows:
 \begin{enumerate}
 	\item If $P$ is a {\TPplus} $(s,p,o)$, and:
 		\begin{enumerate}
-			\item if $s \notin \symAllTPs$ and $o \notin \symAllTPs$, then $\fctDescent{P}^w$ is $(s,p,o)$; or
-			\item if $s \in \symAllTPs$ and $o \notin \symAllTPs$, then $\fctDescent{P}^w$ is $\bigl( \bigl( P_{s1} \OpAND P_{s2} \bigr) \OpAND (s'\!,p,o) \bigr)$; or
-			\item if $s \notin \symAllTPs$ and $o \in \symAllTPs$, then $\fctDescent{P}^w$ is $\bigl( \bigl( P_{o1} \OpAND P_{o2} \bigr) \OpAND (s,p,o') \bigr)$; or
-			\item else $\fctDescent{P}^w$ is $\bigl( \bigl( \bigl( \bigl( P_{s1} \OpAND P_{s2} \bigr) \OpAND P_{o1} \bigr) \OpAND P_{o2} \bigr) \OpAND (s'\!,p,o') \bigr)$;
+			\item if $s \notin \symAllTPs$ and $o \notin \symAllTPs$, then $\fctDescentWP{w}{P}$ is $(s,p,o)$; or
+			\item if $s \in \symAllTPs$ and $o \notin \symAllTPs$, then $\fctDescentWP{w}{P}$ is $\bigl( \bigl( P_{s1} \OpAND P_{s2} \bigr) \OpAND (s'\!,p,o) \bigr)$; or
+			\item if $s \notin \symAllTPs$ and $o \in \symAllTPs$, then $\fctDescentWP{w}{P}$ is $\bigl( \bigl( P_{o1} \OpAND P_{o2} \bigr) \OpAND (s,p,o') \bigr)$; or
+			\item else $\fctDescentWP{w}{P}$ is $\bigl( \bigl( \bigl( \bigl( P_{s1} \OpAND P_{s2} \bigr) \OpAND P_{o1} \bigr) \OpAND P_{o2} \bigr) \OpAND (s'\!,p,o') \bigr)$;
 		\end{enumerate}
-		where $s'$ is $w(s)$, $o'$ is $w(o)$, $P_{s1}$ is $\mathrm{reif}^w(s)$, $P_{s2}$ is $\fctDescent{s}^w$, $P_{o1}$ is $\mathrm{reif}^w(o)$, and $P_{o2}$ is $\fctDescent{o}^w$.
+		where $s'$ is $w(s)$, $o'$ is $w(o)$, $P_{s1}$ is $\mathrm{reif}^w\!(s)$, $P_{s2}$ is $\fctDescentWP{w}{s}$, $P_{o1}$ is $\mathrm{reif}^w\!(o)$, and $P_{o2}$ is $\fctDescentWP{w}{o}$.
 		\vspace{1ex}
 
 	\item If $P$ is
 			%$(tp \OpAS ?v)$ with $tp = (s,p,o)$,
 			$\bigl( (s,p,o) \OpAS ?v \bigr)$,
-		then $\fctDescent{P}^w$ is $( ( ( tp_1 \OpAND tp_2 ) \OpAND tp_3 ) \OpAND tp_4 )$ where $tp_1$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr)$, $tp_2$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!subject},w(s)\bigr)$, $tp_3$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr)$, and $tp_4$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!object},w(o)\bigr)$.
+		then $\fctDescentWP{w}{P}$ is $( ( ( tp_1 \OpAND tp_2 ) \OpAND tp_3 ) \OpAND tp_4 )$ where $tp_1$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}\bigr)$, $tp_2$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!subject},w(s)\bigr)$, $tp_3$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!predicate},w(p)\bigr)$, and $tp_4$ is $\bigl(?v,\mathTinyRDF{rdf\!:\!object},w(o)\bigr)$.
 
-% 	\item If $P$ is $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, $(P_1 \OpFILTER R)$, or $\OpSELECT_S(P_1)$, then $\fctDescent{P}^w$ is $(P_1' \OpAND P_2')$, $(P_1' \OpUNION P_2')$, $(P_1' \OpOPT P_2')$, $(P_1' \OpFILTER R)$, and $\OpSELECT_S(P_1')$, respectively; where $P_1'$ is $\fctDescent{P_1}^w$ and $P_2'$ is $\fctDescent{P_2}^w$.
+% 	\item If $P$ is $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, $(P_1 \OpFILTER R)$, or $\OpSELECT_S(P_1)$, then $\fctDescentWP{w}{P}$ is $(P_1' \OpAND P_2')$, $(P_1' \OpUNION P_2')$, $(P_1' \OpOPT P_2')$, $(P_1' \OpFILTER R)$, and $\OpSELECT_S(P_1')$, respectively; where $P_1'$ is $\fctDescentWP{w}{P_1}$ and $P_2'$ is $\fctDescentWP{w}{P_2}$.
 
 		\vspace{1ex}
-	\item If $P$ is $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, or $(P_1 \OpFILTER R)$, then $\fctDescent{P}^w$ is $(P_1' \OpAND P_2')$, $(P_1' \OpUNION P_2')$, $(P_1' \OpOPT P_2')$, and $(P_1' \OpFILTER R)$, respectively; where $P_1'$ is $\fctDescent{P_1}^w$ and $P_2'$ is $\fctDescent{P_2}^w$.
+	\item If $P$ is $(P_1 \OpAND P_2)$, $(P_1 \OpUNION P_2)$, $(P_1 \OpOPT P_2)$, or $(P_1 \OpFILTER R)$, then $\fctDescentWP{w}{P}$ is $(P_1' \OpAND P_2')$, $(P_1' \OpUNION P_2')$, $(P_1' \OpOPT P_2')$, and $(P_1' \OpFILTER R)$, respectively; where $P_1'$ is $\fctDescentWP{w}{P_1}$ and $P_2'$ is $\fctDescentWP{w}{P_2}$.
 
 % 	\begin{tabular}{|c||c||c||c||c||c|} \hline
 % 		$\boldsymbol{P}$ &
@@ -228,7 +224,7 @@ The \emph{$w$-based, RDF compatible expression} of $P$, denoted by $\fctDescent{
 % 		$(P_1 \OpFILTER R)$ &
 % 		$\OpSELECT_S(P_1)$
 % 		\\ \hline
-% 		$\boldsymbol{ \fctDescent{P}^w}$ &
+% 		$\boldsymbol{ \fctDescentWP{w}{P}}$ &
 % 		$(P_1' \OpAND P_2')$ &
 % 		$(P_1' \OpOPT P_2')$ &
 % 		$(P_1' \OpUNION P_2')$ &
@@ -239,22 +235,24 @@ The \emph{$w$-based, RDF compatible expression} of $P$, denoted by $\fctDescent{
 %
 % 	\begin{center}
 % 	\begin{tabular}{|c|c|} \hline
-% 		$\boldsymbol{P}$ & $\boldsymbol{ \fctDescent{P}^w}$ \\ \hline \hline
+% 		$\boldsymbol{P}$ & $\boldsymbol{ \fctDescentWP{w}{P}}$ \\ \hline \hline
 % 		$(P_1 \OpAND P_2)$ & $(P_1' \OpAND P_2')$ \\ \hline
 % 		$(P_1 \OpOPT P_2)$ & $(P_1' \OpOPT P_2')$ \\ \hline
 % 	\end{tabular}
 % 	\hspace{10mm}
 % 	\begin{tabular}{|c|c|} \hline
-% 		$\boldsymbol{P}$ & $\boldsymbol{ \fctDescent{P}^w}$ \\ \hline \hline
+% 		$\boldsymbol{P}$ & $\boldsymbol{ \fctDescentWP{w}{P}}$ \\ \hline \hline
 % 		$(P_1 \OpUNION P_2)$ & $(P_1' \OpUNION P_2')$ \\ \hline
 % 		$(P_1 \OpFILTER R)$ & $(P_1' \OpFILTER R)$ \\ \hline
 % 	\end{tabular}
 % 	\end{center}
 \end{enumerate}
 
+\noindent
+It is easy to see that our conversion function $\fctDescentWP{w}{P}$ replaces any \SPARQLplus-spe\-cif\-ic syntax element in $P$ by elements from the usual SPARQL syntax (defined in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}). Thus:
 
 \begin{proposition} \label{Proposition:EquivalenceOfSyntaxAfterConverting}
-	For any {\SPARQLplus} expression $P$ any RDF compatible expression of $P$ is an (ordinary) SPARQL expression.
+	For any {\SPARQLplus} expression $P$ any ($w$-based) RDF compatible expression of $P$ is an ordinary SPARQL expression (for all possible $w$).
 \end{proposition}
 
 \noindent
@@ -264,7 +262,7 @@ Using projection we may now show the following equivalence:
 \begin{proposition} \label{Proposition:QueryEquivalenceAfterConverting}
 	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ that does not contain a sub-expression
 		\removable{of the form}
-	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEvalPlus{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescent{P}^w$ of $P$.
+	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEvalPlus{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescentWP{w}{P}$ of $P$.
 \end{proposition}
 
 \noindent
@@ -272,7 +270,7 @@ The following result is a direct consequence of Propositions~\ref{Proposition:Eq
 \begin{corollary}
 	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ that does not contain a sub-expression
 		\removable{of the form}
-	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEval{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescent{P}^w$ of $P$.
+	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEval{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescentWP{w}{P}$ of $P$.
 \end{corollary}
 
 \noindent
