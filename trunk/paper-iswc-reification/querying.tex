@@ -14,8 +14,8 @@ with a function for converting {\SPARQLplus} queries to SPARQL queries. % and we
 	Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$ where $\symAllVariables$ is a set of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively.
 	%We assume a set $\symAllVariables$ of query variables that is disjoint from $\symAllURIs$, $\symAllBNodes$, and $\symAllLiterals$, respectively. Let $\symAllTPsInfinite := (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs) \times (\symAllVariables \cup \symAllURIs) \times (\symAllVariables \cup \symAllTPsInfinite \cup \symAllURIs \cup \symAllLiterals)$.
 A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natural number $k$ such that $tp$ is $k$-nested\footnote{$k$-nestedness for $\symAllTPsInfinite$ is defined analog to $k$-nestedness for $\symAllTriplesInfinite$.}; to denote the set of all {\TPplus}s we write $\symAllTPs$ (i.e.~$\symAllTPs \subset \symAllTPsInfinite$).
-	%To denote the set of all variables in a {\TPplus} $tp=(s,p,o)$ we write $\fctVarsPlus{tp}$; hence, $\fctVarsPlus{tp} := (\lbrace s,p,o \rbrace \cap \symAllVariables) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
-	For any {\TPplus} $tp \!=\! (s,p,o)$ we define $\fctVarsPlus{tp} \!:=\! \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+%	%To denote the set of all variables in a {\TPplus} $tp=(s,p,o)$ we write $\fctVarsPlus{tp}$; hence, $\fctVarsPlus{tp} := (\lbrace s,p,o \rbrace \cap \symAllVariables) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+%	For any {\TPplus} $tp \!=\! (s,p,o)$ we define $\fctVarsPlus{tp} := \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$ and $\fctTRefs{tp} := \bigl( \lbrace s,o \rbrace \cap \symAllTPs \bigr) \cup \big\lbrace tp \in \fctTRefs{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
 
 	We now define \emph{{\SPARQLplus} expression}s recursively \removable{as follows}:
 	%\emph{{\SPARQLplus} expression}s are defined recursively \removable{as follows}:
@@ -33,48 +33,53 @@ A \emph{\TPplus} is a tuple $tp \in \symAllTPsInfinite$ for which exists a natur
 \begin{note}
 		We note that any
 		%Any
-	(ordinary) SPARQL expression is a {\SPARQLplus} expression.
+	(ordinary) SPARQL expression (as defined by P\'{e}rez et al.~\cite{Perez09:SemanticsAndComplexityOfSPARQL}) is a {\SPARQLplus} expression.
 \end{note}
 
-
-\todo{introduce $\fctVarsPlus{P}$ and $\fctTRefs{P}$ ...}
-
-	\begin{tabular}{|c||c|c|} \hline
-		{\SPARQLplus} expression $P$ &
-		$\fctVarsPlus{P}$ &
-		$\fctTRefs{P}$
-		\\ \hline
-		\hline
-% 		{\TPplus} $(s,p,o)$ &
-% 		$\bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$ &
-% 		$\bigl( \lbrace s,o \rbrace \cap \symAllTPs \bigr) \cup \big\lbrace tp \in \fctTRefs{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$
-% 		\\ \hline
-		$(tp \OpAS ?v)$ &
-		$\fctVarsPlus{tp} \cup \lbrace ?v \rbrace$ &
-		$\fctTRefs{tp} \cup \lbrace tp \rbrace$
-		\\ \hline
-		$(P_1 \OpAND P_2)$ &
-		$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
-		$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
-		\\ \hline
-		$(P_1 \OpOPT P_2)$ &
-		$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
-		$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
-		\\ \hline
-		$(P_1 \OpUNION P_2)$ &
-		$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
-		$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
-		\\ \hline
-		$(P' \OpFILTER R)$ &
-		$\fctVarsPlus{P'} \cup \fctVars{R}$ &
-		$\fctTRefs{P'}$
-		\\ \hline
-% 		$\OpSELECT_S(P')$ &
-% 		$\fctVarsPlus{P'} \cup S$ &
-% 		$\fctTRefs{P'}$
-% 		\\ \hline
-	\end{tabular}
-
+\noindent
+For any {\SPARQLplus} expression $P$ we write $\fctTRefs{P}$ to denote the set of all {\TPplus}s embedded in a {\TPplus} in $P$; and $\fctVarsPlus{P}$ denotes the set of all variables mentioned in $P$ (including in embedded {\TPplus}s). Formally, if $P$ is a {\TPplus} $tp \!=\! (s,p,o)$,
+then $\fctVarsPlus{tp} := \bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$
+and $\fctTRefs{tp} := \bigl( \lbrace s,o \rbrace \cap \symAllTPs \bigr) \cup \big\lbrace tp \in \fctTRefs{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$.
+If $P$ is not a {\TPplus}, then $\fctVarsPlus{P}$ and $\fctTRefs{P}$ are defined as follows:
+	\par \vspace{1pt}
+	\parbox{0.95\linewidth}{\centering
+		\begin{tabular}{|c||c|c|} \hline
+			{\SPARQLplus} expression $P$ &
+			$\fctVarsPlus{P}$ &
+			$\fctTRefs{P}$
+			\\ \hline
+			\hline
+% 			{\TPplus} $(s,p,o)$ &
+% 			$\bigl( \lbrace s,p,o \rbrace \cap \symAllVariables \bigr) \cup \big\lbrace ?v \in \fctVarsPlus{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$ &
+% 			$\bigl( \lbrace s,o \rbrace \cap \symAllTPs \bigr) \cup \big\lbrace tp \in \fctTRefs{x} \,\big|\, x \in \lbrace s,o \rbrace \cap \symAllTPs \big\rbrace$
+% 			\\ \hline
+			$(tp \OpAS ?v)$ &
+			$\fctVarsPlus{tp} \cup \lbrace ?v \rbrace$ &
+			$\fctTRefs{tp} \cup \lbrace tp \rbrace$
+			\\ \hline
+			$(P_1 \OpAND P_2)$ &
+			$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
+			$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
+			\\ \hline
+			$(P_1 \OpOPT P_2)$ &
+			$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
+			$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
+			\\ \hline
+			$(P_1 \OpUNION P_2)$ &
+			$\fctVarsPlus{P_1} \cup \fctVarsPlus{P_2}$ &
+			$\fctTRefs{P_1} \cup \fctTRefs{P_2}$
+			\\ \hline
+			$(P' \OpFILTER R)$ &
+			$\fctVarsPlus{P'} \cup \fctVars{R}$ &
+			$\fctTRefs{P'}$
+			\\ \hline
+% 			$\OpSELECT_S(P')$ &
+% 			$\fctVarsPlus{P'} \cup S$ &
+% 			$\fctTRefs{P'}$
+% 			\\ \hline
+		\end{tabular}
+	}
+	\par
 
 
 \subsection{({\RDFplus} Based) Semantics of {\SPARQLplus}}
@@ -144,19 +149,32 @@ denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
 \end{enumerate}
 
 \noindent
-\removable{As usual, each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$ in $G$.}
-
-The following result shows that the query semantics introduced in this section is fully compatible to the usual SPARQL semantics (as defined in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}), that is, any system that supports {\RDFplus}
-	and {\SPARQLplus}
-may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (ordinary) RDF graphs.
+% \removable{As usual, each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$ in $G$.}
+% 
+We emphasize that our definitions in this section resemble the definitions with which
+	%P\'{e}rez et al.~define
+the evaluation function $\fctEval{\cdot}{ }$ for ordinary SPARQL
+	%expressions~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.
+	expressions is defined~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.
+As the primary difference we note that the definitions for SPARQL are based on so called \emph{solution mapping}s, that are, partial mappings $\mu : \symAllVariables \rightarrow \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$, whereas we use valuations $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$. However, any valuation
+	%$\eta$ for which $\forall \, ?v \in \fctDom{\eta} : \eta(?v) \notin \symAllTriples$,
+	that binds variables only to URIs, blank nodes, or literals (but not to {\RDFplusTriple}s),
+may also be understood as a solution mapping. Based on this understanding, the following result shows that our query semantics for {\SPARQLplus} is fully compatible to the usual SPARQL semantics (defined in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}), that is, any system that supports {\RDFplus} and {\SPARQLplus} may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (ordinary) RDF graphs.
 
 \begin{proposition} \label{Proposition:EquivalenceOfSemantics}
-	For any (ordinary) RDF graph $G$ and any (ordinary) SPARQL expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEval{P}{G}$.
+	For any
+		%(ordinary)
+	RDF graph $G$ and any
+		%(ordinary)
+	SPARQL
+		%expression $P$
+		expr.~$P$
+	holds $\fctEvalPlus{P}{G} \!=\! \fctEval{P}{G}$.
 \end{proposition}
 
-\todo{...}
+\todo{Motivate the following proposition (it is cool because it shows that we may reduce queried {\RDFplus} data to a minimum base and it nicely corresponds to Proposition~\ref{Proposition:JustificationForDataMinimality1}}
 
-\begin{proposition}
+\begin{proposition} \label{Proposition:JustificationForDataMinimality2}
 	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ it holds $\fctEvalPlus{P}{G} = \fctEvalPlus{P}{G^+}$ where $G^+ = G \cup \fctTRefs{G}$.
 \end{proposition}
 
@@ -164,8 +182,11 @@ may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (or
 
 
 \subsection{Using {\SPARQLplus} for Querying RDF Reification Based Metadata}
-	%For RDF storage systems that do not support our {\RDFplus} data model (but the ordinary RDF data model), we define an alternative semantics for {\SPARQLplus}.
-	In addition to the {\SPARQLplus} semantics defined in the previous section, we now define an alternative semantics for {\SPARQLplus}. This alternative semantics enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
+
+In addition to the {\SPARQLplus} semantics defined in the previous section, we now define
+	%an alternative semantics for {\SPARQLplus}. This alternative semantics
+	a function for converting {\SPARQLplus} queries to SPARQL queries. This conversion function
+enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
 
 
 Let $P$ be a {\SPARQLplus} expression. We assume an \removable{(arbitrary)} injective function $v : \fctTRefs{P} \rightarrow \symAllVariables \cap \fctVarsPlus{P}$. Furthermore, we introduce another injective function $w : (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals) \rightarrow (\symAllVariables \cup \symAllURIs \cup \symAllLiterals)$ that is defined as follows: Let $x \in (\symAllVariables \cup \fctTRefs{P} \cup \symAllURIs \cup \symAllLiterals)$. If $x \in \fctTRefs{P}$, then $w(x) := v(x)$; if $v \notin \fctTRefs{P}$, then $w(x) := x$.
