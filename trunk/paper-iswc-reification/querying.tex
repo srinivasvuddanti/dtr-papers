@@ -79,6 +79,18 @@ If $P$ is not a {\TPplus}, then $\fctVarsPlus{P}$ and $\fctTRefs{P}$ are defined
 	}
 	\par
 
+\begin{example} \label{Example:SPARQLplusExpression}
+		The following {\SPARQLplus} expression $P_\mathsf{ex}$ represents the query from Example~\Todo{X}{refer to the informal example that appears in the intro or in the discussion section before}:
+		%We represent the query from Example~\Todo{X}{refer to the informal example that appears in the intro or in the discussion section before} using {\SPARQLplus} expression $P_\mathsf{ex}$:
+	%
+		%$\bigl( (?\mathit{who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase}), \mathTinyRDF{dct:source} , ?\mathit{src} \bigr)$.
+		$\bigl( \, \bigl( (?\mathit{who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase}) \OpAS ?v \bigr) \OpAND (?v , \mathTinyRDF{dct:source} , ?\mathit{src}) \, \bigr)$.
+% 	Let $P_\mathsf{ex}$ be the {\SPARQLplus} expression that represents the query in Example~\Todo{X}{refer to the informal example that appears in the intro or in the discussion section before}, that is, $P_\mathsf{ex}$ is
+% 		%$\bigl( (?\mathit{who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase}), \mathTinyRDF{dct:source} , ?\mathit{src} \bigr)$.
+% 		\begin{equation*}\Bigl( \bigl( (?\mathit{who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase}) \OpAS ?v \bigr) \OpAND (?v , \mathTinyRDF{dct:source} , ?\mathit{src}) \Bigr)\end{equation*}
+	It holds $\fctVarsPlus{P_\mathsf{ex}} = \lbrace ?\mathit{who}, ?v, ?\mathit{src} \rbrace$ and $\fctTRefs{P_\mathsf{ex}} = \big\lbrace (?\mathit{who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase}) \big\rbrace$.
+\end{example}
+
 
 \subsection{({\RDFplus} Based) Semantics of {\SPARQLplus}}
 To define the semantics of {\SPARQLplus} we introduce \emph{valuation}s, that are, partial mappings $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$.
@@ -140,6 +152,14 @@ denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
 	\item If $P$ is $(P' \OpFILTER R)$, then $\fctEvalPlus{P}{G} := \sigma_R\bigl( \fctEvalPlus{P'}{G} \bigr)$.
 % 	\item If $P$ is $\OpSELECT_S(P')$, then $\fctEvalPlus{P}{G} := \pi_S\bigl( \fctEvalPlus{P'}{G} \bigr)$.
 \end{enumerate}
+
+\todo{adjust the following example once the previous examples are fixed}
+\begin{example} \label{Example:SPARQLplusEvaluation}
+	The evaluation of {\SPARQLplus} expression $P_\mathsf{ex}$ (cf.~Example~\ref{Example:SPARQLplusExpression}) over the {\RDFplusGraph} $G_\mathsf{ex}$ from Example~\ref{Example:ConvertingRDFplusToRDF} consists of a single valuation
+		%$\eta_1$ (i.e.~$\fctEvalPlus{P_\mathsf{ex}}{G_\mathsf{ex}} = \lbrace \eta_1 \rbrace$)
+		$\eta_1 \in \fctEvalPlus{P_\mathsf{ex}}{G_\mathsf{ex}}$
+	such that $\fctDom{\eta} = \lbrace ?\mathit{who}, ?v, ?\mathit{src} \rbrace$ and $\eta(?\mathit{who})=\mathTinyRDF{:who}$, $\eta(?v)=(\mathTinyRDF{:who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase})$, and $\eta(?\mathit{src})=\mathTinyRDF{:src}$.
+\end{example}
 
 \noindent
 % \removable{As usual, each valuation $\eta \in \fctEvalPlus{P}{G}$ is called a \emph{solution} for $P$ in $G$.}
@@ -248,12 +268,24 @@ Now, the \emph{$w$-based, RDF compatible expression} of $P$, denoted by $\fctDes
 % 	\end{center}
 \end{enumerate}
 
+
 \noindent
 It is easy to see that our conversion function $\fctDescentWP{w}{P}$ replaces any \SPARQLplus-spe\-cif\-ic syntax element in $P$ by elements from the usual SPARQL syntax (defined in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}). Thus:
 
 \begin{proposition} \label{Proposition:EquivalenceOfSyntaxAfterConverting}
 	For any {\SPARQLplus} expression $P$ any ($w$-based) RDF compatible expression of $P$ is an ordinary SPARQL expression (for all possible $w$).
 \end{proposition}
+
+\todo{adjust the following example once the previous examples are fixed}
+\begin{example} \label{Example:ConvertingSPARQLplusToSPARQL}
+% 	Let $tp_\mathsf{ex}$ be the embedded {\TPplus} $(?\mathit{who},\mathTinyRDF{:bought},\mathTinyRDF{:sybase})$ from Example~\ref{Example:SPARQLplusExpression} (i.e.~$tp_\mathsf{ex} \in \fctTRefs{P_\mathsf{ex}}$) and let $w(tp_\mathsf{ex})=?v$.
+	For the {\SPARQLplus} expression $P_\mathsf{ex}$ from Example~\ref{Example:SPARQLplusExpression} holds that $\fctDescentWP{w}{P_\mathsf{ex}}$ is:
+	\begin{align*}
+		\bigl( \bigl( \bigl( \bigl( & (?v,\mathTinyRDF{rdf\!:\!type},\mathTinyRDF{rdf\!:\!Statement}) \OpAND (?v,\mathTinyRDF{rdf\!:\!subject},?\mathit{who}) \bigr) \OpAND \\
+		& (?v,\mathTinyRDF{rdf\!:\!predicate},\mathTinyRDF{:bought}) \bigr) \OpAND (?v,\mathTinyRDF{rdf\!:\!object},\mathTinyRDF{:sybase}) \bigr) \bigr) \OpAND \\
+		& (?v , \mathTinyRDF{dct:source} , ?\mathit{src}) \bigr)	
+	\end{align*}
+\end{example}
 
 \noindent
 To show a (semantic) equivalence between {\SPARQLplus} expressions and the corresponding SPARQL expressions we need an additional algebra operator to project out (bindings for) query variables that the conversion introduces. We define \emph{projection} as follows: Let $\Omega$ be a set of valuations and let $S \subset \symAllVariables$ be a finite set of variables, then $\pi_S ( \Omega ) := \lbrace \eta \,|\, \exists \, \eta' : \eta \cup \eta' \in \Omega \text{ and } \fctDom{\eta} \subseteq S \text{ and } \fctDom{\eta'} \cap S = \emptyset \rbrace$.
