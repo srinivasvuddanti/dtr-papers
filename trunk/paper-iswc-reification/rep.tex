@@ -1,8 +1,6 @@
 \section{Data Model} \label{Section:DataModel}
 
-In this section we introduce
-	%an extension of the RDF data model~\cite{Klyne04:RDFconcepts} that makes 
-	our data model which we call {\RDFplus}. This model is an extension of the RDF data model~\cite{Klyne04:RDFconcepts}. {\RDFplus} extends RDF by making metadata statements a first class citizen in the data model.
+This section introduces our data model which we call \emph{\RDFplus}. {\RDFplus} extends the RDF data model~\cite{Klyne04:RDFconcepts} by making metadata statements a first class citizen in the data model.
 % In the following we \todo{...}
 
 % Main purposes of our data model: 1.)~it allows for a more compact representation; 2.)~it allows for efficient processing
@@ -18,7 +16,13 @@ pairwise disjoint sets $\symAllURIs$ (all URI references), $\symAllBNodes$ (blan
 	%As usual, a tuple $(s,p,o) \in (\symAllURIs \cup \symAllBNodes) \times \symAllURIs \times (\symAllURIs \cup \symAllBNodes \cup \symAllLiterals)$ is an \emph{RDF triple}.
 % A set of RDF triples is an \emph{RDF graph}.
 
-{\RDFplus} extends such triples by permitting the embedding of another triple in the subject or object position of a given triple. We shall interpret the embedding triple as a statement about the embedded triple. An embedded triple may itself be a statement about a triple and, thus, may also contain embedded triples; and so forth.
+{\RDFplus} extends such triples by permitting the embedding of a given triple in
+	%the subject 
+	the~subject %%% Layout Adjustment
+or object position of another triple. We shall interpret the embedding triple
+	%as a statement
+	as~a~statement %%% Layout Adjustment
+about the embedded triple. An embedded triple may itself be a statement about a triple and, thus, may also contain embedded triples; and so forth.
 	%Therefore, the model should allow for nesting.
 %
 	%As a basis for formalizing
