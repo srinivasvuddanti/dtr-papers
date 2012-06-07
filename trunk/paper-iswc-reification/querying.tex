@@ -166,13 +166,18 @@ denoted by $\fctEvalPlus{P}{G}$, is defined recursively as follows:
 % 
 We emphasize that our definitions in this section resemble the definitions with which
 	%P\'{e}rez et al.~define
-the evaluation function $\fctEval{\cdot}{ }$ for ordinary SPARQL
+the evaluation function
+	%$\fctEval{\cdot}{ }$
+	$\fctEval{P}{G}$
+for ordinary SPARQL
 	%expressions~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.
 	expressions is defined~\cite{Perez09:SemanticsAndComplexityOfSPARQL}.
 As the primary difference we note that the definitions for SPARQL are based on so called \emph{solution mapping}s, that are, partial mappings $\mu : \symAllVariables \rightarrow \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$, whereas we use valuations $\eta : \symAllVariables \rightarrow \symAllTriples \cup \symAllURIs \cup \symAllBNodes \cup \symAllLiterals$. However, any valuation
 	%$\eta$ for which $\forall \, ?v \in \fctDom{\eta} : \eta(?v) \notin \symAllTriples$,
 	that binds variables only to URIs, blank nodes, or literals (but not to {\RDFplusTriple}s),
-may also be understood as a solution mapping. Based on this understanding, the following result shows that our query semantics for {\SPARQLplus} is fully compatible to the usual SPARQL semantics (defined in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}), that is, any system that supports {\RDFplus} and {\SPARQLplus} may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (ordinary) RDF graphs.
+may also be understood as a solution mapping. Based on this understanding, the following result shows that our query semantics for {\SPARQLplus} is backwards compatible w.r.t.~the usual SPARQL semantics (%
+	%as defined
+in~\cite{Perez09:SemanticsAndComplexityOfSPARQL}), that is, any system that supports {\RDFplus} and {\SPARQLplus} may use {\SPARQLplus} semantics to answer (ordinary) SPARQL expressions over (ordinary) RDF graphs.
 
 \begin{proposition} \label{Proposition:EquivalenceOfSemantics}
 	For any
@@ -196,11 +201,7 @@ may also be understood as a solution mapping. Based on this understanding, the f
 
 \subsection{Using {\SPARQLplus} for Querying RDF Reification Based Metadata}
 
-In addition to the {\SPARQLplus} semantics defined in the previous section, we now define
-	%an alternative semantics for {\SPARQLplus}. This alternative semantics
-	a function for converting {\SPARQLplus} queries to SPARQL queries. This conversion function
-enables RDF systems that support the ordinary RDF data model (but not our {\RDFplus} data model), to answer {\SPARQLplus} queries.
-
+In addition to the {\SPARQLplus} semantics defined in the previous section, we now define an approach for answering {\SPARQLplus} queries using the usual SPARQL semantics. This approach is based on a function for converting {\SPARQLplus} queries to SPARQL queries.
 
 Let $P$ be a {\SPARQLplus} expression.
 	%We
@@ -299,11 +300,12 @@ Using projection we may now show the following equivalence:
 
 \noindent
 The following result is a direct consequence of Propositions~\ref{Proposition:EquivalenceOfSemantics}, \ref{Proposition:EquivalenceOfSyntaxAfterConverting}, and~\ref{Proposition:QueryEquivalenceAfterConverting}:
-\begin{corollary}
+
+\begin{corollary} \label{Corollary:EquivalenceSPARQLplusAndSPARQL}
 	For any {\RDFplusGraph} $G$ and any {\SPARQLplus} expression $P$ that does not contain a sub-expression
 		\removable{of the form}
 	$(tp \OpAS ?v)$ it holds $\fctEvalPlus{P}{G} = \pi_{\fctVarsPlus{P}}\bigl( \fctEval{P'}{\fctDescent{G}} \bigr)$ where $P'$ is an arbitrary RDF compatible expression $\fctDescentWP{w}{P}$ of $P$.
 \end{corollary}
 
 \noindent
-\todo{briefly discuss the Corollary}
+The importance of Corollary~\ref{Corollary:EquivalenceSPARQLplusAndSPARQL} lies in providing an alternative approach for answering {\SPARQLplus} queries (without $\OpAS$\!) that is based on the usual SPARQL semantics only. This approach presents an easy implementable interim solution for supporting {\SPARQLplus} in existing SPARQL execution systems before they are upgraded to our {\RDFplus} data model.
