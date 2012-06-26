@@ -7,9 +7,15 @@
 
 
 \subsection{Main Dimensions} 
-Features: content, structure, context, two meanings of context: context of user; and context of the data such as trust values of source, truth value / confidence degree of individual records; make clear this survey does not discuss user-context based methods in details\\
-Results: entity, relationships, subgraphs, graphs (entire dataset)\\
-Techniques:\\
+\emph{Data}: structured data conceived as graphs? All existing approaches are applicable to data graphs or are there any that exploit special characteristics of specific types of structured data? Only in the latter case, approaches shall be distinguished along this data dimension\\
+
+\emph{Queries}: same as data dimension: are there many different approaches dealing with different types of queries so that we can use query as a dimension to distinguish approaches?\\
+
+\emph{Features}: content, structure, context, two meanings of context: context of user; and context of the data such as trust values of source, truth value / confidence degree of individual records; make clear this survey does not discuss user-context based methods in details\\
+
+\emph{Results}: entity, relationships, subgraphs, graphs (entire dataset)\\
+
+\emph{Techniques}:\\
 - may vary in terms of methods: used \emph{NLP} for understanding keywords, used \emph{ML} for classifying keywords (I know some ML-based query classification approaches for document retrieval, are there also examples for structured data ranking?) and for learning to rank, (other) statistics-based methods: Vector Space Model (VSM), Language Modeling (LM), Information Theory\\
 - may vary in terms of heuristics: two main ones are query-relevance and popularity; other heuristics are proximity, informativeness (based on Information Theory, e.g. entropy) and context-based: trust, truth value, locality etc. 
 
@@ -23,6 +29,9 @@ Learning to Rank\\
 ... 
 
 \subsection{Taxonomy of Ranking Approaches}
-Classify approaches mainly based on the type of \emph{heuristics} they used. Those that use same heuristics are distinguished in terms of \emph{methods}. E.g. Query-relevance based solutions can be further distinguished in terms of VSM-based and LM-based approaches.\\
+Classify approaches mainly based on the type of \emph{heuristics} they used, i.e. (1) Query-relevance, (2) Popularity, (3) Other Heuristics and (4) All Heuristics / LTR.\\   
+
+Those that use same heuristics are distinguished in terms of \emph{methods}. E.g. query-relevance based solutions can be further distinguished in terms of VSM-based and LM-based approaches.\\
 
  
+an
