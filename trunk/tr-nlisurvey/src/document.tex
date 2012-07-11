@@ -449,11 +449,18 @@ personalization, which is the one pillar of recent IR systems.
 The main problem to solve is to map user's intent expressed in a natural way
 (say unstructured way) to a database query, which is a very structured
 expression where there is no room for ambiguity unlike natural language.
-As a result, all interfaces must deal with words or terms ``meaning''. This
-``meaning'' or semantics is in the end defined in terms of ``database
-elements''. 
-
-
+The problem can be formalized as:
+\begin{equation}
+f:\left\{
+\begin{array}{l}
+Q\rightarrow (Q^\prime\times S)^I\\
+q\mapsto(q^\prime_i, s_i)_i
+\end{array}\right.
+\end{equation}
+where $q$ is the user's question, $q^\prime_i$ a structured query and $s_i$ a
+score associated to the structured query $q^\prime_i$, and used to rank the
+query (the index $i\in I=[0,n]$ is the rank).
+ 
 
 
 \subsection{Lexicon}
@@ -467,6 +474,7 @@ The domain-independant lexicon defines how to interpret words independant from a
 given domain. For instance, {\it wh}-question words define constraints on the
 structure of the expected database query (for SQL, for the ``WHERE'' statement
 for instance). 
+
 
 
 \subsection{Semantic rules}
@@ -508,7 +516,12 @@ The main problems to solve:
 \label{sec:overview}
 
 
-
+\begin{figure*}
+\centering
+\includegraphics[width=12cm]{images/query-language}
+\caption{Blabla}
+\label{fig:query-languages}
+\end{figure*}
 
 
 \subsubsection{Classic translation approach}
