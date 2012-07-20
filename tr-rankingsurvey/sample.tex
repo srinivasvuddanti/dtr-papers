@@ -1,2 +1,55 @@
 \section{Sample Approaches from the Literature}
 Before, we discuss the concepts/techniques behind existing approaches. Here we provide a sample  
+
+\begin{table*}[htdp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Algorithm}&\textbf{Reference}\\ \hline
+OntologyRank & Ding et al., 2004 \cite{Ding2004}\\ \hline
+ObjectRank & Balmin, Hristidis, \& Papakonstantinou, 2004 \cite{Balmin2004}\\ \hline
+PopRank & Nie, Zhang, Wen \& Ma, 2005 \cite{Nie2005}\\ \hline
+SemRank & Anyanwu, Maduko \& Sheth, 2005 \cite{Anyanwu2005}\\ \hline
+ReConRank	& Hogan, Harth \& Decker, 2006 \cite{Hogan2006}\\ \hline
+AKTiveRank	 & Alani, Brewster \& Shadbolt, 2006 \cite{Alani2006}\\ \hline
+Naming Authority Rank & Harth, Kinsella \& Decker, 2009 \cite{Harth2009}\\ \hline
+TripleRank & Franz, Schultz, Sizov \& Staab, 2009 \cite{Franz2009}\\ \hline
+RareRank & Wei, 2009 \cite{Wei2009}\\ \hline
+DBpediaRanker	& Mirizzi, Ragone, Di Noia \& Di Sciascio, 2010 \cite{Mirizzi2010}\\ \hline
+DING & Delbru, Toupikov, Catasta, Tummarello \& Decker, 2010 \cite{Delbru2010}\\ \hline
+\end{tabular}
+\end{center}
+\caption{Summary of semantic ranking algorithms and references}
+\label{tab:table1}
+\end{table*}%
+
+
+TODO: adapt table to new taxonomy
+
+\begin{table*}[htdp]
+\begin{center}
+\begin{tabular}{l l l |c|c|c|c|c|c|c|c|c|c|c|} \cline{4-14}
+& & & \rotatebox{90}{OntologyRank} & \rotatebox{90}{ObjectRank} & \rotatebox{90}{PopRank} & \rotatebox{90}{SemRank} & \rotatebox{90}{ReConRank} & \rotatebox{90}{AKTiveRank} & \rotatebox{90}{Hart et. al} & \rotatebox{90}{TripleRank} & \rotatebox{90}{RareRank} & \rotatebox{90}{DBpediaRanker} & \rotatebox{90}{DING} \\ \cline{2-14}
+& \multicolumn{1}{|c|}{\multirow{2}{*}{Query dependency}} & Static ranking  & x & x & x & x &  &  & x & x & x & x & x\\ \cline{3-14}
+								     & \multicolumn{1}{|c|}{} & Dynamic ranking &  & x &  & x & x & x &  &  &  &  & \\ \cline{1-14}
+ \multicolumn{1}{|c|}{\multirow{7}{*}{\rotatebox{90}{Granularity}}} & \multicolumn{1}{|c|}{\multirow{5}{*}{Item granularity}} & Document & x &  &  &  &  & x &  &  &  &  & \\ \cline{3-14}
+\multicolumn{1}{|c|}{}
+														  & \multicolumn{1}{|c|}{} & Dataset &  &  &  &  &  &  & x &  &  &  & x\\ \cline{3-14}
+\multicolumn{1}{|c|}{}														  
+														  & \multicolumn{1}{|c|}{} & Entity(Resource) &  & x & x &  & x &  &  & x & x & x & x\\ \cline{3-14}
+\multicolumn{1}{|c|}{}														  
+														  &\multicolumn{1}{|c|}{} & Identifier &  &  &  &  &  &  & x &  &  &  & \\ \cline{3-14}
+\multicolumn{1}{|c|}{}														  
+														  & \multicolumn{1}{|c|}{} & Relationship &  &  &  & x &  &  &  & x &  &  & \\ \cline{2-14}
+						\multicolumn{1}{|c|}{}  &	\multicolumn{1}{|c|}{\multirow{2}{*}{Ranking granularity}} & Document relationships & x &  &  &  &  &  &  &  &  &  & \\ \cline{3-14}						  
+						  									\multicolumn{1}{|c|}{}   & \multicolumn{1}{|c|}{} & Entity (Resource) relationships &  & x & x & x & x &  &  & x & x &  & x\\ \cline{1-14}	
+& \multicolumn{1}{|c|}{\multirow{5}{*}{Ranking factor}} & Provenance &  & x &  &  & x &  & x & x & x &  & x\\ \cline{3-14}
+							     & \multicolumn{1}{|c|}{} & Context (Topic) &  & x & x & x &  & x &  & x & x & x & \\ \cline{3-14}
+							     & \multicolumn{1}{|c|}{} & Similarity measure &  &  &  & x &  & x &  &  &  & x & \\ \cline{3-14}
+							     & \multicolumn{1}{|c|}{} & Locality & &  &  &  &  &  &  &  &  & & x\\ \cline{3-14}
+							     & \multicolumn{1}{|c|}{} & Predictability &  &  &  & x &  &  &  &  &  &  & \\ \cline{2-14}	 																   						  						
+\end{tabular}
+\end{center}
+\caption{Summary of ranking algorithms and data features}
+\label{tab:table3}
+\end{table*}
