@@ -1,2 +1,28 @@
 \section{Popularity}
+Wikipedia defines popularity\footnote{http://en.wikipedia.org/wiki/Popularity} as the quality of being well-liked or common, or having a 
+high social status. Translating this to information systems, popularity ranking algorithms rely on link analysis to compute the relevance of a 
+node of the graph in terms of its input and output linkage.
+With the arrival of the Web, link analysis was proposed as a new method to rank the hypertext documents considering the way the information 
+is represented and related \cite{}(Getoor and Diehl, 2005). Unlike content-based (statistics-based?) ranking, link analysis strategies try to incorporate 
+structural features of the information during the ranking computation. Link analysis is a technique relying on examining the graph structure 
+established among items, where the nodes of the graph are the items to rank and the edges are the relationships or links among items. By inspecting 
+the graph structure implicit properties can be derived and included in the ranking process. Link analysis can be thought as a case of success, 
+which was originally implemented in algorithms like PageRank \cite{}(Brin \& Page, 1998), HITS \cite{}(Kleinberg, 1998) and SALSA \cite{}(Lempel \& Moran, 2000), 
+commercially exploited by the most popular search engines. Inspired by this philosophy several extensions have been developed that increase 
+the corpus of link analysis methodologies to deal with structured and semi-structured information\footnote{This classification has been taken from 
+\cite{}(Delbru, Toupikov, Catasta, Tummarello \& Decker, 2010)}, namely:
+\begin{itemize}
+\item Weighted link analysis. The aim of this technique is to assign more relevance to certain kind of links depending on its type during the ranking 
+computation. A major challenge is how to assign the weight to the links without having negative performance implications. Most of the approaches 
+under this classification were proposed in the topic of database research, and for this reason they are not directly applicable on web-scale. 
+As an example for this category we can consider the works described in \cite{}(Xing \& Ghorbani, 2004) and \cite{}(Baeza-Yates \& Davis, 2004).
+\item Hierarchical link analysis. This technique performs a layered exploration of the underlying data and it is intended for distributed environments. 
+For example, first considering relationships among super nodes or datasets and secondly considering relationships among resources. An example for this 
+category can be found in \cite{}(Xue, et al. 2005).
+\item Semantic Web link analysis. This family of methods tries to exploit the semantic of relationships during the ranking process. This technique can 
+be thought as an evolution of the weighted link analysis applied to the Semantic Web context. As an example we can consider the algorithms described 
+in \cite{}(Ding et al., 2004) and \cite{}(Anyanwu, Maduko, \& Sheth, 2005), being the last one the culmination of the ideas previously introduced in 
+\cite{}(Anyanwu \& Sheth, 2002) and \cite{}(Anyanwu \& Sheth, 2003). Examples of early commercial applications exploiting semantic Web link analysis include the 
+works described in \cite{}(Sheth, Avant \& Bertram, 2001), \cite{}(Avant et. al, 2002) and \cite{}(Sheth, 2005).
+\end{itemize}
 
