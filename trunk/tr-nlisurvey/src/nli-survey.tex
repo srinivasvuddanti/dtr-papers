@@ -4,10 +4,9 @@
 % manually specify the path to it like:
 % \documentclass[12pt,journal,compsoc]{../sty/IEEEtran}
 
-
-% added packages
 \usepackage{multirow}
 \usepackage{url}
+\usepackage{color}
 
 \ifCLASSOPTIONcompsoc
 
@@ -17,10 +16,7 @@
 
 \ifCLASSINFOpdf
 \usepackage[pdftex]{graphicx}
-% declare the path(s) where your graphic files are
 \graphicspath{{images/}}
-% and their extensions so you won't have to specify these with
-% every instance of \includegraphics
 \DeclareGraphicsExtensions{.png}
 \else
 
@@ -29,11 +25,11 @@
 %
 \usepackage{array}
 
-\hyphenation{op-tical net-works semi-conduc-tor}
-
-\newcommand{\TODO}[1]{{\textcolor{green}{TODO:#1}}}
+%\hyphenation{op-tical net-works semi-conduc-tor}
 
 
+
+\newcommand\TODO[1]{{\textcolor{red}{TODO:#1}}}
 \begin{document}
 %
 % paper title
@@ -51,14 +47,20 @@
 \markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
 
-\IEEEcompsoctitleabstractindextext{%
+\IEEEcompsoctitleabstractindextext{
 \begin{abstract}
-%\boldmath
-Abstract will be written later\ldots
+Natural language interfaces to databases allow users to formulate queries in
+natural language to databases. The benefits are twofold: first, users do not
+have to know how the data have been modeled in the database, what term refers to
+what database entity. Second, these systems can interface several data sources
+that are possibly of different implementation and which data belong to different
+domains.
+In this paper we provide a survey of major natural language interfaces, from the
+very beginning of artificial intelligence to most recent systems.
 \end{abstract}
 
 \begin{keywords}
-Computer Society, IEEEtran, journal, \LaTeX, paper, template.
+Natural Language, Database
 \end{keywords}}
 
 
@@ -78,33 +80,34 @@ Computer Society, IEEEtran, journal, \LaTeX, paper, template.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:introduction}
-
-%{\bf Possible quotation:} M.P. Schutzenberger, 1970: (in the AI domain: humans
-%learn how to use systems, see the usage of Google, keywords etc.)
-
 Natural Language (NL) is the most natural and easy way to express information
 need~\cite{Hearst:2011:NSU:2018396.2018414}. Moreover, it is not restricted to
 experts who have a good knowledge on how to formulate a formal query.
 
 NL as an interface has been investigated by researchers in both Information
 Retrieval (IR) and Database communities. In the IR community however, the
-keyword paradigm has become the most popular, for sure because of the success of
-commercial search engines. NL interfaces for unstructured documents are
-refered to as Question Answering (Q\&A) systems, that have received much
-researchers' attention as the Web had made avaialble huge amount of textual
-data, and recently as the famous {\it Jeopardy!} quiz was won by IBM's {\sc
+keyword paradigm has become the most popular, for sure because of the success
+of commercial search engines. 
+%NL interfaces for unstructured documents are refered to as Question Answering
+%(Q\&A) systems, that have received much researchers' attention as the Web had
+Interfaces to unstructured documents has become popular as
+the Web has made available huge amount of textual data, and recently as the
+famous {\it Jeopardy!} quiz was won by IBM's {\sc
 Watson}~\cite{FerrucciBCFGKLMNPSW10} system.
+This trend seems to evolve slightly. For instance,
 {\sc WolframAlpha}\footnote{\url{http://www.wolframalpha.com/}} is a popular
 search service based on structured data, that accepts keyword queries as well
 as some questions in natural language.
 
 NL interfaces (to structured data) has focused much researchers' attention for
 decades, but the field seems to have known a renewed interest for a few
-years, probably thanks to the development of the semantic Web. {\bf See also
-the quotation in~\cite{DBLP:journals/semweb/LopezUSM11}: users prefer NL interfaces
-than logic used in the Semantic Web.}
-However, the challenge of answering NL
-questions is far from being solved~\cite{Kotov:2010:TNQ:1772690.1772746}.
+years, probably thanks to the development of the semantic Web. 
+Today's semantic technologies can be directly manipulated by experts, and
+therefore there is still a need for interfaces. Indeed, users prefer NL
+interfaces than the logic which is used in the semantic
+Web~\cite{Kotov:2010:TNQ:1772690.1772746}.
+However, the challenge of answering NL questions is far from being
+solved~\cite{Kotov:2010:TNQ:1772690.1772746}.
 
 NL interface: not only in the context of search (information retrieval), for
 instance natural language query can be translated in goals / commands in the
@@ -113,8 +116,8 @@ Exact}~\cite{Yates:2003:RNL:604045.604075}, not surveyed here).
 
 
 
-In this survey, we try to point out the major dimensions of existing systems
-and to present the new trends and challenges of state-of-the-art systems.
+In this survey, we outline the major dimensions of existing systems
+and present the new trends and challenges of state-of-the-art systems.
 The history of NL interfaces can be developped as follows:
 \begin{enumerate}
   \item early years of domain-specific systems
@@ -126,12 +129,8 @@ The history of NL interfaces can be developped as follows:
     \item large-scale data: domain-independent systems
   \end{itemize}
 \end{enumerate}
-
-We will present the ``big picture'' of the approaches in
-section~\ref{sec:big-picture}.
-
-
-
+We present section~\ref{sec:main-dimensions} the main dimensions used throughout
+the paper. 
 
 
 
@@ -146,12 +145,25 @@ section~\ref{sec:big-picture}.
 % BIG PICTURE                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Main Dimensions}
-In this section, we introduce the main dimensions based on which NLI approaches can be distinguished. The input to every NLI is the (1) \emph{data}, 
-and (2) \emph{user questions} representing information needs, which are translated to an (3) \emph{internal representation} of the needs employed by the system and/or directly mapped to 
-(4) \emph{database queries} that finally, are executed by the underlying query engine to produce the final answers. The main problem tackled by a NLI approach is to transform the question to the internal representation and then to the database query (2 $\mapsto$ 3 $\mapsto$ 4), or to directly mapped the question to the query (2 $\mapsto$ 4). This problem is hard when considering the large and rapidly evolving mass of structured data that have become available. The major challenges modern NLI systems are facing in this regard is to operate across domains (5, \emph{domain-independence}) as well as to adopt to new domains (6, \emph{portability}). For evaluating the quality of the NLI output, different (6) \emph{metrics} based on the user questions the system can understand as well as the database queries it can produce, have been proposed. 
+\label{sec:main-dimensions}
+In this section, we introduce the main dimensions based on which NLI approaches
+can be distinguished. The input to every NLI is the (1)~\emph{data}, and
+(2)~\emph{user questions} representing information needs, which are translated
+to an (3)~\emph{internal representation} of the needs employed by the system
+and/or directly mapped to (4)~\emph{database queries} that finally, are
+executed by the underlying query engine to produce the final answers. The main
+problem tackled by a NLI approach is to transform the question to the internal
+representation and then to the database query (2 $\mapsto$ 3 $\mapsto$ 4), or
+to directly mapped the question to the query (2 $\mapsto$ 4). This problem is
+hard when considering the large and rapidly evolving mass of structured data
+that have become available. The major challenges modern NLI systems are facing
+in this regard is to operate across domains (5)~\emph{domain-independence} as
+well as to adopt to new domains (6)~\emph{portability}. For evaluating the
+quality of the NLI output, different (7)~\emph{metrics} based on the user
+questions the system can understand as well as the database queries it can
+produce, have been proposed.
 
-----------
-\TODO{old content that might be considered:}
+\TODO{old content that might be considered:} 
 Dimensions:
 \begin{itemize}
   \item What kind of query? (NL, controlled language)
@@ -167,39 +179,100 @@ Dimensions:
   \item Performance: response time / evaluation metrics
 \end{itemize}
 
-----------
+
 
 \subsection{Data}
 \label{sec:data}
-\TODO{Discuss the different types of structured data models that have been used, make clear that while they vary in expressiveness, they commonly enables capturing resources/entities/objects and relationships between then. Besides domain information captured in terms of entities and relationships, also point out other popular types of information that have considered, e.g. temporal and spatial information}
+%\TODO{Discuss the different types of structured data models that have been
+% used, make clear that while they vary in expressiveness, they commonly enables
+%capturing resources/entities/objects and relationships between them. Besides
+%domain information captured in terms of entities and relationships, also point
+%out other popular types of information that have considered, e.g. temporal and
+%spatial information}
 
-Structured data:
+There is a great variety of structured data sources:
 \begin{itemize}
-  \item relational databases; data warehouses
+  \item early data structures (Prolog databases; hierarchical lists)
+  \item relational databases
   \item XML databases
-  \item early data structures (Prolog databases; list-structured databases)
-  \item ontologies; {\it linked data}
+  \item ontologies; \emph{linked data}
 \end{itemize}
-%Data structured in a database belong to a {\it domain}\ldots
-In the survey, we refer to {\it database elements} which stand for named
-properties of the database. For instance in a relational database, they stand
-for relation names, attributes names and values, \ldots
+Structures of these data sources are different, as well as the way to access and
+modify data (i.e. how to query data, which language to use, etc.).
+For example, relational databases are represented with the entity/relationship
+model and queries are usually expressed in a SQL-like language. Hierarchical
+lists are hierarchical structures (like XML documents) that are composed of
+embeded key-value pairs with optional attributes. XML documents are more
+generic, since ``keys'' in those documents are nodes (i.e. can be trees
+themselves). 
+Ontologies are not more generic than XML databases from the structure point of
+view, but allow to express easily semantic relationships.
 
-Data structures are associated with a data model or schema, which is explicitely
-defined in modern databases.
-Despite the effort of modeling and conceptualizing structured data, there is
-still a gap between the physical view of structured data (database
-administrators' view point) and the conceptual view of end users; interfaces
-concerned in this survey attempt to bridge this gap. 
+Dome data structures are dedicated to some types of information. For instance,
+temporal databases are similar to relational databases, but capture \emph{time}
+in addition. Indeed, in some domains, the truth value of a fact or of
+a resultset is determined by a \emph{timestamp}, while in classic database facts
+are true in general. 
+
+At the end, all these data structures manipulate \emph{entities} (i.e. named
+properties of the database) and \emph{relations} between these entities.
+Any database selection query can be reduced to a set of constraints on these
+entities and relations. 
 
 
 
-\subsection{Question}
-\TODO{Discuss different types user questions}
+
+
+\subsection{Users' questions}
+%\TODO{Discuss different types user questions}
 
 \label{sec:big-picture-question}
 Traditional database management systems provide an interface that allows users
 to query the data in a formal language (e.g., SQL).
+
+Question typing is a research task within the Q\&A field.
+This community has classified questions in \emph{facto\"id questions} (i.e.
+questions that can be answered by an \emph{objective} fact, typically questions
+staring with wh-words except ``why'') and \emph{complex questions} which
+answers are usually \emph{subjective} to the answerer, and for which there
+might be several \emph{true} answers, possibly contradicting each other.
+Complex questions can be ``why''-questions, ``how''-questions or
+\emph{definition}-questions.
+Facto\"id question is defined by Soricut \&
+Brill~\cite{Soricut:2006:AQA:1127331.1127342} as questions ``for which a
+complete answer can be given in 50 bytes or less, which is roughly a few
+words''.
+Several finer classification have been proposed in specific domains or
+applications. 
+For instance, in the case of temporal questions, Saquete et
+al.~\cite{Saquete:2004:SCT:1218955.1219027} have proposed the classification
+reproduced table~\ref{tab:saquete-classification}.
+\begin{table}
+\centering
+\begin{tabular}{ll}\hline
+\multicolumn{1}{c}{\textbf{Question type}} &
+\multicolumn{1}{c}{\textbf{Example}}\\\hline\hline
+Single event temporal questions &
+``When did Jordan close \\
+ without temporal expressions & the port of Aqaba to Kuwait?''\\\hline 
+ Single event temporal questions & 
+``Who won the 1988 New \\
+ with temporal expressions & Hampshire republican primary?''\\\hline
+ \multirow{2}{*}{Multiple events temporal questions} & ``What did G. Bush do
+ after\\
+  & the U.N. Security Council\\
+ \multirow{2}{*}{with temporal expressions} & ordered a global embargo on\\
+  & trade with Irak in August 90?''\\\hline
+  \multirow{2}{*}{Multiple events temporal questions} & ``What happened to world
+  oil\\
+   & prices after the Iraqi\\
+  without temporal expressions & annexation of Kuwait?''\\\hline
+ 
+\end{tabular}
+\caption{Question classification for temporal databases from~\cite{Saquete:2004:SCT:1218955.1219027}}
+\label{tab:saquete-classification}
+\end{table}
+
 \subsubsection{Keyword query}
 A {\it keyword query} consists in a set of words
 traditionally used in the context of document search (i.e. searching relevant
@@ -207,7 +280,7 @@ documents given a textual query).
 The classic idea is to represent documents in a vector model, where the vector
 is composed of terms of documents. Search engines have made this paradigm
 popular.
-\cite{Hearst:2011:NSU:2018396.2018414} reports that the number of words
+Hearst~\cite{Hearst:2011:NSU:2018396.2018414} reports that the number of words
 in queries over Web search engines trends to increase (the experiment compared
 queries performed over a month in 2009 and in 2010): queries from 5 to 8 words
 increase up to 10\% while queries from 1 to 4 words decrease up to 2\%.
@@ -240,10 +313,8 @@ warehouses}.
 
 
 
-\subsection{Internal Representation}
+\subsection{Internal representation}
 \label{sec:big-picture-syntactic}
-\TODO{Discuss different types user questions}
-
 
 Syntactic question representation (also called {\it parse tree} because the
 tree graph structure is used most of the time) is an intermediate
@@ -268,9 +339,11 @@ syntactic representation.
 
 
 
-\subsection{Database Query}
+\subsection{Database queries}
 \label{sec:big-picture-semantic}
-\TODO{Discuss query languages; discuss the different types of queries expressed by these languages, e.g. entity queries, relational queries, additional constructs such as group by etc.}
+\TODO{Discuss query languages; discuss the different types of queries expressed
+by these languages, e.g. entity queries, relational queries, additional
+constructs such as group by etc.}
 
 
 The parse tree (which may or not contain semantic information in parse tree
@@ -331,16 +404,15 @@ can translate the semantic representation for different database query
 languages.
 
 
-TOBECONSIDERED
--------
+
 \subsubsection{Expressivity of database query}
 \label{sec:big-picture-expressivity}
------------
 
 
 
-\subsection{Results}
-\label{sec:big-picture-results}
+%\subsection{Results}
+%\label{sec:big-picture-results}
+
 NL interfaces produce database queries.
 Those queries must be then be executed by underlying DBMS.
 The execution of queries can lead to different failing states:
@@ -353,7 +425,9 @@ query. This is especially performed in systems belonging to the feedback
 approach (see section~\ref{sec:feedback-driven}). 
 
 
-\subsection{Query-independence}
+\subsection{Domain-independence}
+
+
 \subsection{Portability}
 
 

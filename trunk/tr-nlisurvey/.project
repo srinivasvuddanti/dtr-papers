@@ -14,4 +14,11 @@
 	<natures>
 		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/IEEEabrv.bib</name>
+			<type>1</type>
+			<location>/usr/local/texlive/2012/texmf-dist/bibtex/bib/IEEEtran/IEEEabrv.bib</location>
+		</link>
+	</linkedResources>
 </projectDescription>
