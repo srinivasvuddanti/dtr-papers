@@ -241,7 +241,7 @@ Complex questions can be ``why''-questions, ``how''-questions or
 Facto\"id question is defined by Soricut \&
 Brill~\cite{Soricut:2006:AQA:1127331.1127342} as questions ``for which a
 complete answer can be given in 50 bytes or less, which is roughly a few
-words''.
+words'' (see also Kwok et al. ``Scaling question answering to the Web, WWW).
 Several finer classification have been proposed in specific domains or
 applications. 
 For instance, in the case of temporal questions, Saquete et
@@ -341,16 +341,11 @@ syntactic representation.
 
 \subsection{Database queries}
 \label{sec:big-picture-semantic}
-\TODO{Discuss query languages; discuss the different types of queries expressed
-by these languages, e.g. entity queries, relational queries, additional
-constructs such as group by etc.}
+%\TODO{Discuss query languages; discuss the different types of queries expressed
+%by these languages, e.g. entity queries, relational queries, additional
+%constructs such as group by etc.}
 
-
-The parse tree (which may or not contain semantic information in parse tree
-nodes) must then be {\it interpreted} in some internal semantic representation.
-Table~\ref{tab:semantic-meaning-representation} displays semantic meaning
-representations used in different systems.
-\begin{table*}[!h]
+\begin{table*}[h!]
 \centering
 \begin{tabular}{|c|c|c|}\hline
 {\bf System} & {\bf Internal representation} & {\bf DB query}\\\hline\hline
@@ -390,6 +385,11 @@ $\surd$\\\hline
 \caption{Semantic meaning representations}
 \label{tab:semantic-meaning-representation}
 \end{table*}
+
+The parse tree (which may or not contain semantic information in parse tree
+nodes) must then be {\it interpreted} in some internal semantic representation.
+Table~\ref{tab:semantic-meaning-representation} displays semantic meaning
+representations used in different systems.
 As shown in this table, the internal semantic representation can be or not the
 targetted query representation. 
 The expressivity of the database query is discussed in section
@@ -402,6 +402,72 @@ The semantic representation depends on the data structure. However, to
 demonstrate their portability features, some systems contain components that
 can translate the semantic representation for different database query
 languages.
+
+\subsubsection{Query languages}
+Relational databases are generally associated with the SQL query language (and
+temporal databases are associated to an extension of SQL called temporal SQL).
+Multidimensional databases (e.g., data warehouses) are associated with MDX,
+which is a SQL-like query languages dedicated for handling measures, dimensions
+and hierarchies (key concepts of multidimensional models).
+Other data stuctures are associated with their own query language. For instance,
+hierarchical lists (or specification lists) is not associated with a language,
+but to a similar structure, which is a template where empty slots correspond to
+the expected items of the resultset. XML databases are associated to XPath, and
+semantic databases (e.g., RDF) are usually queried with languages derived from
+SPARQL which looks similar to SQL.
+Recently, new query languages have appeared (``no-SQL''). 
+\TODO{Develop\ldots}
+
+\paragraph{Selection}
+\label{sec:query-languages-selection}
+a selection consists in choosing the expected database attribute to appear in
+the resultset.
+In SQL, the selection is expressed as \verb?SELECT t.x?, where $t$ is a table
+and $x$ a field or attribute belonging to $t$. In SPARQL it corresponds to
+\emph{variables} that are defined in the query, and that must satisfy the
+constraints defined in the \verb?WHERE? section of the SPARQL query (see
+section~\ref{sec:query-languages-constraints}).
+In MDX, the selection corresponds to the ordered set of dimensions or measures
+that should appear in the resultset, with the information about the level of the
+expected attributes in the hierarchy, and the filters. For instance,
+\verb?SELECT Country.[All members]? corresponds to the selection of the
+dimension ``Country'' with no filter (i.e. selection of all members of the
+dimension ``Country'').
+Selection for a hierarchical list corresponds to a slot in the structure
+template.
+A selection in a XPath query corresponds to\ldots\footnote{\TODO{Find what}}
+In SPARQL, a selection can be expressed also differently. Indeed, the output of
+a SPARQL query can be a data structure of the same kind than the data themselves
+(i.e. a graph). This is performed with the \verb?CONSTRUCT? keyword.
+
+\paragraph{Constraints}
+\label{sec:query-languages-constraints}
+Canstraints in database queries aim at reducing the size of the resultset.
+In the case of SQL, SPARQL and MDX, such constraints are introduced with the
+\verb?WHERE? keyword. For SQL, these constraints can define how different tables
+can be \emph{joined} together such that attributes belonging to different tables
+can appear in a single view (i.e. in the resultset). Other kinds of constraints
+are about the values of attributes.
+For SPARQL, the constraints are expressed with \emph{triples} (which can be
+made of some \emph{blank node} or undefined node). Thus, a SPARQL constraint is
+about relations between entities (see \emph{joins} for relational databases), or
+about entities themselves (which type must be the entity? If this is a
+\emph{litteral}, in what range of value must it belong?,etc.).
+
+
+
+\paragraph{Query modifiers}
+\label{sec:query-languages-modifiers}
+Conceptually, modifiers are primitives that modify the resultset afterwards.
+Such primitives can - order the resultset along a given attribute (e.g.,
+\verb?ORDER BY? in SQL); - select at most $n$ \emph{tuples} of the resultset
+(e.g., \verb?LIMIT x? in SQL); - select only different tuples (e.g., the
+keyword \verb?DISTINCT? in SQL).
+In SPARQL, it is possible to test if a set of constraints can be satisfied from
+the data, and to combine these tests with optional constraints (\verb?OPTIONAL?
+keyword) or mandatory constraints (\verb?FILTER? keyword).
+
+
 
 
 
@@ -426,6 +492,15 @@ approach (see section~\ref{sec:feedback-driven}).
 
 
 \subsection{Domain-independence}
+Domain-independance is the ability of a system, to operate accross different
+domains simultaneously. 
+In practice, this means that a domain-independant system would be on top of
+different data sources that belong to different domains, and that this system is
+able to meet users' requests for any of these domains. 
+The main difficulty of building domain-independant systems is the ability to
+translate NL constructions differently in the different application domains.
+For instance, the qualitative expression ``middle-aged'' can be interpreted
+completely differently accross the different domains.
 
 
 \subsection{Portability}
@@ -599,8 +674,7 @@ The main problems to solve:
 
 
 \subsubsection{Classic translation approach}
-TOBECONSIDERED
-----------
+
 The classic translation approach consists in going from (1) to (4).
 To reach step (3), semantic rules are needed to find out what database elements
 should be associated to question phrases. 
