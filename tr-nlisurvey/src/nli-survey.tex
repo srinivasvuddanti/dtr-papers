@@ -45,7 +45,8 @@
 
 % The paper headers
 \markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
-{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer
+Society Journals}
 
 \IEEEcompsoctitleabstractindextext{
 \begin{abstract}
@@ -492,6 +493,7 @@ approach (see section~\ref{sec:feedback-driven}).
 
 
 \subsection{Domain-independence}
+\label{sec:main-dimensions-domain-independance}
 Domain-independance is the ability of a system, to operate accross different
 domains simultaneously. 
 In practice, this means that a domain-independant system would be on top of
@@ -504,6 +506,37 @@ completely differently accross the different domains.
 
 
 \subsection{Portability}
+\label{sec:main-dimensions-portability}
+A system is said \emph{portable} if it can be easily configured for different
+domains (than the domain for which it was first designed).
+Domain-independance (section~\ref{sec:main-dimensions-domain-independance}) is a
+step further, because different domains are considered simultaneously; while in
+portable systems the challenge is to ease the configuration.
+Portable systems are also referred to as \emph{configurable} interfaces in the
+following.
+Configurable interfaces let users improve the system's capabilities, both the
+linguistic coverage $S$ and the system coverage $K$ (see
+Fig.~\ref{fig:interface}).
+
+
+Minock et al.~\cite{Minock:2010:CSB:1715942.1716190} have identified three kinds
+of configuration applicable to NL interfaces:
+\begin{itemize}
+  \item let users name database elements, so that phrases used in the question
+  can be easily mathed with database elements
+  \item offer a GUI that generates automatically semantic rules or a grammar for
+  translating NL questions to database queries
+  \item use machine learning techniques to induce semantic rules or a grammar
+  from annotated corpora
+\end{itemize}
+These ways of configuring interfaces are not equally costly: for instance, the
+third one (machine learning techniques) can be highly costly if it requires a
+huge volume of annotated data. The cheapest configuration is based on user
+interaction, where no initial configuration is needed, but domain-specific
+knowledge is learned based on user interaction. An example of such a
+system is {\sc NaLIX}~\cite{Li:2005:NIN:1066157.1066281}.
+
+
 
 
 \subsection{Metrics}
@@ -596,19 +629,19 @@ personalization, which is the one pillar of recent IR systems.
 \section{Anatomy of NLI systems}
 \label{sec:anatomy}
 The main problem to solve is to map user's intent expressed in a natural way
-(say unstructured way) to a database query, which is a very structured
-expression where there is no room for ambiguity unlike natural language.
-The problem can be formalized as:
+(say unstructured way) to a database query, which is a structured expression
+where there is no room for ambiguity unlike natural language. The problem that
+NLI systems try to solve, is equivalent to finding a mapping $f$ between natural
+language questions $q$ and families of structured queries $(q^\prime_i)_i$
+(where the index corresponds to the \emph{rank} of the structured query):
 \begin{equation}
 f:\left\{
 \begin{array}{l}
-Q\rightarrow (Q^\prime\times S)^I\\
-q\mapsto(q^\prime_i, s_i)_i
+Q\rightarrow (Q^\prime)^I\\
+q\mapsto(q^\prime_i)_i
 \end{array}\right.
 \end{equation}
-where $q$ is the user's question, $q^\prime_i$ a structured query and $s_i$ a
-score associated to the structured query $q^\prime_i$, and used to rank the
-query (the index $i\in I=[0,n]$ is the rank).
+where $i\in I=[0,n]$ is the index of $q^\prime_i$.
  
 
 
@@ -663,56 +696,26 @@ The main problems to solve:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Taxonomy of main approaches}
 \label{sec:overview}
+% \begin{figure*}
+% \centering
+% \includegraphics[width=12cm]{images/query-language}
+% \caption{Blabla}
+% \label{fig:query-languages}
+% \end{figure*}
 
 
-\begin{figure*}
-\centering
-\includegraphics[width=12cm]{images/query-language}
-\caption{Blabla}
-\label{fig:query-languages}
-\end{figure*}
-
-
-\subsubsection{Classic translation approach}
-
+\textbf{Classic translation approach}
 The classic translation approach consists in going from (1) to (4).
 To reach step (3), semantic rules are needed to find out what database elements
 should be associated to question phrases. 
 
-\subsubsection{Iterative approach}
+\textbf{Iterative approach}
 The iterative approach does not go directly from (1) to (3), but goes back to
 (1) several times before reaching step (3). 
 Those iterations correspond to question reformulations, that involve
 user-feedback to interpret semantically the question in terms of a database
 query.
 
-\subsubsection{Configurable interfaces}
-Configurable interfaces let users improve the system's capabilities, in
-particular the linguistic coverage. 
-Minock et al.~\cite{Minock:2010:CSB:1715942.1716190} have identified three kinds
-of configuration applicable to NL interfaces:
-\begin{itemize}
-  \item let users name database elements, so that phrases used in the question
-  can be easily mathed with database elements
-  \item offer a GUI that generates automatically semantic rules or a grammar for
-  translating NL questions to database queries
-  \item use machine learning techniques to induce semantic rules or a grammar
-  from annotated corpora
-\end{itemize}
-The configuration is particularly important when porting the interface to other
-domains. However the three kinds of configuration mentionned above are not
-equally costly: for instance, the third one (machine learning techniques) can be
-hightly costly if it requires a huge volume of annotated data. The cheapest
-configuration is based on user interaction, where no initial configuration is
-needed, but domain-specific knowledge is learned based on user interaction. An
-example of such a system is {\sc NaLIX}~\cite{Li:2005:NIN:1066157.1066281}.
-
-Most recent interfaces integrate configuration capabilities, since it allows
-domain portability which is a great improvement of interfaces. In the following
-we will emphasize the role of user interaction ({\it feedback-driven
-approaches}) and machine learning techniques ({\it learning-based approaches}).
-
----------------
 
 The way translation from NL questions to formal query has evolved over years.
 Table~\ref{tab:overview} presents an overview of major systems that we consider
