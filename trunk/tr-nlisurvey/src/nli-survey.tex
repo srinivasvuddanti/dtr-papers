@@ -634,6 +634,8 @@ distance=3pt]0:{database query}}] {};
 \draw[->](2) edge[bend left] (3);
 \draw[->](3) edge[bend left] (4);
 \draw[->](4) edge[bend left] (5);
+\draw[->](1) edge[bend right] (3);
+\draw[->](4) edge[bend left] (3);
 \end{tikzpicture}
 \caption{Big picture of NLI systems}
 \label{fig:big-picture}
@@ -802,7 +804,7 @@ PowerAqua}~\cite{DBLP:conf/esws/LopezMU06} & & & & & & \\\cline{2-8}
 Early systems belong to this class of approaches.
 The knowledge necessary to translate NL questions to database queries
 is encoded in lexicon.
-The systems allows users to use a subset of English (controlled language) to
+The systems allow users to use a subset of English (controlled language) to
 query databases. 
 The lexicon, however, is a huge linguistic resource which defines how each word
 must be translated into database elements, and what semantic rules to trigger to
