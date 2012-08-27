@@ -18,7 +18,7 @@
 \usetikzlibrary{arrows, petri, topaths}
 \usepackage{tkz-berge}
 
-
+\usepackage{rotating}
 
 \ifCLASSOPTIONcompsoc
 
@@ -428,7 +428,6 @@ the expected items of the resultset. XML databases are associated to XPath, and
 semantic databases (e.g., RDF) are usually queried with languages derived from
 SPARQL which looks similar to SQL.
 Recently, new query languages have appeared (``no-SQL''). 
-\TODO{Develop\ldots}
 
 \paragraph{Selection}
 \label{sec:query-languages-selection}
@@ -634,7 +633,7 @@ distance=3pt]0:{database query}}] {};
 \draw[->](2) edge[bend left] (3);
 \draw[->](3) edge[bend left] (4);
 \draw[->](4) edge[bend left] (5);
-\draw[->](1) edge[bend right] (3);
+\draw[<->](1) edge[bend right] (3);
 \draw[->](4) edge[bend left] (3);
 \end{tikzpicture}
 \caption{Big picture of NLI systems}
@@ -738,17 +737,29 @@ The main problems to solve:
 \section{Taxonomy of main approaches}
 \label{sec:overview}
 
-
-
+Figure~\ref{fig:big-picture} depicts the big picture of translating NL queries
+to database queries.
 
 \textbf{Classic translation approach}
-The classic translation approach consists in going from (1) to (4).
+The classic translation approach consists in going from
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}}
+to \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {5}}} through
+ \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}},
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}}
+and 
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}} (step
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} being optional).
+
 To reach step (3), semantic rules are needed to find out what database elements
 should be associated to question phrases. 
 
 \textbf{Iterative approach}
-The iterative approach does not go directly from (1) to (3), but goes back to
-(1) several times before reaching step (3). 
+The iterative approach does not go directly from
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} to
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}}, but goes back to
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}} (and/or to
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {4}}}) several times before
+reaching step \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {5}}}.
 Those iterations correspond to question reformulations, that involve
 user-feedback to interpret semantically the question in terms of a database
 query.
@@ -758,11 +769,14 @@ The way translation from NL questions to formal query has evolved over years.
 Table~\ref{tab:overview} presents an overview of major systems that we consider
 in the survey.
 
-\begin{table*}
+\begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+\rotatebox{90}{
+\begin{minipage}{\textheight}
+\begin{tabular}{|c|l|c|c|c|c|c|c|}\hline
 %\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
-\multirow{2}{*}{\bf Approach} & \multirow{2}{*}{\bf System} &
+\multirow{2}{*}{\bf Approach} & \multirow{2}{*}{\bf System}
+&
 \multicolumn{6}{c|}{\bf Dimensions}\\\cline{3-8}
 & & {\bf Query} & {\bf Data} & {\bf Answers} & {\bf Portability} & {\bf
 Linguistic coverage} & {\bf Error feedback}\\\hline\hline 
@@ -796,9 +810,11 @@ PowerAqua}~\cite{DBLP:conf/esws/LopezMU06} & & & & & & \\\cline{2-8}
  & {\sc DeepQA}~\cite{DBLP:journals/aim/FerrucciBCFGKLMNPSW10} & & & & & &
  \\\hline
 \end{tabular}
+\end{minipage}
+}
 \caption{Overview of major NL interfaces to structured data}
 \label{tab:overview}
-\end{table*}
+\end{table}
 
 \subsection{Domain-dependent semantic parsing}
 Early systems belong to this class of approaches.
