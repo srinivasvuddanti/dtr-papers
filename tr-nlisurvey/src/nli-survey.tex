@@ -766,8 +766,8 @@ query.
 
 
 The way translation from NL questions to formal query has evolved over years.
-Table~\ref{tab:overview} presents an overview of major systems that we consider
-in the survey.
+Table~\ref{tab:overview} presents an overview of major systems that we take into
+consideration in this survey.
 
 \begin{table}
 \centering
@@ -784,22 +784,22 @@ Linguistic coverage} & {\bf Error feedback}\\\hline\hline
 Baseball}~\cite{Green:1961:BAQ:1460690.1460714} & & & & & & \\\cline{2-8}
 & {\sc Lunar}~\cite{Woods:1973:PNL:1499586.1499695} & & & & & & \\\hline
 \multirow{5}{*}{Complex question translation} & {\sc
-Chat-80}~\cite{Warren:1982:EEA:972942.972944} & & & & & & \\\cline{2-8}
-& {\sc Irus}~\cite{Bates:1983:IRU:511793.511804} & & & & & & \\\cline{2-8}
-& {\sc Qwerty}~\cite{Nelken:2000:QTD:992730.992808} & & & & & & \\\cline{2-8}
-& {\sc
+Chat-80}~\cite{Warren:1982:EEA:972942.972944} & & & & + & + & \\\cline{2-8}
+& {\sc Irus}~\cite{Bates:1983:IRU:511793.511804} & & & & + & & \\\cline{2-8}
+& {\sc Qwerty}~\cite{Nelken:2000:QTD:992730.992808} & & temporal & & - & &
+\\\cline{2-8} & {\sc
 Precise}~\cite{Popescu:2004:MNL:1220355.1220376,Popescu:2003:TTN:604045.604070}
-& & & & & & \\\cline{2-8}
-& {\sc Panto}~\cite{Wang:2007:PPN:1419662.1419706} & & & & & & \\\hline
+& & & & & & + \\\cline{2-8}
+& {\sc Panto}~\cite{Wang:2007:PPN:1419662.1419706} & & & & & + & + \\\hline
 \multirow{5}{*}{Feedback-driven approaches} &
-{\sc Masque/SQL}~\cite{Androutsopoulos93masque} & & & & & & \\\cline{2-8}
-& {\sc Team}~\cite{Grosz:1987:TED:25672.25674} & & & & & & \\\cline{2-8}
-& {\sc NaLIX} \& {\sc DaNaLIX}~\cite{Li:2005:NIN:1066157.1066281} & & & & & &
+{\sc Masque/SQL}~\cite{Androutsopoulos93masque} & & Prolog/SQL & & + & &
+\\\cline{2-8} & {\sc Team}~\cite{Grosz:1987:TED:25672.25674} & & & & + & & + \\\cline{2-8}
+& {\sc NaLIX} \& {\sc DaNaLIX}~\cite{Li:2005:NIN:1066157.1066281} & & & & + & &
 \\\cline{2-8}
 & {\sc C-Phrase}~\cite{Minock:2010:CSB:1715942.1716190} & & & & & &
 \\\cline{2-8}
 & {\sc
-Orakel}~\cite{Cimiano:2007:PNL:1216295.1216330} & & & & & & \\\hline
+Orakel}~\cite{Cimiano:2007:PNL:1216295.1216330} & & & & + & & \\\hline
 \multirow{3}{*}{Learning-based approaches} & Zettlemoyer
 et al.~\cite{DBLP:conf/uai/ZettlemoyerC05} & & & & & & \\\cline{2-8}
 & Miller et al.~\cite{Miller:1996:FSA:981863.981871} & & & & & & \\\cline{2-8}
@@ -1015,14 +1015,14 @@ These approaches can be seen as an extension of several approaches presented
 before, namely ``complex question translation'' (because the question is
 further analyzed to map it with the terminology used in the different knowledge
 bases) and ``learning-based approaches'' (because some of the systems
-represented in these approaches comprise learning components).
+represented in these approaches contain learning components).
 
 \subsubsection{Terminology mapping}
 In previous approaches, end-users were not aware of how data are modeled in the
 knowledge base. This requires advanced natural language processing to map user's
 terminology with database terminology. In schema-unaware apppraoches, the
 systems do not talk to a single database, but to potentially an unlimited number
-of sources where the structured data are to be found. Each of those sources have
+of sources where the structured data are to be found. Each of those sources has
 its own logical schema, naming conventions, etc.
 Then, the system must know how to communicate with these knowledge bases, and
 what strategies to adopt to reduce the computation cost of generating
