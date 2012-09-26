@@ -1,0 +1,315 @@
+RE: TKDE-2012-04-0247, "A Survey of Semantic Search Approaches"
+Manuscript Type: Survey
+
+30-Jul-2012
+
+Dear Dr. Tran,
+
+We have completed the review process of the above referenced paper that was submitted to the IEEE Transactions on Knowledge and Data Engineering. Enclosed are your reviews. We hope that you will find the editor's and reviewers’ comments and suggestions helpful.
+
+I regret to inform you that based on the reviewer feedback, we could not recommend publishing your paper. Final decisions on acceptance are based on the referees' reviews and such factors as restriction of space, topic, and the overall balance of articles.
+
+We hope that this decision does not deter you from submitting to us again. Thank you for your interest in the IEEE Transactions on Knowledge and Data Engineering.
+
+Sincerely,
+
+Beng Chin Ooi
+Editor-in-Chief
+IEEE Transactions on Knowledge and Data Engineering ooibc@comp.nus.edu.sg
+
+***********
+Editor Comments
+
+Editor
+Comments to the Author:
+We obtained 4 reviews on this survey paper.  The majority of the reviews are not positive. To fully address the reviewers' suggestions, substantial work is needed, which is clearly more than the capacity of a major revision.  Accordingly, I cannot recommend this paper for publishing or revision for publishing.
+
+I hope the four critical reviews will help the authors in the future research.  I sincerely thank the reviewers for their critical and timely reviews.
+
+***********************
+Reviewer: 1
+
+Recommendation: Revise and resubmit as “new”
+
+Comments:
+There has been a lot of work on semantic search, and a comprehensive survey of the field will certainly be useful. I myself would appreciate such a survey, hence I was enthusiastic about reviewing this manuscript.
+
+The introduction reads well, but then the quality deteriorates quickly. The manuscript is pretty short (20 pages), but nonetheless has 12 (sic!) sections (in addition to the references section), so all the sections are very short and necessarily superficial. Overall, the manuscript reads like a poorly written "related work" section, where a few papers are mentioned, and little effort is made to juxtapose their pros and cons, or discuss the various possible approaches at adequate length. As a result, the manuscript does not really offer its readers a comprehensive view of the topic. The so-called "definitions" only provide a veneer of formality, and are quite vague. Most of the figures are overloaded with numerous components, and do not really make things clearer, as extra effort is required to understand the figures.
+
+Additional comments:
+- sec 1.1: can not -> cannot
+- page 2, line 5: do not -> does not
+- sec 1.3: the same method -> a similar method
+- sec 1.3, last sentence - Freebase data has recently been integrated in Google's web search, where one can often see knowledge panels triggered on the right side of search results. This is probably worth mentioning in the paper.
+- sec 1.4 "dissemination" - awkward word choice
+- sec 1.4, 1st paragraph - The numbering of items (4, 5, 5a etc) transcends sentence boundaries and is difficult to read. Think of an alternate way to organize the material.
+- Sec 2 (and henceforth) - Tbox and Abox are mentioned multiple times throughout the paper, but are never properly explained
+- sec 3.1: "Fig 6" should be "Fig 3"
+- sec 3.1 - only a tiny portion of Fig 5 is explained here, so its utility is unclear
+- sec 3.2 - ratings of restaurants do not sound "factual" to me, I'd say those are very subjective.
+- sec 3.2 - the authors argue they do not need to distinguish between factual search and entity search. I disagree with this view - the whole point of the former is to provide FACTS, not links or pages - it's not sufficient to merely find the right page, one needs to EXTRACT the right fact from it!
+- sec 5.1, 1st paragraph (and in many other places) - I feel the authors use their own names too often as examples. I'd suggest to choose other, non-vanity examples.
+- sec 7.2, 3rd paragraph - when the authors talk about ML techniques for learning patterns, it would be good to provide some references
+- sec 7.2 - the last sentence of the penultimate paragraph in this section is malformed
+- sec 10.4 - machine-learned ranking arguably constitutes one of the  major advances in IR in the recent years, yet the present manuscript barely mentions them in one (last) paragraph of this section, while more basic concepts such as TFIDF and Language Models get a much longer presentation.
+- The paper by Guha et al. at WWW'03 should be cited
+
+
+Additional Questions:
+1. Which category describes this manuscript?: Survey/Tutorial/How-To
+
+2. How relevant is this manuscript to the readers of this periodical? Please explain your rating under Public Comments below. : Relevant
+
+1.  Please explain how this manuscript advances this field of research and/or contributes something new to the literature. : The manuscript attempts to provide a survey of approaches to semantic search. Unfortunately, it reads like a long list of poorly connected citations, and does not offer readers a deep understanding of the field.
+
+2. Is the manuscript technically sound? Please explain your answer under Public Comments below. : Partially
+
+1. Are the title, abstract, and keywords appropriate? Please explain under Public Comments below.: Yes
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under Public Comments below.: Important references are missing; more references are needed
+
+3. Does the introduction state the objectives of the manuscript in terms that encourage the reader to read on? Please explain your answer under Public Comments below.: Yes
+
+4. How would you rate the organization of the manuscript? Is it focused? Is the length appropriate for the topic? Please explain under Public Comments below. : Could be improved
+
+5. Please rate the readability of the manuscript. Explain your rating under Public Comments below.: Readable - but requires some effort to understand
+
+6. Should the supplemental material be included? (Click on the Supplementary Files icon to view files): Does not apply, no supplementary files included
+
+7. If yes to 6, should it be accepted: 
+
+Please rate the manuscript. Please explain your answer.: Poor
+
+
+Reviewer: 2
+
+Recommendation: Author Should Prepare A Minor Revision
+
+Comments:
+The paper is well written, and provides an overview of existing semantic search solutions from different perspectives. The paper does not provide much technical details about these solutions. However, it gives a comprehensive list of important research problems in the area of semantic search, and classifies the existing systems based on the solutions they provide for these problems. 
+
+Comments:
+
+1. The term "semantic data" seems to be critical in this article. It would be nice if a clear definition is given for this term early in the paper. Does it refer to any or all of: structured data, ontologies, entity / relationships? The same comment goes for the term "semantics".
+
+2. For Sec 3, information needs, it would help the reader if the authors mention some of the techniques used for entity, factual, or relational search. 
+
+3. In Sec 9, it's not clear what is meant by graph traversal. Which graph? Why matching query to a document would require traversing a graph? Providing some details would help the reader. I think providing an example for graph matching would also help.
+
+4. Sec 9.3, it's not clear what it means for a structured query to be incomplete.
+
+5. Section 11 seems to be a little disconnected from the rest of the paper. It looks like another classification of semantic search solutions is being presented. If this section is trying to summarize the previous sections, it could be a little more consistent with them.
+
+Minor comments:
+
+- page 2, last para in first column, it's not clear what "these" is referring to in the first sentence. 
+-  page 4, paragraph 3, it seems that Fig 6 should be Fig 3.
+- page 10, end of first paragraph, it seems "pursuit" should be "pursued"
+- p14, last paragraph, it's better if the paragraph doesn't start with "also".
+
+
+Additional Questions:
+1. Which category describes this manuscript?: Survey/Tutorial/How-To
+
+2. How relevant is this manuscript to the readers of this periodical? Please explain your rating under Public Comments below. : Very Relevant
+
+1.  Please explain how this manuscript advances this field of research and/or contributes something new to the literature. : The article presents a survey on recent research efforts and commercial products that support semantic search. Semantic search is broadly defined as using semantic information to improve document search results. The existing solutions are categorized based on different aspects of search, such as type of information needed, querying paradigms supported, data models used, semantic models used, the way documents and queries are interpreted and matched, and ranking techniques.
+
+The paper is well written, and provides an overview of existing semantic search solutions from different perspectives. The paper does not provide much technical details about these solutions. However, it gives a comprehensive list of important research problems in the area of semantic search, and classifies the existing systems based on the solutions they provide for these problems.
+
+2. Is the manuscript technically sound? Please explain your answer under Public Comments below. : Yes
+
+1. Are the title, abstract, and keywords appropriate? Please explain under Public Comments below.: Yes
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under Public Comments below.: References are sufficient and appropriate
+
+3. Does the introduction state the objectives of the manuscript in terms that encourage the reader to read on? Please explain your answer under Public Comments below.: Yes
+
+4. How would you rate the organization of the manuscript? Is it focused? Is the length appropriate for the topic? Please explain under Public Comments below. : Satisfactory
+
+5. Please rate the readability of the manuscript. Explain your rating under Public Comments below.: Easy to read
+
+6. Should the supplemental material be included? (Click on the Supplementary Files icon to view files): Does not apply, no supplementary files included
+
+7. If yes to 6, should it be accepted: 
+
+Please rate the manuscript. Please explain your answer.: Good
+
+
+Reviewer: 3
+
+Recommendation: Reject
+
+Comments:
+This paper gives a survey on 'semantic search'.  There is a large amount of work devoted to different types of 'semantic search'. A good survey paper on the topic will definitely be helpful to the research communities.
+
+After reading this paper, I felt disappointed, however, because the paper does not give a clear picture on the space.
+
+I think that the paper has the following problems.
+
+1.  The definition and scope of semantic search is not clearly described.
+
+Definition 1 on page 4 is the definition of semantic search. However, there are a number of important things unexplained.
+
+1-1.  The authors failed to explain what kind of user needs which semantic search can satisfy while conventional search cannot, in other words, what is the major difference between semantic search and conventional search.
+
+In section 1.1, the authors explain the challenges for conventional search are from ambiguous queries and complex queries. There is no explanation throughout the paper on how semantic search can address the challenges which conventional search suffers from.
+
+People may ask whether 'semantic search' is useful.
+
+1-2.  Input and output of semantic search
+
+The authors appear to call different types of searches as semantic search. Some of them queries or questions as in conventional search as input, while the others take structured queries as input. It should be made clear, if that is the case.  From user’s perspective, there is no difference between the former and conventional search. The authors should make all these clear.
+
+2.  Presentation
+
+2-1  clarity
+A survey paper should give clear explanations on the existing work at an abstract level such that the readers can get the key-points without referring to the original papers. Unfortunately, in many cases, the current paper only briefly mentions the existing work without giving detailed enough explanations. After reading the paper, the readers still cannot get a sense of the existing work.
+
+For example, in page 14, you say "With WolframAlpha, the use of computational models based on statistical and mathematical formulas to derive further insights from the results has crossed the boundaries of specific domains to reach the mass of Web users." From the description, one cannot figure out how WolframAlpha works.
+
+Analytic search,  definition is not clear.  How does Walframe Alpha work?  It is not clearly explained.
+
+SemSearchPro [13] or AquaLog [14] are not explained clearly.
+
+These are just some examples. There are many places like this.
+
+2-2.  Soundness
+
+I found many places in which the way of using a technical term is wrong or not rigorous.
+
+* Page 2,  ambiguous query.  Usually when we refer to an ambiguous query, we mean that one query has multiple meanings, e.g., jaguar.  It is not like the example the authors give on page 2. 
+
+* Page 3, you say "many queries in the long tail are both ambiguous and complex". I think that many queries in the long tail are not ambiguous. In contrast many queries in the head are ambiguous.
+
+* matching vs ranking
+The authors could not make clear distinction between matching and ranking. In search, first there is matching, and then ranking.  Ranking is based on matching. If only matching scores are considered, then ranking can be conducted based on the matching scores. This is exactly what is usually done in traditional IR. 
+
+The techniques introduced in section 10.1 and 10.2 should be viewed as matching, rather than ranking!  This is because they are about matching between query and document.
+
+* Watson
+IBM Watson system is a question answering system. It might not be appropriate to view it as a semantic search system.
+
+*"As opposed to semantic data, raw data do not explicitly capture the semantics of information resources in terms of entities and their relations."  I think that raw data also represent semantics.  This argument may not be appropriate.
+
+2-3.  English
+
+There are many places in which the English has some problems. I suggest that the authors have a native speaker to have proof reading of the paper.
+
+Here are some examples.
+
+* in literatures --> in the literature?
+
+* abstract, "the topic known as semantic search formed around it" --> formed around it, what do you mean?
+
+* page 3, "in terms concepts" --> "in terms of concepts"?
+
+* page 4, "or, respectively",  is the way of using respectively correct?
+
+* page 4, "the type of targeted information needs,"  what do you mean by targeted here?
+
+* page 13, "syntactically similar terms",  --> "syntactically different but semantically similar terms"?
+
+3.  Citations
+
+There are many existing works which are missing from the paper. For example, in the WSDM 2012 tutorial, given by Li and Xu, they introduced technologies for 'semantic matching'. Many existing works they introduced can be used for semantic search introduced here.
+
+Please see whether you want to cite the references in their tutorial. http://research.microsoft.com/en-us/people/hangli/wsdm12tutorial.pdf 
+
+
+Additional Questions:
+1. Which category describes this manuscript?: Survey/Tutorial/How-To
+
+2. How relevant is this manuscript to the readers of this periodical? Please explain your rating under Public Comments below. : Relevant
+
+1.  Please explain how this manuscript advances this field of research and/or contributes something new to the literature. : It gives a survey on semantic search.
+
+2. Is the manuscript technically sound? Please explain your answer under Public Comments below. : Partially
+
+1. Are the title, abstract, and keywords appropriate? Please explain under Public Comments below.: Yes
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under Public Comments below.: Important references are missing; more references are needed
+
+3. Does the introduction state the objectives of the manuscript in terms that encourage the reader to read on? Please explain your answer under Public Comments below.: Could be improved
+
+4. How would you rate the organization of the manuscript? Is it focused? Is the length appropriate for the topic? Please explain under Public Comments below. : Poor
+
+5. Please rate the readability of the manuscript. Explain your rating under Public Comments below.: Difficult to read and understand
+
+6. Should the supplemental material be included? (Click on the Supplementary Files icon to view files): No, it should not be included at all
+
+7. If yes to 6, should it be accepted: 
+
+Please rate the manuscript. Please explain your answer.: Fair
+
+
+Reviewer: 4
+
+Recommendation: Author Should Prepare A Major Revision For A Second Review
+
+Comments:
+The manuscript gives a comprehensive overview of a large area that is fed by work from different communities. The authors have done an impressive job in this respect. However, the manuscript in its current state has some problems. Once these are fixed, the paper will be a very good and useful overview. 
+
+A. The paper aims high - at a classification of information needs, queries, data, and much more. However, on closer inspection it appears that the authors do this in a way that is clearly determined by the current state of technology (without however appearing to notice that they do this), and this limits the generality and usefulness of the survey. For example, the authors make it implicitly clear at the outset that a query such as "canon ixus 115" is, for them, the prototypical query (and, by extension, it seems, also the prototypical information need). The fact that they call "cheap digital camera" an "ambiguous query", where the user "may not know exactly which product to look for", supports this reading. This of course fits nicely with the information supply that is described later - essentially, RDF data that describe individual entities (or sufficiently narrowly circumscribed classes of them) such as "canon ixus 115" or "rihanna" or "peter mika" (the person) or "queen" (the music group) and some factoids about them. 
+
+This classification is problematic on at least two counts. First, it ignores classifications of information needs and queries that have been made in the literature (more) independently of current data formats and search technology that could meet this need. It thereby also mixes information needs and query types unnecessarily. Second, because of this, the reader also does not know how frequent the "prototypical" searches are. Examples of search taxonomies that might be useful include 
+Shneiderman, B. (1998). Designing the user interface. Reading, MA:
+Addison-Wesley.
+and Broder's taxonomy of web searches (SIGIR 2002), which is briefly alluded to, albeit without a reference. Further work from Information Sciences on search and browsing types may also be relevant. 
+
+--> Please revise Section 3 in the light of the literature.
+
+B. Current search technology appears to have influenced the authors’ perception in a second important way. This concerns the sections on logics and the use of terms like “entity”, “class”, “concept”, “topic”, “sense”, and similar ones. It is not always clear (and I think not consistent) what the authors mean when they use these terms. One of the problems is certainly that a number of terms are semantically overloaded – used in many of those different fields, but meaning different things (or meaning the same things in unexpected ways). This problem can occur in rather intricate ways, cf. your usage of “concepts” when you talk about LSI and “topics” when you talk about LDA. 
+
+For example, you state, on p. 7, that “every Wikipedia page corresponds to an entity”, while in other places it appears that you take “entity” to mean “named entity” as used in NER. This generous treatment of logical questions also appears to lead to the assertion that an RDF graph is somehow “semantic” and/or “self-explanatory”. It would be important to alert the reader to the fact that data such as those in the bottom rectangle of Fig. 5 by themselves do not mean anything (unless a human reader interprets all those English-word labels as, well, English words with meaning). 
+
+--> Please clearly define such terms and check all the statements you make about them. This concerns in particular Sections 5 and 6, but also many statements throughout the paper about knowledge resources such as Wikipedia.
+
+C. As a complement the proposed improvement to address issue B., a carefully crafted running example would be very helpful to illustrate the different concepts that are introduced. In its current state, the manuscript is sometimes tiresome to read because in some places, it gives the impression of being an annotated literature list.
+
+D. It is very nice to complement the “analytical” part (Sections 3-10) by the “systems” part (Section 11). However, unfortunately more taxonomical confusion was created at least for this reader. The first paragraph of Section 11 suggests that approaches from different communities will be introduced and that whatever new taxonomy will be proposed will link to these communities’ special concerns. Unfortunately, this is not borne out. Instead a very short and – to this reader – very unclear explanation of yet another classification is proposed, and this is given in two slightly different versions (Tables 4 and 5). It is unclear why these are different, and it is unclear what this new taxonomy does. Its classes appear NOT to encode a particular combination of the features laid out in Sections 3-10, but what do they encode? 
+
+--> Please revise this classification and tie it to something meaningful. And explain the relationship.
+
+E. It is very nice to have a section that deals with performance issues. However, the applied tests (BTW, a typo: it is recall and PRECISION) are described too briefly and superficially. Is there a common (type of) baseline? Is there a common (type of) measurement? 
+
+--> Please supply some more text that makes the performance analyses meaningful.
+
+F. I missed a principled analysis of problems and limitations. Sentences stating that “complex” queries cannot yet be dealt with in a satisfactory way are scattered throughout the paper, but this borders on the trivial (it’s always the problems that are currently not solvable that are “complex”, right?). 
+
+--> Please give the issue of problems and limitations a more principled treatment. Please do not take the current state of techology as given when doing so, neither with respect to search technology nor with respect to what today counts as “semantic” data or knowledge. 
+
+G. Minor issues
+
+--> Please proofread the paper. In general, it is written very well, but there are some typos and a small number of sentences that are very long and unclear. 
+
+--> Please also correct, throughout the paper:
+# “to conceive an idea” vs. “to conceive of something as something else”: I believe you use the first, but mean the second in a number of places.
+# please observe the difference between non-definining relative clauses (started with “which” preceded by a comma) and defining relative clauses (not preceded by a comma and for clarity often started with “that”). You often use the first, but mean the second.
+# “example for” vs. “example of”: Sometimes you use the first, but mean the second.
+
+
+Additional Questions:
+1. Which category describes this manuscript?: Survey/Tutorial/How-To
+
+2. How relevant is this manuscript to the readers of this periodical? Please explain your rating under Public Comments below. : Very Relevant
+
+1.  Please explain how this manuscript advances this field of research and/or contributes something new to the literature. : It presents an up-to-date survey of semantic search approaches, which in this form does not exist (to the best of my knowledge).
+
+2. Is the manuscript technically sound? Please explain your answer under Public Comments below. : Partially
+
+1. Are the title, abstract, and keywords appropriate? Please explain under Public Comments below.: Yes
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under Public Comments below.: Important references are missing; more references are needed
+
+3. Does the introduction state the objectives of the manuscript in terms that encourage the reader to read on? Please explain your answer under Public Comments below.: Yes
+
+4. How would you rate the organization of the manuscript? Is it focused? Is the length appropriate for the topic? Please explain under Public Comments below. : Satisfactory
+
+5. Please rate the readability of the manuscript. Explain your rating under Public Comments below.: Easy to read
+
+6. Should the supplemental material be included? (Click on the Supplementary Files icon to view files): Does not apply, no supplementary files included
+
+7. If yes to 6, should it be accepted: After revisions.  Please include explanation under Public Comments below.
+
+Please rate the manuscript. Please explain your answer.: Good
